@@ -46,7 +46,7 @@ This taxonomy will be reviewed and refined during the upcoming Technical Archite
   * Transaction Processing  
   * Network Participation  
   * Economic Metrics  
-  * Subnet Activity  
+  * L1 Activity  
 * Key Security Considerations  
 * Future Development Roadmap  
 * Mechanism Taxonomy Summary
@@ -65,14 +65,14 @@ This taxonomy will be reviewed and refined during the upcoming Technical Archite
 Core Functions:
 
 * Validator coordination & staking  
-* Subnet management  
+* L1 management  
 * Network-wide coordination
 
 Key Mechanisms:
 
 * Validator registration/deregistration  
 * Stake amount tracking & rewards  
-* Subnet permissions & resource allocation  
+* L1 permissions & resource allocation  
 * Uptime monitoring (\>80% requirement)  
 * Delegation relationships (max 5 per validator)
 
@@ -195,7 +195,7 @@ Key Mechanisms:
 * P-Chain (Snowman)  
   * Validator set management impacts consensus  
   * Staking changes affect voting power  
-  * Subnet coordination requires total ordering  
+  * L1 coordination requires total ordering  
 * X-Chain (Avalanche)  
   * Parallel transaction processing  
   * Conflict resolution through DAG  
@@ -240,11 +240,11 @@ Key Mechanisms:
   * Reward calculations  
   * Slashing conditions  
   * Uptime monitoring  
-* Subnet Management  
+* L1 Management  
   * Validator set tracking  
   * Permission management  
   * Resource allocation  
-  * Cross-subnet coordination
+  * Cross-L1 coordination
 
 ## **VM Component Interactions:**
 
@@ -271,13 +271,13 @@ Key Mechanisms:
 
 * ### **PlatformVM (P-Chain): \<-\> EVM (C-Chain)**
 
-  * Subnet management  
+  * L1 management  
     * Contract-based staking  
     * Governance operations  
     * Validator set updates  
     * Permission verification  
     * Resource allocation tracking  
-    * Cross-subnet messaging
+    * Cross-L1 messaging
 
 ## **Governance Components**
 
@@ -362,10 +362,10 @@ Key Mechanisms:
   * Annual staking rewards: \~8% APR  
   * Fee burn rate: \~$11.5M annually  
   * Transaction fees: 0.001 AVAX base fee  
-* Subnet Activity  
-  * Active subnets: \>30  
-  * Cross-subnet transaction volume  
-  * Subnet validator participation rates
+* L1 Activity  
+  * Active L1: \>30  
+  * Cross-L1 transaction volume  
+  * L1 validator participation rates
 
 Security Considerations:
 
@@ -377,7 +377,7 @@ Security Considerations:
 
 Future Development Roadmap:
 
-* Enhanced subnet interoperability  
+* Enhanced L1 interoperability  
 * Scaling improvements via optimized consensus  
 * Advanced governance mechanisms  
 * New virtual machine implementations  
@@ -385,5 +385,5 @@ Future Development Roadmap:
 
 ## **Mechanism Taxonomy Summary**
 
-The Avalanche network operates through a sophisticated system of interconnected mechanisms across its three specialized chains. The P-Chain manages network validation and subnet coordination using the Snowman consensus protocol for deterministic ordering. The X-Chain handles asset operations through the Avalanche protocol's high-throughput DAG structure. The C-Chain enables smart contract execution with EVM compatibility using Snowman consensus. These chains interact through carefully designed cross-chain mechanisms ensuring atomic operations, consistent state, and seamless asset transfers. The consensus layer implements the innovative Snow\* protocol family, providing sub-second finality with Byzantine fault tolerance. Virtual machines manage chain-specific operations while governance components ensure transparent and secure network evolution. Economic primitives establish proper incentive alignment for all network participants.
+The Avalanche network operates through a sophisticated system of interconnected mechanisms across its three specialized chains. The P-Chain manages network validation and L1 coordination using the Snowman consensus protocol for deterministic ordering. The X-Chain handles asset operations through the Avalanche protocol's high-throughput DAG structure. The C-Chain enables smart contract execution with EVM compatibility using Snowman consensus. These chains interact through carefully designed cross-chain mechanisms ensuring atomic operations, consistent state, and seamless asset transfers. The consensus layer implements the innovative Snow\* protocol family, providing sub-second finality with Byzantine fault tolerance. Virtual machines manage chain-specific operations while governance components ensure transparent and secure network evolution. Economic primitives establish proper incentive alignment for all network participants.
 

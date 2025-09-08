@@ -256,7 +256,7 @@ $$C_L = M\,e^{x/K},\quad x \leftarrow \max(x + (V - T), 0).$$
 
 A change is valid if:
 
-$$|p_{\mathrm{new}} - p_{\mathrm{cur}}| \le 	ext{MaxChangeRate}\,(t - t_{\mathrm{last}}),\quad t - t_{\mathrm{last}} \ge 	ext{MinInterval}.
+$$|p_{\mathrm{new}} - p_{\mathrm{cur}}| \le \text{MaxChangeRate}\,(t - t_{\mathrm{last}}),\quad t - t_{\mathrm{last}} \ge \text{MinInterval}.
 $$
 
 - `validateParameterChange(newP)`
@@ -338,7 +338,7 @@ Agents possess:
 
 Each strategy:
 
-$$S_{i,r}(state, history) 	o action$$
+$$S_{i,r}(state, history) \to action$$
 
 where $i$ is agent, $r$ is role.
 

@@ -43,7 +43,7 @@ The following table provides a quick reference for all mathematical notation use
 | G₁ | Standard Track ACP Count  | Integer |
 | G₂ | Best Practices Track ACP Count |Integer |
 | G₃ | Meta Track ACP Count |Integer |
-| G₄ | Subnet Track ACP Count |Integer |
+| G₄ | L1 Track ACP Count |Integer |
 | G₅ | Proposed ACP Count|Integer |
 | G₆ | Implementable ACP Count |Integer |
 | G<sub>7</sub> | Stale ACP Count |Integer |
@@ -98,7 +98,7 @@ This external process models transaction volume demand and outputs to multiple m
 External market forces including AVAX price movements, cryptocurrency market sentiment, and macroeconomic conditions. These conditions affect staking behavior, validator participation, and L1 creation rates.
 
 **Environmental Process Driver 3: L1 Demand**
-External demand for application-specific blockchains drives L1 creation and validator requirements. This process models the rate at which new projects seek to deploy subnets and existing L1s may be abandoned.
+External demand for application-specific blockchains drives L1 creation and validator requirements. This process models the rate at which new projects seek to deploy L1 and existing L1s may be abandoned.
 
 **Environmental Process Driver 4: Validator Behavior**
 Models the decision-making processes of validators including entry/exit decisions, delegation acceptance, and operational reliability. This driver incorporates behavioral economics principles affecting validator strategies.

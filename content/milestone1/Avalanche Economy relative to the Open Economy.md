@@ -130,16 +130,16 @@ The Taylor Rule is a monetary policy guideline that suggests how central banks s
 
 The basic form of the Taylor Rule is:
 
-***i=r\*+ \+0.5(-\*)+0.5(Y-Y\*)***
+$$i = r^* + \pi + 0.5(\pi - \pi^*) + 0.5(Y - Y^*)$$
 
 Where:
 
-* ***i***: The nominal interest rate set by the central bank.  
-* ***r\****: The neutral real interest rate (the rate that would prevail when the economy is at full employment and inflation is stable).  
-* : The current inflation rate.  
-* ***\****: The central bank's target inflation rate.  
-* ***Y***: The actual output (GDP).  
-* ***Y\****: The potential output (the level of output the economy can sustain at full employment).
+* $i$: The nominal interest rate set by the central bank.  
+* $r^*$: The neutral real interest rate (the rate that would prevail when the economy is at full employment and inflation is stable).  
+* $\pi$: The current inflation rate.  
+* $\pi^*$: The central bank's target inflation rate.  
+* $Y$: The actual output (GDP).  
+* $Y^*$: The potential output (the level of output the economy can sustain at full employment).
 
 1. **Neutral Real Interest Rate (*r\**):**  
    * This is the baseline interest rate that would prevail in a stable economy with no inflationary or deflationary pressures.  

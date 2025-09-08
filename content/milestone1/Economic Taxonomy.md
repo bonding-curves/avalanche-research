@@ -12,8 +12,8 @@ The minimum requirement to become a validator is 2,000 AVAX. Staking lockup peri
  **Fee Structure**  
 All transaction fees across P-Chain, X-Chain, and C-Chain are burned completely rather than redistributed to validators. This creates a direct relationship between network usage and token scarcity \- higher activity leads to increased token burning and reduced circulating supply. Gas fees on the C-Chain follow similar mechanics to Ethereum but with the key difference that fees are burned rather than partially distributed to validators.
 
- **Subnet Economics**  
-Subnets can implement custom token models and fee structures while leveraging Avalanche's security and interoperability. Subnet creators can define validator requirements, reward mechanisms, and governance parameters specific to their application needs. Subnets may require validators to stake both AVAX and subnet-specific tokens, creating a dual-token economic model that benefits both the primary network and the subnet.
+ **L1 Economics**  
+L1 can implement custom token models and fee structures while leveraging Avalanche's security and interoperability. L1 creators can define validator requirements, reward mechanisms, and governance parameters specific to their application needs. L1s may require validators to stake both AVAX and subnest-specific tokens, creating a dual-token economic model that benefits both the primary network and the L1.
 
  **Governance Parameters**  
 Key economic variables including minimum stake requirements, reward rates, fee structures, and staking periods are subject to governance within predetermined boundaries. Changes to these parameters require network-wide voting with time and range limitations to prevent rapid or extreme modifications. Governance includes hysteresis mechanisms that limit how frequently parameters can be adjusted, preventing market manipulation through frequent economic policy changes.
