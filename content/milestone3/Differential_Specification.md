@@ -84,7 +84,11 @@ The following table provides a quick reference for all mathematical notation use
 | p | Disturbance dimension |
 | q | Output dimension |
 
+## 2.7 System Architecture Visualization
 
+The following diagram illustrates the interconnected subsystems and their relationships within the Avalanche economic model:
+
+![Avalanche Differential Specification System Architecture](/static/diff-spec.png)
 
 ## 3. Component Specification
 

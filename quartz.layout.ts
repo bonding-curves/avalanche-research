@@ -8,8 +8,9 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "Project Proposal": "/about/Avalanche-Project-Proposal",
+      "GitHub": "https://github.com/avalanche-foundation",
+      "Avalanche Docs": "https://docs.avax.network",
     },
   }),
 }
