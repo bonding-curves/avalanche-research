@@ -82,4 +82,4 @@ By progressing from foundational taxonomies through systems engineering to mathe
 
 ---
 
-*Research conducted by the Blockchain Crisis Response Group (BCRG)*
+*Research conducted by the Bonding Curve Research Group (BCRG)*
