@@ -4,7 +4,7 @@ title: Avalanche Economic Research
 
 # Avalanche Economic Research
 
-## Understanding Complex Blockchain Economics Through Systems Analysis
+## Understanding the Avalanche Economic Network Through Systems Analysis
 
 The Avalanche network represents one of the most sophisticated economic systems
 in the blockchain ecosystem, featuring a unique multi-chain architecture that
@@ -32,7 +32,7 @@ economics to token supply dynamics.
 Understanding Avalanche begins with recognizing the diverse participants who
 shape its economy. Our [Participant Roles
 Taxonomy](/milestone1/Participant-Roles-Taxonomy) identifies three primary
-categories of network actors, Network Participants, who interact directly with
+categories of network actors, network participants, who interact directly with
 on-chain and token mechanisms, development organization that take
 responsibility for the success of the network, and community members, who
 participate in the app ecosystem or token economy. Categories are broken down
@@ -94,14 +94,14 @@ participation, ultimately impacting network security.
 The depth of this analysis is captured in our [Subsystem Analysis and
 Multigraph Model](/milestone2/Subsystem_Analysis_and_MultiGraph), which
 specifies each subsystem with precise state variables, flow dynamics, and
-interaction points. The Staking Dynamics subsystem currently manages 217
-million AVAX across 3,011 validators, while the Token Supply subsystem tracks
-456 million circulating AVAX against a 720 million cap. The Fee Dynamics
-subsystem implements multidimensional pricing that adapts to network
-congestion, and the L1 Ecosystem coordinates 53 active blockchains. The
-multigraph model reveals how agents engage with multiple subsystems
-simultaneously, creating complex strategic behaviors that shape network
-evolution.
+interaction points. At the time of writing this report, the Staking Dynamics
+subsystem is managing 217 million AVAX across 3,011 validators, while the
+Token Supply subsystem tracks 456 million circulating AVAX against a 720
+million cap. The Fee Dynamics subsystem implements multidimensional pricing
+that adapts to network congestion, and the L1 Ecosystem coordinates 53 active
+blockchains. The multigraph model reveals how agents engage with multiple
+subsystems simultaneously, creating complex strategic behaviors that shape
+network evolution.
 
 ## Governance Evolution and Protocol Changes
 
@@ -120,7 +120,7 @@ The transition from qualitative understanding to quantitative modeling requires
 rigorous mathematical frameworks. Our [Differential
 Specification](/milestone3/Differential_Specification) provides a complete
 mathematical model using control theory and differential equations to formalize
-system dynamics. State variables like S₁-S₆ for staking, T₁-T₅ for token
+Avalanche economic system dynamics. State variables like S₁-S₆ for staking, T₁-T₅ for token
 supply, F₁-F₄ for fees, L₁-L₄ for L1s, and G₁-G₈ for governance are connected
 through precise mathematical relationships. Control parameters including
 inflation rates (θ), fee adjustment constants (K), and staking parameters (τ)
@@ -156,15 +156,15 @@ mechanisms and relationships as they emerge.
 
 ## Current Network State and Future Trajectories
 
-As of 2025, the Avalanche network demonstrates robust economic health with 456
-million AVAX in circulation (63% of the 720 million cap), 217 million AVAX
-staked (47.6% of supply), and 3,011 active validators securing the network. The
-ecosystem supports 53 active L1 blockchains, demonstrating strong adoption of
-the multi-chain vision. With annual inflation at 3.82% after accounting for fee
-burns, the network maintains a sustainable growth trajectory with approximately
-27 years projected to reach the supply cap. These metrics provide baseline
-measurements for tracking network evolution and validating our theoretical
-predictions.
+As of September 2025, the Avalanche network demonstrates robust economic health
+with 456 million AVAX in circulation (63% of the 720 million cap), 217 million
+AVAX staked (47.6% of supply), and 3,011 active validators securing the
+network. The ecosystem supports 53 active L1 blockchains, demonstrating strong
+adoption of the multi-chain vision. With annual inflation at 3.82% after
+accounting for fee burns, the network maintains a sustainable growth trajectory
+with approximately 27 years projected to reach the supply cap. These metrics
+provide baseline measurements for tracking network evolution and validating our
+theoretical predictions.
 
 ## Research Impact and Applications
 
@@ -194,7 +194,7 @@ for one of blockchain's most innovative economic systems.
 ---
 
 *This research is conducted by the Bonding Curve Research Group (BCRG) in
-collaboration with the Ava Labs. For detailed technical
+collaboration with Ava Labs. For detailed technical
 specifications and complete documentation, explore the linked sections above or
 visit our [Project Proposal](/about/Avalanche-Project-Proposal) for a
 comprehensive overview of the research methodology and objectives.*
