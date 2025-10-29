@@ -1,7 +1,6 @@
 **Last Update:** Feb 13, 2025  **Draft Stage:** 3rd Draft 
 
-# Avalanche Economy relative to the Open Economy ([Miro
-link](https://miro.com/app/board/uXjVL4uu8Yk=/?moveToWidget=3458764614712596346&cot=14))
+# Avalanche Economy relative to the Open Economy ([Miro Link](https://miro.com/app/board/uXjVL4uu8Yk=/?moveToWidget=3458764614712596346&cot=14))
 
 The Avalanche ecosystem operates within the broader cryptoeconomic landscape,
 which is itself a subset of the global real economy. The network’s success
@@ -29,7 +28,7 @@ ecosystem?*
 ---
 
 **Avalanche as an Investment Case**  
-**![][image1]**  
+**![Avalanche-Economy-relative-to-the-Open-Economy](./Avalanche-Economy-relative-to-the-Open-Economy.png)**  
 The Avalanche economy can be framed as an investment case, where external
 investors evaluate the ecosystem based on expected returns and risks. This
 framework highlights the relationship between the services Avalanche provides
