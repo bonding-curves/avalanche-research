@@ -1,4 +1,6 @@
---- title: Avalanche Economic Research ---
+---
+title: Avalanche Economic Research
+---
 
 # Avalanche Economic Research
 
