@@ -62,7 +62,7 @@ secondary markets.
 
 ### **Working Capital, Inflation, and Exchange Rate Effects**
 
-### **![][image2]**
+### **![Avalanche-Economy-relative-to-the-Open-Economy2](Avalanche-Economy-relative-to-the-Open-Economy2.png)**
 
 This section visualizes how working capital (the funds required to operate the
 Avalanche economy) is affected by inflation and exchange rates before returns
