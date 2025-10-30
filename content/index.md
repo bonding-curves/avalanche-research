@@ -194,7 +194,7 @@ for one of blockchain's most innovative economic systems.
 ---
 
 *This research is conducted by the Bonding Curve Research Group (BCRG) in
-collaboration with Ava Labs. For detailed technical
+collaboration with Avalanche Foundation. For detailed technical
 specifications and complete documentation, explore the linked sections above or
 visit our [Project Proposal](/about/Avalanche-Project-Proposal) for a
 comprehensive overview of the research methodology and objectives.*
