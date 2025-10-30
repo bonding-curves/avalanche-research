@@ -45,8 +45,7 @@ the Primary Network secures application-specific L1 blockchains. Understanding
 these mechanisms is essential for predicting how protocol changes will cascade
 through the system.
 
-### [Avalanche Economy vs Open
-Economy](/milestone1/Avalanche-Economy-relative-to-the-Open-Economy)
+### [Avalanche Economy vs Open Economy](/milestone1/Avalanche-Economy-relative-to-the-Open-Economy)
 
 Avalanche doesn't exist in isolation—it interfaces with traditional financial
 systems and other blockchain networks. This analysis positions Avalanche within
@@ -60,8 +59,7 @@ stability.
 
 ## Milestone 2: Systems Engineering Perspective
 
-### [MBSE Framework
-Application](/milestone2/Avalanche-Economic-Model_-A-Systems-Engineering-Perspective)
+### [MBSE Framework Application](/milestone2/Avalanche-Economic-Model_-A-Systems-Engineering-Perspective)
 
 Model-Based Systems Engineering (MBSE) provides a rigorous methodology for
 analyzing complex systems like Avalanche. This report applies MBSE principles
@@ -72,8 +70,7 @@ how changes in one subsystem propagate through others. This systems approach
 reveals feedback loops and emergent behaviors not visible when examining
 components in isolation.
 
-### [Subsystem Analysis and Multigraph
-Model](/milestone2/Subsystem_Analysis_and_MultiGraph)
+### [Subsystem Analysis and Multigraph Model](/milestone2/Subsystem_Analysis_and_MultiGraph)
 
 Building on the MBSE framework, this detailed analysis specifies each subsystem
 with state variables, flow dynamics, parameters, and interaction points. The
