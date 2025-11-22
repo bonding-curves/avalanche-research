@@ -1,447 +1,304 @@
-**Last Update:** October 29th, 2025  **Draft Stage:** 3rd Draft
-
-# **Role Taxonomy Overview**
-
-The proposed taxonomy below is intended to reflect the core roles within The
-Avalanche Network as they relate to the current and future state of the
-ecosystem. Roles specify the incentives and behaviors of sets of network
-actors, as well as the actions those actors can execute, and the value flows to
-and from those actors. Furthermore, the taxanomy explores the relationships
-between roles, and example entities that would take on such roles. The result
-is a taxanomy of roles and relationships in the Avalanche Economic Network.
-Please note that these roles are not mutually exclusive; thus an entity can
-play more than one role.
-
-## ![participant-roles](participant-roles.png)
-
-## Public Actors in the Avax Network:
-
-### Network Participants
-
-* Primary Network Validators  
-* L1 Validators  
-* Delegators  
-* Token Holders
-
-### Development Organizations
-
-* Ava Labs  
-* Avalanche Foundation  
-* Infrastructure Providers
-
-### Community Members
-
-* App Users  
-* Developers  
-* Investors  
-* Traders
-
-* ## Network Participants
-
-  * ### Primary Network Validator (PNV)
-
-    * **Definition**  
-      * Primary Network Validators are the core validators responsible for
-      securing the main Avalanche network. They serve as the foundation of
-      network security and
-      [consensus](Mechanism%20Taxonomy.md#consensus-layer-implementation).  
-    * **Parameters**  
-      * Minimum [stake](Economic%20Taxonomy.md#staking-mechanism) 2000 AVAX  
-      * Minimum delegation amount: 25 AVAX
-      * Minimum staking duration: 2 weeks
-      * Maximum staking duration: 1 year
-      * Maximum validator weight: 3 million AVAX (or 5x the validator's own stake, whichever is less)
-    * **Eligibility**  
-      * Need to run a node meeting hardware requirements  
-      * Must maintain high uptime (\>80%)  
-      * Failing this threshold results in NO rewards for the validation period  
-      * This affects both validator and delegator rewards  
-      * Uptime is measured over each staking period (2 weeks \- 1 year)  
-    * **Actions Performed**  
-      * Participate in
-      [Consensus](Mechanism%20Taxonomy.md#consensus-layer-implementation)  
-        * Process
-        [Transactions](Mechanism%20Taxonomy.md#three-chain-architecture)  
-        * Maintain Network Security  
-        * Validate L1s  (Optional)  
-    * **Value Flows**  
-      * PNVs earn [staking
-      rewards](Economic%20Taxonomy.md#validator-incentives) from network
-      inflation, collect [transaction
-      fees](Economic%20Taxonomy.md#fee-structure) from processed operations,
-      and can receive additional fees from L1 validation services.  
-    * **Preferences**  
-      * These validators typically align with long-term network growth,
-      prioritize stable and reliable infrastructure, and focus on maintaining
-      high uptime.  
-    * **Considerations**  
-      * Must account for high capital requirements, possess significant
-      technical expertise, and manage substantial infrastructure costs.  
-      * Validators are a very important stakeholder group in the network as
-      they are committed (through their stake) and will be involved for at
-      least the duration of the staking validation period  
-    * **Delegation Mechanics**  
-      * Can accept [delegated stake](Economic%20Taxonomy.md#staking-mechanism)
-      from other token holders, typically setting minimum delegation amounts
-      and configuring revenue sharing percentages. They must carefully balance
-      delegation rewards to remain competitive while maintaining profitability.  
-    * **Technical Operations**  
-      * Must run
-      [AvalancheGo](https://docs.avax.network/nodes/run/node-manually) nodes
-      with specific hardware requirements, implement comprehensive monitoring
-      systems, maintain database health, and ensure optimal network
-      connectivity. This includes managing [chain
-      state](Mechanism%20Taxonomy.md#three-chain-architecture), handling
-      upgrades, and monitoring system resources.  
-    * **Risk Management**  
-      * Face potential slashing for poor performance or malicious behavior.
-      They must implement robust security measures, maintain high uptime
-      through redundancy, and carefully monitor validation performance metrics.  
-    * **Economic Optimization**  
-      * These validators optimize [fee
-      structures](Economic%20Taxonomy.md#fee-structure), balance delegation
-      rewards with operational costs, and develop long-term strategies for
-      maximizing returns while maintaining network health.  
-    * **Cross-L1 Operations**  
-      * Often validate multiple L1s, requiring careful resource allocation and
-      management of different validation requirements across networks.
-
-  * ### L1 Validator (L1V)
-
-    * **Definition**  
-      * L1 Validators are specialized validators focused on specific
-      [L1s](Mechanism%20Taxonomy.md#l1-management), operating within customized
-      validation environments.  
-    * **Eligibility**  
-      * Meet L1-specific requirements/conditions  
-      * Custom L1 specific validation periods  
-      * May require KYC/permissions  
-    * **Actions Performed**  
-      * These validators focus on L1-specific [transaction
-      validation](Mechanism%20Taxonomy.md#consensus-layer-implementation),   
-      * Maintain individual L1 states  
-      * execute specialized logic required by their particular L1.  
-    * **Value Flows**  
-      * L1Vs receive L1-specific rewards, may earn custom token incentives, and
-      participate in various [fee-sharing
-      models](Economic%20Taxonomy.md#l1-economics) unique to their L1.  
-    * **Preferences**  
-      * specialize in specific L1 operations  
-      * focus on application-specific requirements  
-    * **Considerations**  
-      * While capital requirements may be lower, L1Vs need specialized
-      knowledge of their L1’s operations and must navigate variable reward
-      structures.  
-    * **Delegation Mechanics**  
-      * L1Vs may have L1-specific delegation rules, custom token requirements,
-      and unique revenue sharing models based on L1 parameters.  
-    * **Technical Operations**  
-      * They must maintain specialized infrastructure for L1 validation,
-      implement L1-specific monitoring, and manage custom [virtual
-      machines](Mechanism%20Taxonomy.md#virtual-machine-components) as required
-      by their L1.  
-    * **Risk Management**  
-      * L1Vs navigate L1-specific slashing conditions, maintain compliance with
-      custom validation rules, and manage risks across multiple token types.  
-    * **Economic Optimization**  
-      *  These validators optimize for L1-specific rewards, balance resources
-      across different validation activities, and develop strategies for
-      maximizing returns within L1 parameters.  
-    * **Cross-**L1 **Operations**  
-      * L1Vs must manage interactions between their L1 and the primary network,
-      handle cross-L1 messaging, and maintain operational efficiency across
-      multiple validation environments.
-
-  * ### Delegator
-
-    * **Definition**  
-      * Delegators participate in network security by
-      [staking](Economic%20Taxonomy.md#staking-mechanism) AVAX to validators  
-      * They can delegate through [Core Wallet](https://core.app) or liquid
-      staking protocols  
-      * Liquid staking options include [Benqi](https://benqi.fi) and
-      [GoGoPool](https://gogopool.com)  
-    * **Actions & Responsibilities**  
-      * Research and select reliable validators  
-      * Monitor validator uptime (critical for rewards)  
-      * Manage delegation through Core Wallet or liquid staking  
-      * Claim rewards after validation periods  
-      * Track validator performance metrics  
-    * **Value Flows**  
-      * [Stake](Economic%20Taxonomy.md#staking-mechanism) minimum 25 AVAX per
-      delegation  
-      * Earn [staking rewards](Economic%20Taxonomy.md#validator-incentives)
-      (minus validator fee)  
-      * No rewards if validator fails minimum uptime requirement  
-      * Liquid staking options provide additional flexibility  
-    * **Key Considerations**  
-      * Validator uptime history is crucial  
-      * Choose between direct staking vs liquid staking  
-      * Minimum time is 2 weeks and maximum time is 1 year  
-      * Reward claiming responsibility  
-      * Risk of losing rewards due to poor validator performance
-
-  * ### Token Holder
-
-    * **Definition:**  
-      * Primary stakeholders in the Avalanche ecosystem  
-      * Hold AVAX tokens with full custody and control  
-      * Can transition between multiple participant roles  
-      * Key participants in [network
-      governance](Mechanism%20Taxonomy.md#governance-components)  
-    * **Actions Performed:**  
-      * Store and manage AVAX tokens  
-      * Participate in [governance
-      voting](Mechanism%20Taxonomy.md#voting-process)  
-      * [Delegate](Economic%20Taxonomy.md#staking-mechanism) tokens to
-      validators  
-      * Trade and transfer tokens  
-      * Interact with dApps and services  
-      * Stake tokens directly as validators  
-    * **Value Flows:**  
-      * **Inflows:**  
-        * Token acquisitions through purchases  
-        * [Staking/delegation
-        rewards](Economic%20Taxonomy.md#validator-incentives)  
-        * Airdrops and incentives  
-        * DeFi yields and returns  
-      * **Outflows:**  
-        * [Transaction fees](Economic%20Taxonomy.md#fee-structure)  
-        * Token transfers  
-        * Smart contract interactions  
-        * [Governance
-        participation](Mechanism%20Taxonomy.md#governance-components) costs  
-    * **Preferences:**  
-      * Asset security and custody  
-      * Network governance participation  
-      * Return on investment opportunities  
-      * Ecosystem utility and growth  
-      * Low [transaction costs](Economic%20Taxonomy.md#fee-structure)
-
-* ## Development Organizations
-
-  * ### Ava Labs 
-
-    * **Definition**  
-      * Core development organization behind [Avalanche
-      Network](https://avax.network)  
-      * Research-driven technology company focused on blockchain innovation  
-      * Founded by [Emin Gün Sirer](https://www.avalabs.org/team), Kevin
-      Sekniqi, and Ted Yin  
-    * **Actions Performed**  
-      * Core [protocol development](Mechanism%20Taxonomy.md) and maintenance  
-      * Infrastructure and tooling development ([Core
-      Wallet](https://core.app), SDKs)  
-      * Security monitoring and upgrades  
-      * Technical documentation and education  
-      * Enterprise partnership development  
-    * **Value Flows**  
-      * Invests in R\&D and protocol innovation  
-      * Provides developer tools and resources  
-      * Delivers security improvements and updates  
-      * Enables ecosystem growth through partnerships  
-      * Supports community education and adoption  
-    * **Preferences**  
-      * Open source development methodology  
-      * Research-backed innovation approach  
-      * Community-driven improvement process  
-      * Security-first engineering practices  
-      * Pragmatic solution design
-
-  * ### Avalanche Foundation
-
-    * **Definition:**  
-      * The [Avalanche Foundation](https://www.avax.network/foundation) is a
-      non-profit entity separate from Ava Labs  
-      * Focuses on ecosystem advancement and community growth  
-      * Does NOT develop the core protocol (that's Ava Labs)  
-      * Manages ecosystem funding and development programs  
-    * **Actions Performed:**  
-      * Manages ecosystem funding programs and grants  
-      * Coordinates [network
-      governance](Mechanism%20Taxonomy.md#governance-components) initiatives  
-      * Supports developer onboarding and education  
-      * Oversees [staking delegation
-      rewards](Economic%20Taxonomy.md#validator-incentives) program  
-      * Facilitates institutional partnerships and adoption  
-      * Provides community incentives and rewards  
-    * **Value Flows:**  
-      * Manages foundation treasury  
-      * Distributes ecosystem grants  
-      * Provides staking delegation rewards  
-      * Funds community infrastructure  
-      * Supports ecosystem growth initiatives
-
-  * ### Infrastructure Providers
-
-    * **Definition**  
-      * Organizations providing critical network infrastructure  
-      * Operate RPC endpoints, indexers, and APIs  
-      * Support network reliability and accessibility  
-    * **Actions Performed**  
-      * Maintain public RPC endpoints  
-      * Operate network indexers  
-      * Provide API services  
-      * Monitor network health  
-      * Support developer tools  
-    * **Value Flows**  
-      * Generate revenue from API services  
-      * Receive infrastructure grants  
-      * Monetize premium services  
-      * Support ecosystem growth  
-    * **Preferences**  
-      * High service reliability  
-      * Scalable infrastructure  
-      * Developer-friendly solutions  
-      * Sustainable business models  
-        
-
-* ## Community Members
-
-  * ### Trader
-
-    * **Definition:**  
-      * Market participants who actively trade AVAX tokens  
-      * Provide market liquidity and price discovery  
-      * Operate across centralized and decentralized exchanges  
-      * May engage in various trading strategies  
-    * **Actions Performed:**  
-      * Execute token trades and swaps  
-      * Provide liquidity to trading pools  
-      * Monitor market conditions  
-      * Analyze price movements  
-      * Manage trading positions  
-    * **Value Flows:**  
-      * **Inflows:**  
-        * Trading profits  
-        * Liquidity provision fees  
-        * Yield farming rewards  
-        * Arbitrage opportunities  
-      * **Outflows:**  
-        * Trading fees and spreads  
-        * [Gas costs](Economic%20Taxonomy.md#fee-structure) for transactions  
-        * Liquidity pool deposits  
-        * Value at risk  
-    * **Preferences:**  
-      * High market liquidity  
-      * Low [trading fees](Economic%20Taxonomy.md#fee-structure)  
-      * Price efficiency  
-      * Advanced trading tools  
-      * Risk/reward optimization
-
-  * ### Investors
-
-    * **Definition:**  
-      * Strategic capital providers to the Avalanche ecosystem  
-      * Long-term token holders focused on value appreciation  
-      * May include both retail and institutional participants  
-    * **Actions Performed:**  
-      * Conduct due diligence on projects  
-      * Deploy capital strategically  
-      * Participate in
-      [governance](Mechanism%20Taxonomy.md#governance-components)  
-      * Support ecosystem growth  
-    * **Value Flows:**  
-      * **Inflows:**  
-        * Token value appreciation  
-        * Staking yields  
-        * Ecosystem rewards  
-        * Investment returns  
-      * **Outflows:**  
-        * Initial capital deployment  
-        * Operating costs  
-        * Portfolio management fees  
-        * Value at risk  
-    * **Preferences:**  
-      * Long-term value creation  
-      * Network growth and adoption  
-      * Strong governance rights  
-      * Risk-adjusted returns
-
-      
-
-  * ### App User
-
-    * **Definition:**  
-      * End users of applications built on Avalanche  
-      * Interact with dApps, DeFi protocols, and services  
-      * May or may not hold AVAX tokens directly  
-      * Focus on utility and functionality  
-    * **Actions Performed:**  
-      * Use DeFi applications and protocols  
-      * Engage with GameFi and NFT platforms  
-      * Execute transactions and swaps  
-      * Interact with smart contracts  
-      * Access decentralized services  
-    * **Value Flows:**  
-      * **Inflows:**  
-        * Application utility and benefits  
-        * Rewards from protocol usage  
-        * Service access and features  
-        * Yield from DeFi activities  
-      * **Outflows:**  
-        * [Transaction fees](Economic%20Taxonomy.md#fee-structure)  
-        * Service usage costs  
-        * Protocol interaction fees  
-        * Subscription payments  
-    * **Preferences:**  
-      * Low [transaction costs](Economic%20Taxonomy.md#fee-structure)  
-      * User-friendly interfaces  
-      * Fast transaction speeds  
-      * Reliable service access  
-      * Strong security features
-
-  * ### Developer
-
-    * **Definition**  
-      * Builds applications and services on
-      [Avalanche](https://docs.avax.network/)  
-      * Creates [smart contracts](Mechanism%20Taxonomy.md#evm-c-chain) and
-      protocols  
-      * Contributes to ecosystem tooling  
-      * Innovates new use cases  
-    * **Actions Performed**  
-      * Develops dApps and protocols  
-      * Writes and deploys [smart
-      contracts](https://docs.avax.network/dapps/smart-contracts/)  
-      * Creates developer tools and [SDKs](https://docs.avax.network/tooling/)  
-      * Tests and audits code  
-      * Maintains documentation  
-    * **Value Flows**  
-      * **Inflows**  
-        * Development grants  
-        * Protocol fees and revenue  
-        * Token incentives  
-        * Community rewards  
-      * **Outflows**  
-        * Development costs  
-        * Infrastructure expenses  
-        * Testing and auditing fees  
-        * Marketing and user acquisition  
-    * **Preferences**  
-      * Strong developer tooling  
-      * Clear documentation  
-      * Active support channels  
-      * Scalable infrastructure  
-      * Engaged user community
+**Last Update:** November 22nd, 2025  **Draft Stage:** 4th Draft
 
 
-#### 
+# Avalanche Economic System: Participant Specification
 
-## Role Taxonomy Summary
+**Last Update:** November 7, 2025
+**Version:** 2.0 
 
-The Avalanche ecosystem comprises a diverse set of actors working together to
-maintain, develop, and grow the network. Network Participants, including
-[Primary Network Validators](Economic%20Taxonomy.md#validator-incentives), L1
-Validators, and [Delegators](Economic%20Taxonomy.md#staking-mechanism), form
-the backbone of network security and operations. Development Organizations like
-[Ava Labs](https://avalabs.org) and the [Avalanche
-Foundation](https://www.avax.network/foundation) provide technical innovation
-and ecosystem support, while Infrastructure Providers ensure reliable network
-access and tools. Community Members represent various levels of engagement,
-from Token Holders who participate in
-[governance](Mechanism%20Taxonomy.md#governance-components) to active Traders
-managing market dynamics. Investors provide strategic capital and long-term
-support, while App Users drive network adoption through daily interactions.
-[Developers](https://docs.avax.network/) create applications and tools that
-expand ecosystem utility. 
+***
+
+## 1.0 Overview
+
+This document defines the taxonomy of participant roles within the Avalanche network. Each role is specified as a system component with defined functions, requirements, interfaces, and economic models. These roles are not mutually exclusive; a single entity may fulfill multiple roles.
+
+***
+
+## 2.0 Network Security Participants
+
+This category includes roles directly responsible for network consensus and security.
+
+### 2.1 Primary Network Validator (PNV)
+
+**Definition:**  
+A PNV is a full node that participates in the consensus of the Avalanche Primary Network (X-Chain, P-Chain, and C-Chain) by staking AVAX.
+
+**System Functions:**
+- Validate and produce blocks on the Primary Network.  
+- Participate in consensus by repeatedly sampling other validators.  
+- Maintain the state of all three Primary Network chains.  
+- (Optional) Validate L1s.
+
+**Participation Requirements:**
+- **Stake:** 2,000 AVAX minimum.  
+- **Uptime:** Must maintain greater than 80% uptime, as measured by peers, to receive rewards.  
+- **Hardware:** Minimum specs (8 vCPU, 16GB RAM, 1TB SSD).  
+- **BLS Key:** Must register a BLS key (per ACP-62).
+
+**Configurable Parameters:**
+- Staking Duration: 2 weeks (min) to 1 year (max).  
+- Delegation Fee: 2% (min).
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** Receives staking rewards from network issuance.  
+- **Outflows:** Hardware, bandwidth, and operational costs. (Note: All transaction fees are burned.)
+
+**Risk & Penalty Model:**
+- No Slashing: No loss of principal stake.  
+- Reward Forfeiture: Rewards are forfeited if uptime drops below 80% during the staking period.
+
+***
+
+### 2.2 L1 Validator (L1V)
+
+**Definition:**  
+An L1V participates in the consensus of a specific L1 (formerly Subnet), independent of the Primary Network.
+
+**System Functions:**
+- Validate and produce blocks for a specific L1.  
+- Maintain the state of that L1.  
+- (Optional) Send and sign Avalanche Warp Messages (AWM) for cross-chain communication.
+
+**Participation Requirements:**
+- Defined by L1 governance or Validator Manager contract (e.g., stake a native L1 token, hold an NFT, pass KYC).  
+- **P-Chain Fee:** Continuous, dynamic AVAX fee (per ACP-77) to remain an active validator.  
+- **Hardware:** As required by the specific L1.
+
+**Configurable Parameters:**  
+Defined by the L1’s implementation.
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** L1-token rewards or share of L1 fees.  
+- **Outflows:** Hardware and operation costs; continuous AVAX fee paid to P-Chain (burned).
+
+**Risk & Penalty Model:**  
+Defined by the L1’s Validator Manager contract. May include slashing of the L1’s native token or other penalties.
+
+***
+
+### 2.3 Delegator
+
+**Definition:**  
+A passive participant who delegates AVAX to a Primary Network Validator to contribute to network security and earn rewards.
+
+**System Functions:**
+- Select a PNV to delegate stake to.  
+- Lock AVAX for the staking duration.  
+- Claim rewards upon completion.
+
+**Participation Requirements:**
+- **Stake:** 25 AVAX minimum.
+
+**Configurable Parameters:**
+- Validator Choice: Selected PNV.  
+- Staking Duration: 2 weeks (min) to 1 year (max).
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** Receives staking rewards (minus validator’s delegation fee).  
+- **Outflows:** Pays validator’s delegation fee (percentage of reward).
+
+**Risk & Penalty Model:**
+- No Slashing: Principal stake is not reduced.  
+- Reward Forfeiture: Rewards forfeited if chosen PNV fails to maintain required uptime.
+
+***
+
+## 3.0 Economic & Utility Participants
+
+This category covers roles that generate demand, utility, and liquidity within the Avalanche economy.
+
+### 3.1 Token Holder (AVAX)
+
+**Definition:**  
+A base-level participant holding the network’s native asset, AVAX.
+
+**System Functions:**
+- Hold and transfer AVAX.  
+- Pay system fees across the P-Chain, X-Chain, and C-Chain.  
+- Supply capital through staking or delegation.  
+- Participate in governance.
+
+**Participation Requirements:**  
+Control of a private key (wallet).
+
+**Configurable Parameters:**  
+N/A
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** Token acquisition, staking rewards, DeFi yields.  
+- **Outflows:** All transaction fees are burned.
+
+**Risk & Penalty Model:**  
+Exposure to market volatility and custody risk.
+
+***
+
+### 3.2 Application User
+
+**Definition:**  
+An actor who interacts with decentralized applications or smart contracts on the C-Chain or any L1.
+
+**System Functions:**
+- Execute smart contract calls (e.g., trade, mint NFTs, borrow assets).  
+- Trigger state changes on EVM-compatible chains.
+
+**Participation Requirements:**  
+A wallet capable of sending signed transactions.
+
+**Configurable Parameters:**  
+Gas price (priority fee) selection for faster transaction inclusion.
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** App-specific utility or value (digital assets, yields, services).  
+- **Outflows:** Transaction fees burned; dApp-specific protocol fees.
+
+**Risk & Penalty Model:**  
+Smart contract vulnerability and asset-specific market risks.
+
+***
+
+### 3.3 Trader / Investor / Liquidity Provider
+
+**Definition:**  
+A participant focused on capital allocation, liquidity provision, and market efficiency.
+
+**System Functions:**
+- Provide liquidity to DEXs or lending protocols.  
+- Execute trades and arbitrage opportunities.  
+- Invest in ecosystem assets and derivatives.
+
+**Participation Requirements:**  
+Control of capital (tokens).
+
+**Configurable Parameters:**  
+Capital allocation and trading strategy.
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** Trading profits, LP fees, yield farming rewards.  
+- **Outflows:** Fees burned; potential impermanent loss; capital-at-risk.
+
+**Risk & Penalty Model:**  
+Exposure to market, liquidity, and smart contract risks.
+
+***
+
+## 4.0 Ecosystem Participants
+
+This category defines organizational and technical roles supporting network infrastructure, development, and governance.
+
+### 4.1 Developer
+
+**Definition:**  
+An individual or team building applications, tools, or new L1s on Avalanche.
+
+**System Functions:**
+- Deploy smart contracts on C-Chain or L1s.  
+- Define and deploy new L1s and Validator Manager contracts.  
+- Develop wallets and application interfaces.  
+- Contribute to protocol development (ACPs).
+
+**Participation Requirements:**  
+None (permissionless development).
+
+**Configurable Parameters:**  
+L1 configuration parameters and smart contract logic.
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** Application revenue, L1 token value, or grants.  
+- **Outflows:** Development, audit, deployment, and transaction costs.
+
+**Risk & Penalty Model:**  
+Business risk and project execution uncertainty.
+
+***
+
+### 4.2 Infrastructure Provider
+
+**Definition:**  
+An entity providing data, compute, or network access infrastructure for Avalanche users and developers.
+
+**System Functions:**
+- Operate public/private RPC nodes.  
+- Run indexers (block explorers).  
+- Provide API or SDK access.  
+- Include wallet providers such as Core.
+
+**Participation Requirements:**  
+Maintain high-availability infrastructure (full nodes, databases).
+
+**Configurable Parameters:**  
+Service-level agreements and API rate limits.
+
+**Economic Incentives (Value Flow):**
+- **Inflows:** Premium subscriptions, grants, or data service revenue.  
+- **Outflows:** Hardware, bandwidth, and maintenance costs.
+
+**Risk & Penalty Model:**  
+Operational and reputational exposure to service downtime.
+
+***
+
+### 4.3 Ava Labs
+
+**Definition:**  
+Core development organization leading the engineering of Avalanche’s protocol and ecosystem infrastructure.
+
+**System Functions:**
+- Develop the AvalancheGo client.  
+- Research and propose new protocol upgrades (ACPs).  
+- Build ecosystem products such as Core Wallet.
+
+**System Role:**  
+Protocol Architect / Core Engineer.  
+
+*Note: Ava Labs operates externally to the protocol’s consensus and fee models.*
+
+***
+
+### 4.4 Avalanche Foundation
+
+**Definition:**  
+A non-profit organization supporting Avalanche ecosystem growth and stewardship.
+
+**System Functions:**
+- Fund development through grants.  
+- Coordinate community programs and marketing.  
+- Manage treasury allocations (including staking delegations).
+
+**System Role:**  
+Ecosystem Steward / Grant Provider.  
+
+*Note: Operations are independent of consensus and fee mechanics.*
+
+***
+
+## References
+
+1. [Avalanche How to Stake](https://build.avax.network/docs/nodes/validate/how-to-stake)  
+2. [Bloq Avalanche Staking](https://stake.bloq.com/protocols/avalanche/)  
+3. [Why Does AVAX Have No Slashing Penalty? - Reddit](https://www.reddit.com/r/Avax/comments/scrcdd/why_does_avax_have_no_slashing_penalty_for/)  
+4. [Avalanche Validators](https://www.avax.network/build/validators)  
+5. [Coinbase Avalanche Staking FAQ](https://docs.cdp.coinbase.com/staking/staking-delegation-guides/avalanche/avalanche-faq)  
+6. [Figment Avalanche Staking](https://figment.io/staking/protocols/avalanche/)  
+7. [Bank Frick Avalanche Overview](https://www.bankfrick.li/en/avalanche-avax)  
+8. [Kiln Avalanche Protocol](https://www.kiln.fi/protocols/avalanche)  
+
+Additional resources:  
+- [Avalanche Delegation Guide](https://avaunt-staking.com/avalanche-delegation-guide/)  
+- [How to Run Avalanche Node](https://leasepacket.com/how-to-run-avalanche-node/)  
+- [Avalanche System Requirements](https://build.avax.network/docs/nodes/system-requirements)  
+- [GetBlock Avalanche Node Guide](https://getblock.io/blog/how-to-run-avax-node-requirements/)  
+- [ACP Discussions - GitHub](https://github.com/avalanche-foundation/ACPs/discussions/78)  
+- [Breaking Down ACP-77](https://chorus.one/articles/breaking-down-acp-77-reinventing-subnets-on-avalanche)  
+- [ETNA Blog on Avalanche L1s](https://www.avax.network/about/blog/etna-enhancing-the-sovereignty-of-avalanche-l1-networks)  
+- [ACP-77 Institutional Adoption](https://www.zeeve.io/blog/avalanches-acp-77-skyrocketing-subnet-growth-institutional-buy-in/)  
+- [GoGoPool Liquid Staking](https://docs.gogopool.com/gogopool/liquid-staking/how-liquid-staking-works)  
+- [Core Wallet for Avalanche L1s](https://core.app/discover/projects/avalanchel1s)  
+- [Balancer Deploys On Avalanche](https://www.avax.network/about/press/balancer-deploys-on-avalanche/)  
+- [Ultimate Guide to Avalanche Development](https://www.rapidinnovation.io/post/ultimate-guide-to-avalanche-ecosystem-development-and-implementation)  
+- [AWS on Avalanche](https://aws.amazon.com/startups/learn/building-application-specific-blockchains-with-aws-on-avalanche)  
+- [Avalanche Foundation](https://www.avax.network/about/foundation)  
+- [Avalanche Delegation Guide - Coinbase](https://docs.cdp.coinbase.com/staking/staking-delegation-guides/avalanche/delegation-guide/avalanche-delegation-guide)
+
+***
+
