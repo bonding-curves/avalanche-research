@@ -176,6 +176,447 @@ Management of delegation relationships between delegators and validators, includ
 **Mechanism 7: Governance Execution**
 Processing of governance proposals and parameter updates based on voting outcomes and protocol requirements.
 
+### 3.5 Laws of Motion: Differential Equations
+
+This section provides the explicit differential equations—the "laws of motion"—that govern how each state variable evolves over time. These equations transform the qualitative mechanism descriptions above into precise mathematical relationships that enable quantitative analysis, simulation, and optimization.
+
+#### 3.5.1 State-Space Representation
+
+The Avalanche economic system can be represented in standard state-space form:
+
+**Continuous-Time Form:**
+$$\frac{d\mathbf{x}}{dt} = f(\mathbf{x}, \mathbf{u}, \mathbf{w}, t)$$
+
+**Discrete-Time Form (per epoch):**
+$$\mathbf{x}_{t+1} = f(\mathbf{x}_t, \mathbf{u}_t, \mathbf{w}_t)$$
+
+Where:
+- **x** ∈ ℝⁿ is the state vector containing all state variables
+- **u** ∈ ℝᵐ is the control input vector (governable parameters)
+- **w** ∈ ℝᵖ is the disturbance vector (environmental processes)
+- t denotes time (continuous) or epoch (discrete)
+
+The complete state vector is organized by subsystem:
+
+$$\mathbf{x} = [S_1, S_2, S_3, S_5, S_6, T_1, T_2, T_4, T_5, F_1, F_2, F_3, F_4, L_1, L_4, G_1, ..., G_8]^T$$
+
+#### 3.5.2 Staking Subsystem Dynamics
+
+The staking subsystem governs how AVAX tokens flow between staked and unstaked states, validator participation, and reward distribution.
+
+**Total Staked Amount (S₁):**
+
+$$\frac{dS_1}{dt} = \phi_s(S_5, T_2, \xi_m) - \psi_u(S_5, r_{opp}) + \rho_r \cdot \eta_r(S_1, T_1, \theta)$$
+
+*Intuitive interpretation:* The change in total staked AVAX equals new staking inflows minus unstaking outflows plus re-staked rewards.
+
+Where:
+- φₛ = staking inflow function (AVAX/time)
+- ψᵤ = unstaking outflow function (AVAX/time)
+- ηᵣ = reward distribution function (AVAX/time)
+- ρᵣ = average re-staking rate (≈ 0.67 based on 70% validator, 50% delegator re-staking)
+- ξₘ = market sentiment factor from Environmental Process 2
+- r_opp = opportunity cost (alternative yield rates)
+
+**Validator-Staked Amount (S₂):**
+
+$$\frac{dS_2}{dt} = \phi_v(S_5, \pi_v) - \psi_v(S_6, \pi_{min}) + 0.70 \cdot \eta_{r,v}(S_2, T_1, \theta)$$
+
+Where:
+- φᵥ = validator staking inflow function
+- ψᵥ = validator exit/unstaking function
+- πᵥ = validator profitability metric
+- π_min = minimum profitability threshold for continued operation
+- 0.70 = validator re-staking rate
+
+**Delegator-Staked Amount (S₃):**
+
+$$\frac{dS_3}{dt} = \phi_d(S_5, S_6, C_d) - \psi_d(S_5, r_{opp}) + 0.50 \cdot \eta_{r,d}(S_3, T_1, \theta, c)$$
+
+Where:
+- φ_d = delegation inflow function
+- ψ_d = delegation withdrawal function
+- C_d = available delegation capacity across validators
+- c = average commission rate
+- 0.50 = delegator re-staking rate
+
+**Accounting Identity:**
+$$S_1 = S_2 + S_3$$
+
+This constraint must be preserved by all state updates.
+
+**Staking APR (S₅):**
+
+The APR is derived from the reward function and total stake:
+
+$$S_5 = \frac{\eta_r(S_1, T_1, \theta)}{S_1} \times \frac{365}{\bar{\tau}}$$
+
+Where τ̄ is the average staking duration in days. The time evolution follows:
+
+$$\frac{dS_5}{dt} = \frac{\partial}{\partial t}\left[\frac{\eta_r}{S_1}\right] = \frac{1}{S_1}\frac{d\eta_r}{dt} - \frac{\eta_r}{S_1^2}\frac{dS_1}{dt}$$
+
+**Active Validators (S₆):**
+
+$$\frac{dS_6}{dt} = \lambda_{entry}(S_5, \sigma_{min}) - \lambda_{exit}(\pi_v, L_1)$$
+
+Where:
+- λ_entry = validator entry rate, function of APR attractiveness and minimum stake requirement
+- λ_exit = validator exit rate, function of profitability and L1 validation burden
+- σ_min = minimum stake requirement (2,000 AVAX)
+
+**Entry Rate Function:**
+$$\lambda_{entry} = \alpha_1 \cdot \max(0, S_5 - r_{threshold}) \cdot \mathbb{1}_{capital \geq \sigma_{min}}$$
+
+**Exit Rate Function:**
+$$\lambda_{exit} = \alpha_2 \cdot S_6 \cdot \max(0, c_{op} - \pi_v)$$
+
+Where c_op represents operational costs per validator.
+
+#### 3.5.3 Token Supply Subsystem Dynamics
+
+The token supply subsystem tracks the creation, circulation, and destruction of AVAX tokens.
+
+**Total Supply (T₁):**
+
+$$\frac{dT_1}{dt} = T_5$$
+
+Subject to the hard constraint:
+$$T_1(t) \leq 720,000,000 \text{ AVAX}$$
+
+When T₁ approaches the cap:
+$$T_5 \rightarrow 0 \text{ as } T_1 \rightarrow 720M$$
+
+**Circulating Supply (T₂):**
+
+$$\frac{dT_2}{dt} = T_5 - \frac{dS_1}{dt} + \mu_{unlock}(t)$$
+
+Where:
+- T₅ = token issuance rate adds to circulation
+- dS₁/dt = net staking change (positive staking reduces circulation)
+- μ_unlock(t) = scheduled token unlock rate from vesting contracts
+
+**Cumulative Burned (T₄):**
+
+$$\frac{dT_4}{dt} = F_3 + L_4$$
+
+*Intuitive interpretation:* Total burned tokens increase by the sum of Primary Network fee burning (F₃) and L1 fee burning (L₄).
+
+**Token Issuance Rate (T₅):**
+
+The issuance rate equals the aggregate reward distribution:
+
+$$T_5 = \Psi_i(S_1, \theta, T_1) = \eta_r(S_1, T_1, \theta)$$
+
+Following the official Avalanche reward formula:
+
+$$\eta_r = (T_{max} - T_1) \times \frac{S_1}{T_1} \times \frac{\bar{\tau}}{\tau_{mint}} \times ECR(\theta)$$
+
+Where:
+- T_max = 720,000,000 AVAX (maximum supply)
+- τ̄ = average staking duration
+- τ_mint = minting period (365 days)
+- ECR = Effective Consumption Rate
+
+**Effective Consumption Rate:**
+
+$$ECR(\theta) = \theta_{min} \times \left(1 - \frac{\bar{\tau}}{\tau_{mint}}\right) + \theta_{max} \times \frac{\bar{\tau}}{\tau_{mint}}$$
+
+With θ_min = 0.10 (10%) and θ_max = 0.12 (12%), creating a duration-dependent multiplier that rewards longer staking commitments.
+
+**Conservation Law:**
+
+$$T_2(t) + S_1(t) + L_{locked}(t) \leq T_1(t)$$
+
+Where L_locked represents tokens in vesting or other lock contracts.
+
+#### 3.5.4 Fee Dynamics Subsystem
+
+The fee dynamics subsystem implements the ACP-103 multidimensional fee mechanism for congestion pricing and the deflationary burn mechanism.
+
+**Gas Price (F₁) - ACP-103 Dynamic Fee Mechanism:**
+
+$$F_1(t) = M \times e^{x(t)/K}$$
+
+Where:
+- M = minimum base fee (1 nAVAX on C-Chain per ACP-125, 225 nAVAX baseline)
+- K = fee adjustment constant (2,164,043)
+- x(t) = excess gas consumption state variable
+
+**Excess Gas Evolution:**
+
+$$\frac{dx}{dt} = \begin{cases} G(t) - \Omega_{target} & \text{if } G(t) > \Omega_{target} \\ \max(0, x(t) - \Omega_{target}) \cdot \beta_{decay} & \text{if } G(t) \leq \Omega_{target} \end{cases}$$
+
+Where:
+- G(t) = current gas consumption rate
+- Ω_target = target gas consumption (50,000 gas/second)
+- β_decay = decay rate when under-utilized
+
+**Multidimensional Gas Calculation:**
+
+Total gas consumption aggregates across resource dimensions:
+
+$$G(t) = B(t) + 1000 \cdot R(t) + 1000 \cdot W(t) + 4 \cdot C(t)$$
+
+Where:
+- B = bandwidth consumption (bytes)
+- R = state/database reads (count)
+- W = state/database writes (count)
+- C = compute time (microseconds)
+
+**Network Utilization (F₂ and F₄):**
+
+$$F_2(t) = \frac{G(t)}{G_{max}}$$
+
+$$F_4(t) = 100 \times F_2(t)$$
+
+Where G_max is the maximum network gas capacity.
+
+**Fee Burn Rate (F₃):**
+
+$$F_3(t) = \int_0^{t} F_1(\tau) \cdot g(\tau) \, d\tau \bigg/ dt = F_1(t) \cdot G(t)$$
+
+In discrete time (per block):
+$$F_3 = \sum_{blocks} gasUsed_{block} \times baseFee_{block}$$
+
+Currently approximately 749 AVAX/day.
+
+**Fee Market Equilibrium:**
+
+At equilibrium, utilization equals target:
+$$G^* = \Omega_{target} \implies F_1^* = M$$
+
+The exponential mechanism ensures rapid fee increase under congestion and gradual return to baseline when demand subsides.
+
+#### 3.5.5 L1 Ecosystem Subsystem Dynamics
+
+The L1 ecosystem subsystem tracks application-specific blockchain creation, operation, and the continuous fee mechanism introduced by ACP-77.
+
+**Active L1 Count (L₁):**
+
+$$\frac{dL_1}{dt} = \lambda_{create}(\xi_d, F_{L1}) - \lambda_{abandon}(L_1, \pi_{L1})$$
+
+Where:
+- λ_create = L1 creation rate, function of developer demand (ξ_d) and L1 fee levels (F_L1)
+- λ_abandon = L1 abandonment rate, function of L1 profitability (π_L1)
+
+**Creation Rate Function:**
+
+$$\lambda_{create} = \alpha_{L1} \cdot \xi_d \cdot e^{-\beta_{L1} \cdot F_{L1}}$$
+
+Where higher fees dampen creation rate exponentially.
+
+**Abandonment Rate Function:**
+
+$$\lambda_{abandon} = \gamma_{L1} \cdot L_1 \cdot \mathbb{1}_{\pi_{L1} < \pi_{threshold}}$$
+
+L1s are abandoned when profitability falls below threshold.
+
+**L1 Fee Burn Rate (L₄) - ACP-77 Continuous Fee Mechanism:**
+
+$$L_4(t) = C_{L1}(t) \times V_{L1}(t)$$
+
+Where V_L1 is the total number of L1 validators and C_L1 is the continuous fee per validator:
+
+$$C_{L1}(t) = M_{L1} \times e^{x_{L1}(t)/K_{L1}}$$
+
+**L1 Validator Excess Evolution:**
+
+$$\frac{dx_{L1}}{dt} = \max(0, V_{L1}(t) - T_{L1,capacity})$$
+
+Where:
+- M_L1 = base continuous fee rate (512 nAVAX/second ≈ 1.33 AVAX/month)
+- K_L1 = L1 fee scaling constant (1,246,488,515)
+- T_L1,capacity = target validator capacity (10,000 validators)
+
+**L1 Validator Dynamics:**
+
+$$V_{L1}(t) = \sum_{i=1}^{L_1} v_i(t)$$
+
+Where v_i is the validator count for L1 i, subject to:
+- Each L1 validator must also be a Primary Network validator
+- Minimum validator requirements per L1
+
+#### 3.5.6 Governance Subsystem Dynamics
+
+The governance subsystem tracks ACP proposal flows and parameter evolution with built-in hysteresis for stability.
+
+**ACP Counts by Track (G₁-G₄):**
+
+For each track j ∈ {Standard, Best Practices, Meta, L1}:
+
+$$\frac{dG_j}{dt} = \lambda_{propose,j}(\xi_{community}) - \lambda_{implement,j}(G_j) - \lambda_{stale,j}(G_j)$$
+
+Where:
+- λ_propose,j = proposal rate for track j
+- λ_implement,j = implementation/activation rate
+- λ_stale,j = rate at which proposals become stale
+
+**ACP Status Flow Equations:**
+
+**Proposed Count (G₅):**
+$$\frac{dG_5}{dt} = \sum_j \lambda_{propose,j} - \lambda_{to\_implementable} - \lambda_{to\_stale} - \lambda_{activate}$$
+
+**Implementable Count (G₆):**
+$$\frac{dG_6}{dt} = \lambda_{to\_implementable} - \lambda_{implement}$$
+
+**Stale Count (G₇):**
+$$\frac{dG_7}{dt} = \lambda_{to\_stale} - \lambda_{revive}$$
+
+**Activated Count (G₈):**
+$$\frac{dG_8}{dt} = \lambda_{activate}$$
+
+**Governance Hysteresis Constraints:**
+
+Parameter changes are subject to rate limits to prevent instability:
+
+$$|\theta_{new} - \theta_{current}| \leq \Delta_{max}(\theta) \times (t - t_{last})$$
+
+$$t - t_{last} \geq \tau_{min,gov}$$
+
+Where:
+- Δ_max(θ) = maximum rate of change for parameter θ
+- t_last = time of last parameter change
+- τ_min,gov = minimum interval between changes
+
+#### 3.5.7 Inter-Subsystem Coupling
+
+The five subsystems are coupled through shared state variables and feedback mechanisms.
+
+**Staking ↔ Token Supply Coupling:**
+
+$$T_5 = \eta_r(S_1, T_1, \theta) \quad \text{(Issuance depends on staking)}$$
+
+$$\frac{dT_2}{dt} = T_5 - \frac{dS_1}{dt} + \mu_{unlock} \quad \text{(Circulation affected by staking)}$$
+
+**Fee Dynamics ↔ Token Supply Coupling:**
+
+$$\frac{dT_4}{dt} = F_3 + L_4 \quad \text{(Burning from fees)}$$
+
+Net inflation rate:
+$$I_{net} = \frac{T_5 - (F_3 + L_4)}{T_1}$$
+
+**Staking ↔ Fee Dynamics Coupling:**
+
+Effective APR incorporates deflationary effect:
+$$S_{5,effective} = S_5 + \frac{F_3 + L_4}{T_1} \quad \text{(Burning increases real returns)}$$
+
+**L1 Ecosystem ↔ Staking Coupling:**
+
+L1 validators must be Primary Network validators:
+$$V_{L1} \leq S_6$$
+
+L1 validation affects validator profitability:
+$$\pi_v = \pi_{v,primary} + \pi_{v,L1}(L_1, L_4)$$
+
+**Governance ↔ All Subsystems:**
+
+Governance controls all adjustable parameters:
+$$\frac{d\theta}{dt} = f_{gov}(G_1, ..., G_8, \text{voting outcomes})$$
+
+Subject to hysteresis constraints.
+
+**Primary Feedback Loops:**
+
+1. **Fee Burning Value Loop (Reinforcing):**
+$$\text{Activity} \uparrow \rightarrow F_3 \uparrow \rightarrow T_4 \uparrow \rightarrow \text{Scarcity} \uparrow \rightarrow \text{Value} \uparrow \rightarrow \text{Activity} \uparrow$$
+
+2. **Staking Security Loop (Balancing):**
+$$S_5 \uparrow \rightarrow S_1 \uparrow \rightarrow T_2 \downarrow \rightarrow \text{Liquidity} \downarrow \rightarrow \text{Activity} \downarrow$$
+
+3. **L1 Growth Loop (Reinforcing):**
+$$L_1 \uparrow \rightarrow \text{Activity} \uparrow \rightarrow L_4 \uparrow \rightarrow \text{Ecosystem Value} \uparrow \rightarrow L_1 \uparrow$$
+
+#### 3.5.8 Dynamic Function Specifications
+
+This section provides explicit mathematical forms for the four core dynamic functions.
+
+**Staking Inflow Function (φₛ):**
+
+$$\phi_s(S_5, T_2, \xi_m) = \alpha_s \cdot \tanh(\beta_s(S_5 - r_0)) \cdot T_2 \cdot \xi_m$$
+
+Where:
+- αₛ = staking sensitivity coefficient
+- βₛ = steepness of APR response
+- r₀ = baseline opportunity cost (external yield rates)
+- tanh provides bounded, smooth response to APR changes
+
+**Unstaking Outflow Function (ψᵤ):**
+
+$$\psi_u(S_5, r_{opp}) = \alpha_u \cdot S_1 \cdot \sigma(\beta_u(r_{opp} - S_5))$$
+
+Where:
+- αᵤ = unstaking sensitivity coefficient
+- βᵤ = steepness of unstaking response
+- σ(·) = sigmoid function providing smooth transition
+- Unstaking increases when opportunity cost exceeds staking APR
+
+**Reward Distribution Function (ηᵣ):**
+
+Per the official Avalanche specification:
+
+$$\eta_r(S_1, T_1, \theta) = (720M - T_1) \times \frac{S_1}{T_1} \times \frac{\bar{\tau}}{365} \times ECR(\bar{\tau})$$
+
+$$ECR(\bar{\tau}) = 0.10 \times \left(1 - \frac{\bar{\tau}}{365}\right) + 0.12 \times \frac{\bar{\tau}}{365}$$
+
+Where τ̄ is measured in days. This creates:
+- Minimum consumption rate: 10% (for 14-day minimum stake)
+- Maximum consumption rate: 12% (for 365-day maximum stake)
+- Linear interpolation between these bounds
+
+**Token Issuance Function (Ψᵢ):**
+
+$$\Psi_i(S_1, \theta, T_1) = \eta_r(S_1, T_1, \theta)$$
+
+The issuance function equals the reward function—all issuance flows to stakers as rewards.
+
+**Current Parameter Values:**
+
+| Parameter | Symbol | Value | Source |
+|-----------|--------|-------|--------|
+| Maximum Supply | T_max | 720,000,000 AVAX | Protocol |
+| Min Consumption Rate | θ_min | 10% | Protocol |
+| Max Consumption Rate | θ_max | 12% | Protocol |
+| Min Validator Stake | σ_min | 2,000 AVAX | Protocol |
+| Max Validator Stake | σ_max | 3,000,000 AVAX | Protocol |
+| Min Staking Duration | τ_min | 14 days | Protocol |
+| Max Staking Duration | τ_max | 365 days | Protocol |
+| Validator Re-stake Rate | ρ_v | 70% | Observed |
+| Delegator Re-stake Rate | ρ_d | 50% | Observed |
+| Fee Adjustment Constant | K | 2,164,043 | ACP-103 |
+| Target Gas Rate | Ω_target | 50,000 gas/s | ACP-103 |
+| L1 Base Fee | M_L1 | 512 nAVAX/s | ACP-77 |
+| L1 Target Validators | T_L1,capacity | 10,000 | ACP-77 |
+
+#### 3.5.9 Equilibrium Analysis
+
+**Staking Equilibrium:**
+
+At equilibrium, staking inflows equal outflows:
+$$\phi_s^* = \psi_u^* - \rho_r \cdot \eta_r^*$$
+
+Solving for equilibrium staking ratio:
+$$\frac{S_1^*}{T_1} \approx 0.50 - 0.60 \text{ (target range)}$$
+
+**Fee Market Equilibrium:**
+
+When utilization equals target:
+$$G^* = \Omega_{target} \implies x^* = 0 \implies F_1^* = M$$
+
+**Supply Equilibrium (Long-term):**
+
+As T₁ → T_max, issuance approaches zero:
+$$\lim_{T_1 \to 720M} T_5 = 0$$
+
+At this point, the system becomes purely deflationary:
+$$\frac{dT_1}{dt} = 0, \quad \frac{dT_4}{dt} = F_3 + L_4 > 0$$
+
+**Net Inflation Crossover:**
+
+The system transitions from inflationary to deflationary when:
+$$T_5 = F_3 + L_4$$
+
+At current rates (T₅ ≈ 26,555 AVAX/day, F₃ + L₄ ≈ 810 AVAX/day), this requires approximately 33× increase in fee activity or equivalent reduction in issuance.
+
 ## 4. State Variables
 
 ### 4.1 System-Level State Variables
