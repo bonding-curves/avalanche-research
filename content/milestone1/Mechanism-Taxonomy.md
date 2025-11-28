@@ -1,394 +1,280 @@
-  
-**Last Update:** Mar 6, 2025  
-**Draft Stage:** 2nd Draft
-
-# **Avalanche Mechanism Taxonomy**
-
-The Avalanche Mechanism Taxonomy presented below provides a comprehensive framework for understanding the core technical mechanisms that power The Avalanche Network. This document details the architecture, consensus protocols, virtual machines, and governance systems that enable the network's unique capabilities and performance characteristics.
-
-Unlike traditional blockchain taxonomies that focus solely on single-chain architecture, this document explicitly maps the interactions between Avalanche's three specialized chains and their respective mechanisms. The taxonomy is intended to serve as a reference for developers, validators, and researchers to better understand the technical underpinnings of the Avalanche ecosystem. For broader economic context, see [Avalanche Economy relative to the Open Economy](Avalanche%20Economy%20relative%20to%20the%20Open%20Economy.md).
-
-This taxonomy will be reviewed and refined during the upcoming Technical Architecture Review sessions.
-
-## **Assumptions**
-
-* Mechanisms operate within the context of rational actor behavior  
-* Mechanism interactions follow established protocol rules  
-* Governance parameters reflect current consensus rules
-
-## **Mechanisms in the Avax Network**
-
-* Mechanism Benefits Overview  
-* Three Chain Architecture  
-  * P-Chain (Platform Chain)  
-  * X-Chain (Exchange Chain)  
-  * C-Chain (Contract Chain)  
-* Cross Chain Interactions  
-  * P→X Chain Interactions  
-  * X→C Chain Interactions  
-  * C→P Chain Interactions  
-* Consensus Layer Implementation  
-  * Snow Protocol Family Core  
-  * Consensus Properties  
-  * Consensus Layer Interactions  
-* Virtual Machine Components  
-  * AVM (X-Chain)  
-  * EVM (C-Chain)  
-  * Platform VM (P-Chain)  
-  * VM Component Interactions  
-* Governance Components  
-  * Proposal Process  
-  * Voting Process  
-  * Parameter Updates  
-  * Implementation Process  
-  * Monitoring & Analytics  
-* Key Performance Metrics  
-  * Transaction Processing  
-  * Network Participation  
-  * Economic Metrics  
-  * L1 Activity  
-* Key Security Considerations  
-* Future Development Roadmap  
-* Mechanism Taxonomy Summary
-
-## **Mechanism Benefits Overview**
-
-* The three-chain model (P, X, C) provides specialized functionality while maintaining interoperability through cross-chain interactions  
-* The Snow protocol family enables high throughput and fast finality through its unique probabilistic consensus approach  
-* Virtual machines are purpose-built \- AVM for asset transfers, EVM for smart contracts, and Platform VM for network coordination  
-* The governance and economic models work together to align incentives and enable controlled evolution of the protocol
-
-## **Three Chain Architecture**
-
-### **P-Chain (Platform Chain)**
-
-Core Functions:
-
-* [Validator coordination & staking](Participant%20Roles%20Taxonomy.md#primary-network-validator-pnv)  
-* [L1 management](Participant%20Roles%20Taxonomy.md#l1-validator-l1v)  
-* Network-wide coordination
-
-Key Mechanisms:
-
-* [Validator registration/deregistration](Participant%20Roles%20Taxonomy.md#primary-network-validator-pnv)  
-* [Stake amount tracking & rewards](Economic%20Taxonomy.md#staking-mechanism)  
-* L1 permissions & resource allocation  
-* Uptime monitoring (>80% requirement)  
-* [Delegation relationships](Participant%20Roles%20Taxonomy.md#delegator) (max 5 per validator)
-
-### **X-Chain (Exchange Chain)**
-
-Core Functions:
-
-* Digital asset exchange  
-* Asset creation & management  
-* Fee-based operations
-
-Key Mechanisms:
-
-* Asset creation ([0.01 AVAX fee](Economic%20Taxonomy.md#fee-structure))  
-* Transfer validation ([0.001 AVAX fee](Economic%20Taxonomy.md#fee-structure))  
-* UTXO-based ownership tracking  
-* Native asset operations  
-* Multi-sig support
-
-### **C-Chain (Contract Chain)**
-
-Core Functions:
-
-* Smart contract execution  
-* EVM compatibility  
-* Cross-chain operations
-
-Key Mechanisms:
-
-* Dynamic gas pricing  
-* Block gas limits (8M)  
-* State management  
-* Atomic cross-chain transfers  
-* Bridge contract operations
-
-## **Cross Chain Interactions**
-
-### **P-\>X Chain Interactions**
-
-* [Reward Distribution](Economic%20Taxonomy.md#validator-incentives)  
-  * [Validator reward calculations and distribution](Participant%20Roles%20Taxonomy.md#primary-network-validator-pnv)  
-  * [Delegation reward routing](Participant%20Roles%20Taxonomy.md#delegator)  
-  * Performance-based adjustments  
-* Asset Management  
-  * Creation permissions validation  
-  * Ownership verification  
-  * Multi-sig authorization  
-* Fee Systems  
-  * Dynamic fee calculations  
-  * Payment routing validation  
-  * Burn mechanism execution
-
-### **X-\>C Chain Interactions**
-
-* Asset Operations  
-  * Wrapping/unwrapping protocols  
-  * Atomic swap coordination  
-  * State consistency verification  
-* Bridge Mechanisms  
-  * Asset locking/unlocking  
-  * Cross-chain message passing  
-  * Event verification
-
-### **C-\>P Chain Interactions**
-
-* Validator Operations  
-  * Payment processing  
-  * Status updates  
-  * Performance metrics  
-    
-
-## **Consensus Layer Implementation** 
-
-### **Snow Protocol Family Core**
-
-* [Metastability-based consensus](https://docs.avax.network/learn/avalanche/consensus)  
-  * Network subsampling for scalability  
-  * Probabilistic safety guarantees  
-  * Byzantine fault tolerance
-
-  ### **[Snowman Protocol](https://docs.avax.network/learn/avalanche/consensus#snowman)**
-
-* Total ordering mechanism  
-  * Sequential block production  
-  * Parent-child block relationships  
-  * Finality determination  
-  * Used by P-Chain and C-Chain for deterministic ordering
-
-  ### **[Avalanche Protocol](https://docs.avax.network/learn/avalanche/consensus#avalanche)**
-
-* Partial ordering mechanism  
-  * DAG-based transaction structuring  
-  * Concurrent transaction processing  
-  * Conflict resolution through voting  
-  * Used by X-Chain for high throughput
-
-  ### **Consensus Properties**
-
-* Security Parameters  
-  * Confidence threshold configuration  
-  * Quorum size requirements  
-  * Network sampling rates  
-* Performance Characteristics  
-  * Sub-second finality  
-  * High transaction throughput  
-  * Network bandwidth optimization  
-  * Resource-efficient validation
-
-## **Consensus Layer Interactions**
-
-### **Core Protocol Interactions**
-
-* Snowman \<-\> Avalanche  
-  * Cross-protocol transaction validation  
-  * State synchronization between chains  
-  * Coordinated finality conditions
-
-### **Chain-Specific Interactions**
-
-* P-Chain (Snowman)  
-  * Validator set management impacts consensus  
-  * Staking changes affect voting power  
-  * L1 coordination requires total ordering  
-* X-Chain (Avalanche)  
-  * Parallel transaction processing  
-  * Conflict resolution through DAG  
-  * Asset transfers require partial ordering  
-* C-Chain (Snowman)  
-  * Smart contract execution ordering  
-  * State transitions require determinism  
-  * Gas metering affects block production
-
-## **Virtual Machine Components**
-
-### **AVM (X-Chain):**
-
-* UTXO Management  
-  * Transaction input/output tracking  
-  * Address balance maintenance  
-  * Multi-sig support implementation  
-  * Asset ownership verification  
-* Asset Operations  
-  * Creation/minting mechanisms  
-  * Transfer validation rules  
-  * Metadata handling  
-  * Fee calculation logic
-
-  ### **EVM (C-Chain):**
-
-* Contract Execution  
-  * Bytecode interpretation  
-  * Memory management  
-  * Call stack handling  
-  * Event logging  
-* State Management  
-  * Account state tracking  
-  * Storage trie maintenance  
-  * State transition validation  
-  * Merkle proofs
-
-  ### **Platform VM (P-Chain):**
-
-* Validator Operations  
-  * Stake tracking  
-  * Reward calculations  
-  * Slashing conditions  
-  * Uptime monitoring  
-* L1 Management  
-  * Validator set tracking  
-  * Permission management  
-  * Resource allocation  
-  * Cross-L1 coordination
-
-## **VM Component Interactions:**
-
-* ### **AVM (X-Chain) \<-\> EVM (C-Chain)**
-
-  * Asset Bridge Operations  
-    * Asset wrapping/unwrapping  
-    * Atomic transaction coordination  
-    * State verification protocols  
-    * Asset metadata translation  
-    * Transaction finality synchronization  
-    * Transaction ordering
-
-* ### **PlatformVM (P-Chain) \<-\> AVM (X-Chain)**
-
-  * Staking & Rewards  
-    * Staking operations  
-    * Stake amount verification  
-    * Reward calculation triggers  
-    * Reward distribution  
-    * Fee processing  
-    * Fee distribution mechanisms  
-    * Delegation relationship tracking
-
-* ### **PlatformVM (P-Chain): \<-\> EVM (C-Chain)**
-
-  * L1 management  
-    * Contract-based staking  
-    * Governance operations  
-    * Validator set updates  
-    * Permission verification  
-    * Resource allocation tracking  
-    * Cross-L1 messaging
-
-## **Governance Components**
-
-### **Proposal Process**
-
-* Submission Requirements  
-  * [Stake threshold: 50,000 AVAX locked during proposal period](Economic%20Taxonomy.md#governance-parameters)  
-  * Documentation: Standardized GitHub template with:  
-    * Technical specification  
-    * Economic impact analysis  
-    * Security considerations  
-    * Implementation timeline  
-* Technical Specifications  
-  * Code implementation details  
-  * Test coverage requirements (\>90%)  
-  * Integration test scenarios  
-  * Performance benchmarks
-
-### **Voting Process**
-
-* Stake-Weighted Voting  
-  * Base voting power \= stake amount  
-  * Delegation multiplier based on lock period  
-  * Vote weight calculation: stake \* (1 \+ delegation\_bonus)  
-* Quorum Rules  
-  * Minimum participation: 67% of total stake  
-  * Approval threshold: 80% yes votes  
-  * Voting period: 14 days
-
-### **Parameter Updates**
-
-* Network Parameters  
-  * Minimum stake adjustments (2000-100000 AVAX range)  
-  * Transaction fee modifications (±20% per change)  
-  * Block gas limits (5M-15M range)  
-* Economic Parameters  
-  * [Reward rate changes (1-10% APR range)](Avalanche%20Economy%20relative%20to%20the%20Open%20Economy.md)  
-  * Slashing conditions (0-100% of stake)  
-  * Fee distribution ratios
-
-### **Implementation Process**
-
-* Timelock Requirements  
-  * Critical parameters: 14 day delay  
-  * Economic parameters: 7 day delay  
-  * Technical parameters: 3 day delay  
-  * Emergency changes: 24 hour minimum  
-* Security Framework  
-  * Multiple independent audits required  
-  * Auditor qualification standards  
-  * Critical/High/Medium/Low severity classifications  
-  * Mandatory fix verification
-
-### **Monitoring & Analytics**
-
-* Impact Tracking  
-  * Real-time parameter monitoring  
-  * Network health metrics dashboard  
-  * Participation analytics  
-  * Economic impact measurements
-
-### **Dispute Resolution**
-
-* Challenge Process  
-  * 48-hour challenge period  
-  * Technical committee review  
-  * Community appeal process  
-  * Binding arbitration protocol
-
-## **Key Performance Metrics**
-
-### **Transaction Processing**
-
-* Base layer throughput: 4,500+ TPS (verified through network stress tests)  
-* Time to finality: <1 second (documented in protocol specifications)  
-* Block gas limit: 8M (configured network parameter)  
-### **Network Participation**
-
-* Active validator count: ~1,200 validators  
-* Total stake: >60% of circulating supply  
-* [Minimum stake requirement: 2,000 AVAX](Participant%20Roles%20Taxonomy.md#primary-network-validator-pnv)  
-
-### **Economic Metrics**
-
-* [Annual staking rewards: ~8% APR](Economic%20Taxonomy.md#validator-incentives)  
-* [Fee burn rate: ~$11.5M annually](Economic%20Taxonomy.md#fee-structure)  
-* [Transaction fees: 0.001 AVAX base fee](Economic%20Taxonomy.md#fee-structure)  
-
-### **L1 Activity**
-
-* Active L1: >30  
-* Cross-L1 transaction volume  
-* L1 validator participation rates
-
-### **Security Considerations**
-
-* Byzantine fault tolerance thresholds  
-* Network attack surface analysis  
-* Cross-chain bridge security  
-* Validator slashing conditions  
-* Probabilistic finality guarantees
-
-### **Future Development Roadmap**
-
-* Enhanced L1 interoperability  
-* Scaling improvements via optimized consensus  
-* Advanced governance mechanisms  
-* New virtual machine implementations  
-* Cross-chain messaging protocols
-
-## **Mechanism Taxonomy Summary**
-
-The Avalanche network operates through a sophisticated system of interconnected mechanisms across its three specialized chains. The [P-Chain manages network validation and L1 coordination](https://docs.avax.network/learn/avalanche/avalanche-platform#platform-chain-p-chain) using the [Snowman consensus protocol](https://docs.avax.network/learn/avalanche/consensus#snowman) for deterministic ordering. The [X-Chain handles asset operations](https://docs.avax.network/learn/avalanche/avalanche-platform#exchange-chain-x-chain) through the [Avalanche protocol's](https://docs.avax.network/learn/avalanche/consensus#avalanche) high-throughput DAG structure. The [C-Chain enables smart contract execution](https://docs.avax.network/learn/avalanche/avalanche-platform#contract-chain-c-chain) with EVM compatibility using Snowman consensus. These chains interact through carefully designed cross-chain mechanisms ensuring atomic operations, consistent state, and seamless asset transfers. The consensus layer implements the innovative [Snow* protocol family](https://docs.avax.network/learn/avalanche/consensus), providing sub-second finality with Byzantine fault tolerance. Virtual machines manage chain-specific operations while [governance components](Economic%20Taxonomy.md#governance-parameters) ensure transparent and secure network evolution. [Economic primitives](Economic%20Taxonomy.md) establish proper incentive alignment for all [network participants](Participant%20Roles%20Taxonomy.md).
+---
+title: Avalanche Mechanism Taxonomy
+---
 
+**Last Updated:** November 28, 2025
+**Draft Stage:** 3rd Draft
+
+# Avalanche Mechanism Taxonomy
+
+This document provides an accessible introduction to the core technical mechanisms that power the Avalanche network. Rather than examining individual components in isolation, it maps how Avalanche's specialized chains, consensus protocols, and virtual machines work together as an integrated system.
+
+For the economic primitives that incentivize these mechanisms, see [Economic Taxonomy](/milestone1/Economic-Taxonomy). For participant role definitions, see [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy). For the macroeconomic framework, see [Avalanche Economy relative to the Open Economy](/milestone1/Avalanche-Economy-relative-to-the-Open-Economy). For detailed protocol governance, see [ACP Summaries](/milestone2/ACP-Summaries).
+
+---
+
+## Overview
+
+Avalanche's architecture reflects a fundamental design philosophy: **specialization through separation**. Rather than forcing all operations through a single general-purpose chain, Avalanche distributes functionality across three purpose-built chains, each optimized for its specific role.
+
+| Mechanism | Purpose | Key Innovation |
+|-----------|---------|----------------|
+| Three-Chain Architecture | Specialized processing | P/X/C chains avoid "one size fits all" bottlenecks |
+| Snow Consensus | Network agreement | Repeated random sampling achieves speed + security |
+| Virtual Machines | State management | Purpose-built VMs for each chain's requirements |
+| Cross-Chain Communication | Interoperability | Native messaging without external bridges |
+| Governance | Protocol evolution | Community-driven upgrades via ACP process |
+
+---
+
+## Three-Chain Architecture
+
+The Avalanche Primary Network operates three blockchains, each secured by the same validator set but optimized for different functions. This separation allows each chain to use the most appropriate data structure and consensus variant for its purpose.
+
+### P-Chain (Platform Chain)
+
+The P-Chain serves as the network's coordination layer—the "operating system" that manages validators, tracks staking, and coordinates L1 blockchains (formerly called Subnets).
+
+**Core Functions:**
+- Validator registration and BLS public key management
+- Staking operations and reward distribution
+- L1 creation, configuration, and validator set tracking
+- Network-wide parameter governance
+
+**Key Characteristics:**
+- Uses Snowman consensus for deterministic ordering
+- Maintains validator sets for all L1s in the ecosystem
+- Serves as the membership registry for cross-chain communication
+- Charges continuous fees to L1 validators (~1.33 AVAX/month baseline)
+
+For validator requirements and economics, see [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy#primary-network-validator-pnv) and [Economic Taxonomy](/milestone1/Economic-Taxonomy#staking-economics).
+
+### X-Chain (Exchange Chain)
+
+The X-Chain handles digital asset creation and transfer using a UTXO-based model optimized for simple, high-throughput transactions.
+
+**Core Functions:**
+- Asset creation and management
+- AVAX and native token transfers
+- Multi-signature operations
+
+**Key Characteristics:**
+- Uses Snowman consensus (upgraded from DAG-based in Cortina)
+- UTXO model tracks unspent transaction outputs
+- Optimized for parallel processing of independent transactions
+- Lower activity than C-Chain as most DeFi moved to EVM
+
+### C-Chain (Contract Chain)
+
+The C-Chain provides full Ethereum Virtual Machine (EVM) compatibility, enabling smart contract deployment and execution with familiar tooling.
+
+**Core Functions:**
+- Smart contract deployment and execution
+- DeFi protocol operations
+- Cross-chain asset bridging
+
+**Key Characteristics:**
+- Uses Snowman consensus with Snowman++ enhancement
+- Account-based model (like Ethereum)
+- Dynamic gas pricing with 1 nAVAX minimum base fee (reduced 96% via [ACP-125](/milestone2/ACP-Summaries#acp-125))
+- Primary chain for user activity and DeFi
+
+---
+
+## Consensus Mechanisms
+
+Avalanche's consensus represents a fundamental innovation: achieving both the speed of centralized systems and the security of decentralized ones through **repeated random sampling**.
+
+### The Snow Protocol Family
+
+Rather than requiring every validator to communicate with every other validator (which limits scalability), Snow protocols query small random samples of the network. This approach achieves consensus with constant message complexity regardless of network size.
+
+**How It Works:**
+1. A validator needs to decide on a transaction's validity
+2. It queries a random sample of 20 validators (the *k* parameter)
+3. If 14+ validators (the *α* quorum) agree, that becomes the validator's preference
+4. After 20 consecutive rounds (*β* threshold) confirming the same preference, the transaction is finalized
+
+This process typically completes in under one second, providing sub-second finality without sacrificing decentralization.
+
+### Snowman Consensus
+
+Snowman is the linear-chain variant of Snow consensus, used when transactions must be totally ordered (processed in a specific sequence). All three Primary Network chains now use Snowman:
+
+- **P-Chain**: Requires ordering for validator set changes
+- **C-Chain**: Requires ordering for smart contract execution
+- **X-Chain**: Upgraded to Snowman in the Cortina network update
+
+The **Snowman++** enhancement reduces contention in adversarial environments by restricting which validators can propose blocks, improving efficiency by ~99.7% compared to base Snowman.
+
+### Consensus Properties
+
+| Property | Description |
+|----------|-------------|
+| **Sub-second Finality** | Transactions finalize in <1 second under normal conditions |
+| **Probabilistic Safety** | Probability of conflicting decisions can be made arbitrarily small |
+| **Byzantine Fault Tolerance** | Tolerates up to 1/3 malicious validators |
+| **Scalable** | Message complexity remains constant as network grows |
+
+---
+
+## Cross-Chain Communication
+
+Avalanche provides two mechanisms for moving assets and messages between chains: atomic transactions for Primary Network chains, and Avalanche Warp Messaging for L1 interoperability.
+
+### Atomic Transactions
+
+Assets can move between P-Chain, X-Chain, and C-Chain through a two-step atomic process:
+
+1. **Export**: Transaction exports AVAX from the source chain
+2. **Import**: Transaction imports AVAX onto the destination chain
+
+Both steps must complete for the transfer to finalize. This enables seamless movement between chains without external bridges.
+
+### Avalanche Warp Messaging (AWM)
+
+AWM enables native communication between any L1 blockchains without requiring trusted intermediaries or external bridges. Also called Interchain Messaging (ICM), this protocol leverages BLS signature aggregation for efficient cross-chain verification.
+
+**How AWM Works:**
+- Every validator registers a BLS key pair on the P-Chain
+- L1 validators collectively sign messages attesting to their validity
+- Signatures aggregate into a single compact multi-signature
+- Any L1 can verify messages from any other L1 by reading the P-Chain registry
+
+**Key Benefits:**
+- No third-party bridges or trusted intermediaries
+- Configurable security thresholds per L1 pair
+- Private L1s can communicate without public message records
+- Eliminates point-to-point validator set synchronization
+
+For implementation details, see the Warp Precompile at address `0x0200000000000000000000000000000000000005` ([ACP-30](/milestone2/ACP-Summaries#acp-30)).
+
+---
+
+## Virtual Machines
+
+Each chain runs a purpose-built virtual machine optimized for its specific operations.
+
+### Platform VM (P-Chain)
+
+Manages validator operations, staking mechanics, and L1 coordination. Tracks validator sets for all L1s and maintains the BLS public key registry used for cross-chain messaging.
+
+### Avalanche VM / AVM (X-Chain)
+
+Handles UTXO-based asset operations including creation, transfer, and multi-signature transactions. Optimized for high-throughput simple transfers.
+
+### Coreth / EVM (C-Chain)
+
+An Ethereum Virtual Machine implementation providing full compatibility with Solidity smart contracts, Ethereum tooling, and existing dApp codebases. Supports all standard EVM opcodes plus Avalanche-specific precompiles for cross-chain functionality.
+
+---
+
+## Major Network Upgrades
+
+Avalanche evolves through coordinated network upgrades that activate bundles of Avalanche Community Proposals (ACPs). Recent major upgrades have significantly enhanced the network's capabilities.
+
+### Durango (March 2024)
+
+Brought Avalanche Warp Messaging to the C-Chain and Subnet-EVM, enabling native cross-L1 communication. Key ACPs: 23, 24, 25, 30, 31, 41, 62.
+
+### Etna / Avalanche9000 (December 2024)
+
+The largest upgrade since mainnet launch, fundamentally restructuring L1 economics:
+- Eliminated the 2,000 AVAX staking requirement for L1 validators
+- Introduced continuous fee model (~1.33 AVAX/month per validator)
+- Reduced C-Chain base fees by 96% (25 nAVAX → 1 nAVAX)
+- Added dynamic fees to P-Chain and X-Chain
+
+Key ACPs: 20, 77, 103, 118, 125, 131, 151.
+
+### Octane (April 2025)
+
+Introduced dynamic gas limits allowing validators to adjust target throughput without hard forks:
+- C-Chain target gas increased 30% (1.6M → 2.1M gas/second)
+- Fees dropped ~77% following activation
+- Represents shift toward self-tuning network parameters
+
+Key ACP: 176.
+
+### Granite (November 2025)
+
+Most recent upgrade focusing on cross-chain reliability and user experience:
+- P-Chain epoched views for more reliable cross-chain message verification
+- secp256r1 precompile enabling biometric authentication (fingerprint, Face ID)
+- Dynamic minimum block times for adaptive performance
+
+Key ACPs: 181, 204, 226.
+
+For complete ACP documentation, see [ACP Summaries](/milestone2/ACP-Summaries).
+
+---
+
+## Current Network Metrics
+
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Primary Network Validators | ~1,400 | Stake 2,000+ AVAX, validate P/X/C chains |
+| L1 Validators | ~1,600 | Pay continuous fees, validate specific L1s |
+| Active L1s | 53 | 14 modern (ACP-77), 39 legacy |
+| Time to Finality | <1 second | Sub-second under normal conditions |
+| Throughput | 4,500+ TPS | Per chain; L1s scale horizontally |
+| Staking Ratio | ~47% | Of circulating supply |
+| C-Chain Min Base Fee | 1 nAVAX | Reduced 96% via ACP-125 |
+
+---
+
+## Governance
+
+Avalanche evolves through the Avalanche Community Proposal (ACP) process, a structured framework for proposing, discussing, and implementing protocol changes.
+
+**ACP Tracks:**
+- **Standards Track**: Protocol-level changes requiring network upgrades
+- **Best Practices Track**: Recommended approaches for builders
+- **Meta Track**: Changes to the ACP process itself
+
+**Process Flow:**
+1. Idea discussion on GitHub
+2. Formal proposal submission
+3. Community review and iteration
+4. Implementation when ready
+5. Coordinated activation by validators
+
+The governance system includes built-in safeguards: hysteresis mechanisms prevent rapid parameter changes, time delays provide review periods, and range limitations keep changes within sustainable bounds.
+
+For detailed governance architecture, see [Economic Taxonomy](/milestone1/Economic-Taxonomy#governance-architecture).
+
+---
+
+## Summary
+
+Avalanche's mechanism design reflects careful engineering tradeoffs:
+
+- **Three specialized chains** avoid the limitations of monolithic architectures while maintaining interoperability through atomic transactions and native messaging
+- **Snow consensus** achieves sub-second finality through probabilistic sampling rather than deterministic communication, enabling both speed and scale
+- **Purpose-built VMs** optimize each chain for its specific workload rather than forcing general-purpose computation everywhere
+- **Native cross-chain communication** eliminates dependence on external bridges while allowing L1s to define their own security thresholds
+- **Community governance** enables controlled protocol evolution while safeguarding against destabilizing rapid changes
+
+These mechanisms work together to create a platform capable of hosting diverse applications—from high-frequency DeFi to enterprise blockchains—while maintaining the security guarantees expected of a decentralized network.
+
+---
+
+## References
+
+1. Ava Labs. *Avalanche Platform Whitepaper*. 2020. https://www.avalabs.org/whitepapers
+
+2. Ava Labs. *Avalanche Consensus Whitepaper*. 2020. https://www.avalabs.org/whitepapers
+
+3. Avalanche. *Primary Network Documentation*. Avalanche Builder Hub. https://build.avax.network/docs/primary-network
+
+4. Avalanche. *Snowman Consensus*. Avalanche Builder Hub. https://build.avax.network/academy/avalanche-l1/avalanche-fundamentals/02-avalanche-consensus-intro/03-snowman-consensus
+
+5. Avalanche. *Avalanche Warp Messaging Overview*. https://docs.avax.network/build/cross-chain/awm/overview
+
+6. Avalanche Foundation. *ACP-77: Reinventing Subnets*. 2024. https://github.com/avalanche-foundation/ACPs/tree/main/ACPs/77-reinventing-subnets
+
+7. Avalanche Foundation. *ACP-176: Dynamic EVM Gas Limits*. 2025. https://github.com/avalanche-foundation/ACPs/tree/main/ACPs/176-dynamic-evm-gas-limit-and-price-discovery-updates
+
+8. Lewis-Pye, A. et al. *Frosty: Bringing Strong Liveness Guarantees to the Snow Family*. 2024. https://arxiv.org/abs/2404.14250
+
+9. Avalanche. *Granite Upgrade*. Avalanche Builder Hub. 2025. https://build.avax.network/blog/granite-upgrade
