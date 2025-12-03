@@ -70,7 +70,16 @@ This mathematical foundation enables rigorous stability analysis, parameter opti
 
 ---
 
-## Milestone 4: Economic Hypotheses and Framework
+## Milestone 4: Economic Hypotheses, System Needs, and Strategic Roadmap
+
+### [Mission Elements Need Statement (MENS)](/milestone4/MENS)
+
+The MENS document applies Model-Based Systems Engineering methodology to define the Avalanche Economic System boundary, identify stakeholder concerns, and derive system needs. This foundational analysis:
+
+- **Defines system scope**: Establishes what is inside vs. outside the Avalanche Economic System
+- **Catalogs stakeholder concerns**: Documents structural tensions for validators, delegators, L1 operators, token holders, users, developers, and governance actors
+- **Derives system needs**: Translates concerns into eight formal system needs including proportional economic contribution, predictable cost structures, cross-layer incentive coherence, and adaptive economic behavior
+- **Identifies capability gaps**: Maps deficiencies in current mechanisms that future development could address
 
 ### [Economic Hypotheses](/milestone4/economic_hypotheses)
 
@@ -80,6 +89,17 @@ Translating mathematical models into actionable insights, this deliverable prese
 - **Fee dynamics**: Exponential adjustment provides stability under demand shocks
 - **L1 sustainability**: Continuous fee model (ACP-77) creates sustainable economics
 - **Supply trajectory**: Burn rate increases (3× in 2025) indicate improving tokenomics
+
+Each hypothesis is linked to stakeholder concerns from the MENS, providing traceability from system needs to testable predictions.
+
+### [Research Insights and Future Roadmap](/milestone4/insights)
+
+The culminating synthesis document consolidates key findings and charts the path forward:
+
+- **Critical findings**: Net inflation at 3.76%, validator decline of 40.5% in Q3 2025, ACP-77's 99.9% cost reduction for L1s, and staking ratio concerns
+- **Strategic recommendations**: Immediate priorities (validator decline investigation, real-time monitoring), short-term goals (hypothesis testing, L1 modeling), and long-term vision (digital twin development)
+- **cadCAD implementation framework**: Complete architecture for simulation including state variables, policy functions, and validation methodology
+- **Success metrics**: KPIs for model performance, research impact, and ecosystem health
 
 ---
 
