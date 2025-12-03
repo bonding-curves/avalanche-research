@@ -47,7 +47,7 @@ The BCRG Avalanche Economic Research Project represents a systematic effort to u
 |---------|-------------|----------|
 | **Net inflation ~3.76% annually** | Burn rate tripled in 2025 (~1,500 AVAX/day) but still lags issuance (~49,000 AVAX/day). Achieving deflation requires ~33× current activity. | Monitor |
 | **Validator decline 40.5% in Q3 2025** | Primary Network validators dropped from 1,436 to 855—the most significant decline in history. Root causes unclear but may relate to ACP-77 migration, opportunity costs, or profitability. | Investigate |
-| **ACP-77 reduced L1 costs 99.9%** | Entry cost dropped from approx. \$70,000 stake to approx. \$53/month continuous fee, democratizing L1 creation and enabling economic experimentation at new scales. | Opportunity |
+| **ACP-77 reduced L1 costs 99.9%** | Entry cost dropped from ~\$70,000 stake to ~\$53/month continuous fee, democratizing L1 creation and enabling economic experimentation at new scales. | Opportunity |
 | **Staking ratio dropped from 48% to 41%** | ~32.5M AVAX exited staking in Q3 2025. Below 40% may impact security assumptions. Optimal range is 50-60%. | Concern |
 | **TVL grew 41.6% to \$2.2B** | DeFi activity remains strong despite infrastructure stress, indicating healthy user demand. | Positive |
 
@@ -83,9 +83,9 @@ Our five-pillar decomposition reveals these subsystems are connected through mul
 
 | Source | Target | Mechanism | Magnitude |
 |--------|--------|-----------|-----------|
-| Staking | Token Supply | Reward minting | approx. 49,000 AVAX/day (approx. \$1.7M) |
-| Fees | Token Supply | Fee burning | approx. 1,500 AVAX/day (approx. \$53K) |
-| L1 Ecosystem | Token Supply | Validator fee burns | approx. 2,100 AVAX/month (approx. \$74K) |
+| Staking | Token Supply | Reward minting | ~49,000 AVAX/day (~\$1.7M) |
+| Fees | Token Supply | Fee burning | ~1,500 AVAX/day (~\$53K) |
+| L1 Ecosystem | Token Supply | Validator fee burns | ~2,100 AVAX/month (~\$74K) |
 | L1 Ecosystem | Staking | Pre-ACP-77 stake requirement | Transitional |
 | Governance | All | Parameter modifications | Variable |
 
@@ -148,7 +148,7 @@ ACP-77 represents **the most significant economic restructuring since mainnet la
 
 | Aspect | Legacy Model | Modern Model (ACP-77) |
 |--------|--------------|----------------------|
-| Entry Cost | 2,000 AVAX (approx. \$70,000) | approx. 1.33 AVAX/month (approx. \$53) |
+| Entry Cost | 2,000 AVAX (~\$70,000) | ~1.33 AVAX/month (~\$53) |
 | Cost Type | Capital (one-time, recoverable) | Operating (ongoing, non-recoverable) |
 | Primary Network | Must validate | Optional |
 | Risk Profile | AVAX price exposure on stake | Fixed monthly cost |
@@ -301,63 +301,9 @@ Create a continuously updated simulation that mirrors real network state with re
 
 ---
 
-## 4. cadCAD Implementation Framework
+## 4. Experiment Design Methodology
 
-### 4.1 Framework Overview
-
-cadCAD (Complex Adaptive Dynamics Computer-Aided Design) is an open-source Python library developed by BlockScience for simulating complex systems, particularly token economies. It has been used to model Ethereum's transition to Proof-of-Stake, various DeFi protocols, and numerous blockchain tokenomics systems.
-
-The choice of cadCAD is deliberate: it separates concerns (state, parameters, policies, mechanisms), supports Monte Carlo simulation for uncertainty quantification, and has a growing ecosystem of tools and practitioners. These patterns will enable collaboration with the broader token engineering community.
-
-### 4.2 Core Concepts
-
-**State Variables** are quantities that persist and evolve over time—total_staked, validator_count, gas_price, etc. They define what we're tracking.
-
-**Parameters** are fixed values within a simulation run that control behavior—protocol parameters like MIN_GAS_PRICE and behavioral parameters like STAKING_SENSITIVITY. Parameters vary between runs but not within a run.
-
-**Policies** are functions that take current state and parameters and produce signals representing stakeholder decision-making. For example, a staking policy calculates how much stake flows in based on current APR relative to opportunity cost.
-
-**State Update Functions (SUFs)** take policy outputs and update state variables, implementing the differential equations governing system evolution.
-
-**Partial State Update Blocks (PSUBs)** group policies and SUFs that execute together within a timestep, defining execution order.
-
-### 4.3 Project Architecture
-
-The recommended structure organizes code by function: core simulation code in model/ with subdirectories for state update functions (parts/), decision logic (policies/), and reusable calculations (mechanisms/); data assets in data/ with historical, snapshot, and calibration subdirectories; experiment configurations in experiments/; test suites in tests/ organized by type (unit, integration, validation); interactive notebooks in notebooks/; and documentation in docs/.
-
-### 4.4 State Variables by Subsystem
-
-**Staking Dynamics:** total_staked (189.2M AVAX currently), validator_staked (~80% of total), delegator_staked (~20%), staking_apr (8%), validator_count (855).
-
-**Token Supply:** total_supply (460.6M AVAX), circulating_supply (429M), locked_supply (31.6M), cumulative_burned (4.8M), issuance_rate (49,000 AVAX/day).
-
-**Fee Dynamics:** gas_price (1 nAVAX minimum), excess_gas (accumulated above target), gas_consumed (current rate), fee_burn_rate (1,500 AVAX/day), network_utilization (ratio to target).
-
-**L1 Ecosystem:** l1_count (53 active), l1_validator_count (~1,600), l1_fee_burn_rate (~2,100 AVAX/month).
-
-**Governance:** proposed_acp_count (~15 active), implementable_acp_count (5), activated_acp_count (88 historical), stale_acp_count (12).
-
-Conservation laws must hold: circulating + staked + locked ≤ total_supply, and validator_staked + delegator_staked = total_staked.
-
-### 4.5 Policy Functions
-
-**Staking Decision Policy:** Models aggregate staking behavior based on APR relative to opportunity cost. When APR exceeds opportunity cost, tokens flow into staking; when below, tokens flow out. The response uses a bounded sigmoid function to prevent unrealistic extremes. Key parameters are staking sensitivity (base rate of flow), opportunity cost (external yield benchmark), and response scale (curve steepness).
-
-**Validator Entry/Exit Policy:** Models validator population dynamics based on profitability. Validators enter when per-validator profit exceeds entry thresholds and exit when profit falls below exit thresholds. There's hysteresis—exit threshold is lower than entry threshold due to sunk costs. Key parameters are operational cost (monthly expense to run a validator), entry/exit thresholds, and base entry/exit rates.
-
-### 4.6 State Update Functions
-
-**Total Staked Update:** Implements the equation: change in total staked = staking inflow - unstaking outflow + restaked rewards. The restaking term captures validators who compound rewards rather than withdrawing.
-
-**Validator Count Update:** Implements: change in validators = entry rate - exit rate. Since validator count is discrete, fractional changes are accumulated and applied when exceeding 1.
-
-**Staking APR Update:** Computed from reward rate and stake distribution: annual rewards = daily issuance × 365; APR = annual rewards / total staked, adjusted for duration multipliers.
-
----
-
-## 5. Experiment Design Methodology
-
-### 5.1 The Scientific Method for Token Economics
+### 4.1 The Scientific Method for Token Economics
 
 Token economic modeling is fundamentally empirical science. The ultimate test of any model is whether it predicts real-world behavior. Our methodology follows the scientific method adapted for simulation-based research.
 
@@ -373,7 +319,7 @@ Token economic modeling is fundamentally empirical science. The ultimate test of
 
 **Step 6 (Interpretation & Reporting):** Document findings with clear statements of conclusions, confidence levels, and limitations, accessible to non-statisticians.
 
-### 5.2 Priority Experiments
+### 4.2 Priority Experiments
 
 **E1: Validator Decline Investigation**
 
@@ -389,9 +335,9 @@ Objective: Model legacy-to-modern L1 migration trajectory. Tests Hypothesis H3-D
 
 ---
 
-## 6. Data Collection Infrastructure
+## 5. Data Collection Infrastructure
 
-### 6.1 Data Sources
+### 5.1 Data Sources
 
 | Source | Data Type | Frequency | Role |
 |--------|-----------|-----------|------|
@@ -404,11 +350,11 @@ Objective: Model legacy-to-modern L1 migration trajectory. Tests Hypothesis H3-D
 
 Using multiple sources provides redundancy (if one fails, others fill gaps), cross-validation (discrepancies reveal quality issues), complete coverage (no single source has everything), and independence (reduces single-provider bias).
 
-### 6.2 Pipeline Architecture
+### 5.2 Pipeline Architecture
 
 The pipeline follows standard ETL patterns. The **Extraction Layer** handles rate limiting, error handling with retries and fallbacks, and deduplication. The **Transformation Layer** performs schema validation, unit conversion (e.g., wei to AVAX), and aggregation (block-level to daily). The **Storage Layer** uses time-series databases for metric tracking, snapshot stores for complete state at specific points, and cache layers for query acceleration. The **Analysis Layer** provides cadCAD integration for calibration data, dashboards for real-time visibility, and alerting for significant changes.
 
-### 6.3 Key Metrics
+### 5.3 Key Metrics
 
 **Real-Time (Block-by-Block):** Staking ratio (security monitoring), burn rate (activity indicator), gas price (fee market health), network utilization (capacity planning).
 
@@ -416,9 +362,9 @@ The pipeline follows standard ETL patterns. The **Extraction Layer** handles rat
 
 ---
 
-## 7. Hypothesis Testing Framework
+## 6. Hypothesis Testing Framework
 
-### 7.1 Statistical Methodology
+### 6.1 Statistical Methodology
 
 | Hypothesis Type | Statistical Test | When to Use |
 |-----------------|------------------|-------------|
@@ -429,7 +375,7 @@ The pipeline follows standard ETL patterns. The **Extraction Layer** handles rat
 | Causal relationships | Granger causality | Testing whether one variable predicts another |
 | Distribution comparison | Kolmogorov-Smirnov | Comparing simulation outputs to real distributions |
 
-### 7.2 Hypothesis-Test Mapping
+### 6.2 Hypothesis-Test Mapping
 
 | Hypothesis | Test Approach | Data Required | Output |
 |------------|---------------|---------------|--------|
@@ -440,7 +386,7 @@ The pipeline follows standard ETL patterns. The **Extraction Layer** handles rat
 | H3-A (Continuous Fee Efficiency) | Comparative analysis | Legacy vs modern L1 data | Cost-effectiveness comparison |
 | H5-D (Base Fee Impact) | Before/after comparison | Pre/post ACP-125 data | Model validation |
 
-### 7.3 Acceptance Criteria
+### 6.3 Acceptance Criteria
 
 **Model Validation:**
 - MAPE < 15% (predictions within 15% of actuals)
@@ -453,9 +399,9 @@ A hypothesis is "supported" if: statistical test rejects null at specified confi
 
 ---
 
-## 8. Verification and Validation
+## 7. Verification and Validation
 
-### 8.1 Verification Framework
+### 7.1 Verification Framework
 
 **Verification** asks "Did we build the model right?" (Is the code correct?)
 
@@ -467,7 +413,7 @@ A hypothesis is "supported" if: statistical test rejects null at specified confi
 
 **Boundary Condition Tests** verify the model handles extreme inputs gracefully—zero validators, 100% staking ratio, gas price at minimum.
 
-### 8.2 Validation Framework
+### 7.2 Validation Framework
 
 **Validation** asks "Did we build the right model?" (Does it match reality?)
 
@@ -475,15 +421,15 @@ A hypothesis is "supported" if: statistical test rejects null at specified confi
 
 **Cross-Validation Protocol:** Train on 80% of historical data, validate on 20% holdout, test on real-time data post-deployment, recalibrate quarterly.
 
-### 8.3 Continuous Validation
+### 7.3 Continuous Validation
 
 Once deployed, the model must maintain accuracy as the network evolves. Real-time data feeds into model predictions, which are compared to actual states. Accuracy metrics are computed and checked against thresholds. If MAPE exceeds 15% over a 7-day rolling window, an alert triggers automatic recalibration. This ensures the model remains accurate even as conditions change.
 
 ---
 
-## 9. Risk Assessment
+## 8. Risk Assessment
 
-### 9.1 Model Risks
+### 8.1 Model Risks
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
@@ -492,7 +438,7 @@ Once deployed, the model must maintain accuracy as the network evolves. Real-tim
 | Data quality issues | Medium | Medium | Validation checks; multiple sources |
 | Black swan events | Low | Critical | Stress testing; scenario analysis |
 
-### 9.2 Protocol Risks Identified
+### 8.2 Protocol Risks Identified
 
 | Risk | Status | Why It Matters | Monitoring |
 |------|--------|----------------|------------|
@@ -501,7 +447,7 @@ Once deployed, the model must maintain accuracy as the network evolves. Real-tim
 | L1 category concentration | Moderate (35%+ gaming) | Sector-specific vulnerability | Diversity index |
 | Burn rate insufficient | Active (3% of issuance) | Continued inflation | Burn ratio trend |
 
-### 9.3 Alert Thresholds
+### 8.3 Alert Thresholds
 
 **Critical (Immediate Action):** Validator count <500, staking ratio <35%, net inflation >5%, single L1 category >50%.
 
@@ -509,9 +455,9 @@ Once deployed, the model must maintain accuracy as the network evolves. Real-tim
 
 ---
 
-## 10. Success Metrics and KPIs
+## 9. Success Metrics and KPIs
 
-### 10.1 Model Performance
+### 9.1 Model Performance
 
 | KPI | Target | Frequency |
 |-----|--------|-----------|
@@ -520,7 +466,7 @@ Once deployed, the model must maintain accuracy as the network evolves. Real-tim
 | Data Freshness | < 1 hour | Continuous |
 | Calibration Drift | < 10% | Monthly |
 
-### 10.2 Research Impact
+### 9.2 Research Impact
 
 | KPI | Target | Rationale |
 |-----|--------|-----------|
@@ -529,7 +475,7 @@ Once deployed, the model must maintain accuracy as the network evolves. Real-tim
 | Open-Source Contributions | 10+ cumulative | Community benefit |
 | Publications/Presentations | 4+ annual | Peer review and sharing |
 
-### 10.3 Ecosystem Health
+### 9.3 Ecosystem Health
 
 | KPI | Target | Current | Status | Action if Below |
 |-----|--------|---------|--------|-----------------|
