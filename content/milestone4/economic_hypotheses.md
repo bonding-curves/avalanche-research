@@ -7,7 +7,7 @@ title: Economic Hypotheses
 
 # Avalanche Economic Hypotheses
 
-This document presents economic hypotheses about the Avalanche network that can be tested using the modeling framework developed in this research program. For foundational concepts, see [Economic Taxonomy](/milestone1/Economic-Taxonomy). For the mathematical modeling framework, see [Differential Specification](/milestone3/Differential_Specification). For subsystem analysis, see [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective). Current network metrics are sourced from the [Data Snapshot](/data/snapshot-2025-11-28).
+This document presents economic hypotheses about the Avalanche network that can be tested using the modeling framework developed in this research program. For foundational concepts, see [Economic Taxonomy](/milestone1/Economic-Taxonomy). For the mathematical modeling framework, see [Differential Specification](/milestone3/Differential_Specification). For subsystem analysis, see [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective). For stakeholder concerns and system needs that motivate these hypotheses, see [Mission Elements Need Statement (MENS)](/milestone4/MENS). Current network metrics are sourced from the [Data Snapshot](/data/snapshot-2025-11-28).
 
 ---
 
@@ -28,6 +28,8 @@ This document presents economic hypotheses about the Avalanche network that can 
 ## 1. Fee Burning Dynamics Hypotheses
 
 **Current State (November 2025):** All transaction fees are burned, creating a deflationary mechanism that scales with network activity (~1,500 AVAX/day, ~0.12% annual deflation rate). Burn rates tripled during 2025, indicating accelerating network adoption.
+
+**Related MENS Concerns:** These hypotheses address stakeholder concerns around *fee revenue exclusion* (validators receive no direct benefit from network usage) and *undefined sustainability equilibrium* (unclear long-term token economics). See [MENS: Primary Network Validator Concerns](/milestone4/MENS#51-primary-network-validator-concerns) and [MENS: Token Holder Concerns](/milestone4/MENS#56-token-holder-concerns).
 
 ### Research Questions
 
@@ -61,6 +63,8 @@ A treasury-directed fee model could create a sustainable funding mechanism for e
 
 **Current State (November 2025):** ~41% of circulating supply is staked (~189M AVAX), with staking rewards at 7.65-8.5% APR. The staking ratio declined from ~48% in Q2 2025 to 40.7% in Q3 2025.
 
+**Related MENS Concerns:** These hypotheses address concerns around *inflation-dependent yield* (validator returns depend on dilution rather than productive activity) and *dilution-based returns* (delegators benefit from issuance but not fee-generating activity). See [MENS: Primary Network Validator Concerns](/milestone4/MENS#51-primary-network-validator-concerns) and [MENS: Delegator Concerns](/milestone4/MENS#52-delegator-concerns).
+
 ### Research Questions
 
 - What is the optimal staking ratio for network security vs. utility?
@@ -92,6 +96,8 @@ Reducing the minimum stake requirement (currently 2,000 AVAX) would increase val
 ## 3. L1 Ecosystem Sustainability Hypotheses
 
 **Current State (November 2025):** 53 active L1s (14 modern, 39 legacy), ~1,600 L1 validators paying continuous fees. Gaming remains the dominant category (35%+).
+
+**Related MENS Concerns:** These hypotheses address concerns around *fee volatility at validator saturation* (exponential fee increases near capacity), *sovereignty creates liquidity isolation* (L1 native tokens lack deep markets), and *no incentive to contribute to Primary Network* (L1 success may not benefit PN security). See [MENS: L1 Creator and Operator Concerns](/milestone4/MENS#53-l1-creator-and-operator-concerns).
 
 ### Research Questions
 
@@ -125,6 +131,8 @@ L1s will gradually migrate from legacy models to [ACP-77](/milestone2/ACP-Summar
 
 **Current State:** Multiple economic feedback loops exist within the system. The [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective) identifies these as emergent behaviors from subsystem interactions.
 
+**Related MENS Concerns:** These hypotheses address the system needs for *cross-layer incentive coherence* (alignment across protocol layers), *scalable multi-chain economic coherence* (coherent economics across L1 ecosystem), and *interoperability & liquidity connectivity* (efficient cross-chain liquidity flow). See [MENS: System Needs](/milestone4/MENS#6-system-needs).
+
 ### Research Questions
 
 - What economic feedback loops are most critical for ecosystem sustainability?
@@ -156,6 +164,8 @@ Governance hysteresis is critical for economic stability by preventing rapid par
 ## 5. Dynamic Fee Optimization Hypotheses
 
 **Current State:** Multidimensional fee structure based on resource consumption (Bandwidth, Reads, Writes, Compute) via [ACP-103](/milestone2/ACP-Summaries#acp-103), with dynamic gas limits via [ACP-176](/milestone2/ACP-Summaries#acp-176).
+
+**Related MENS Concerns:** These hypotheses address the system need for *predictable cost structures* (participants need predictable costs for planning) and concerns around *fragmented multi-chain experience* (varying fee models across L1s increase user friction). See [MENS: User Concerns](/milestone4/MENS#55-user-concerns) and [MENS: Predictable Cost Structures](/milestone4/MENS#62-predictable-cost-structures).
 
 ### Research Questions
 
@@ -192,6 +202,8 @@ The 96% base fee reduction via [ACP-125](/milestone2/ACP-Summaries#acp-125) (25 
 ## 6. ACP Evolution Impact Hypotheses
 
 **Current State:** The Avalanche network has evolved through multiple coordinated upgrades: Durango (March 2024), Etna (December 2024), Octane (April 2025), and Granite (November 2025).
+
+**Related MENS Concerns:** These hypotheses relate to governance concerns around *slow parameter adaptation* (economic parameters change only through multi-week governance cycles) and *absence of real-time economic levers* (no mechanisms for continuous, market-driven adjustment). See [MENS: Governance Concerns](/milestone4/MENS#57-governance-concerns) and [MENS: Adaptive Economic Behavior](/milestone4/MENS#65-adaptive-economic-behavior).
 
 ### Research Questions
 
@@ -230,6 +242,8 @@ Future ACPs focused on optimizing the staking reward function, L1 fee mechanisms
 ## 7. Geographic Decentralization Hypotheses
 
 **Current State:** Validators are distributed globally with concentrations in US, Germany, and other regions. Data on exact distribution requires further collection.
+
+**Related MENS Concerns:** These hypotheses address infrastructure provider concerns and the broader need for *explicit sustainability boundaries* (clear targets for sustainable operation across different operating environments). Regional infrastructure costs directly affect validator economics and network decentralization. See [MENS: Infrastructure Provider Concerns](/milestone4/MENS#59-infrastructure-provider-concerns).
 
 ### Research Questions
 

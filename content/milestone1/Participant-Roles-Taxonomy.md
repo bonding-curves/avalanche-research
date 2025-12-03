@@ -33,6 +33,23 @@ Avalanche's participant ecosystem spans three functional domains: network securi
 
 These roles are not mutually exclusive—a single entity may fulfill multiple roles simultaneously. A validator might also be a developer, a token holder might delegate while using applications, and infrastructure providers often hold significant stake.
 
+### Stakeholder Concerns Framework
+
+Each role section includes a **Stakeholder Concerns** subsection derived from the [Mission Elements Need Statement (MENS)](/milestone4/MENS) for the Avalanche Economic System. These concerns identify structural tensions between stakeholder interests and current system design, and trace to broader system needs defined in the MENS:
+
+| System Need | Description |
+|-------------|-------------|
+| Proportional Economic Contribution | System should support proportional economic relationships across PN and L1 activity |
+| Predictable Cost Structures | Participants need predictable costs for long-term planning |
+| Cross-Layer Incentive Coherence | Incentives should align across protocol layers (PN, L1s, applications) |
+| Explicit Sustainability Boundaries | Clear targets for sustainable operation and regime transitions |
+| Adaptive Economic Behavior | Automatic adaptation to conditions without governance intervention |
+| Scalable Multi-Chain Economic Coherence | Coherent economics across expanding L1 ecosystem |
+| Interoperability & Liquidity Connectivity | Efficient liquidity flow with minimal trust assumptions |
+| Macro-Level Demand Responsiveness | System should respond to aggregate demand signals |
+
+Understanding these concerns clarifies why certain economic behaviors emerge and what system improvements might address stakeholder friction points. For the complete analysis, see [MENS: Stakeholder Concerns](/milestone4/MENS#5-stakeholder-concerns).
+
 ---
 
 ## Network Security Participants
@@ -75,6 +92,20 @@ A validator's total weight (own stake plus delegations) cannot exceed the lesser
 
 For consensus mechanics, see [Mechanism Taxonomy: Snow Consensus](/milestone1/Mechanism-Taxonomy#the-snow-protocol-family).
 
+**Stakeholder Concerns:**
+
+- **Fee Revenue Exclusion:** Transaction fees are burned, providing validators no direct upside from network usage growth. This creates a disconnect between network utility and validator returns.
+
+- **Inflation-Dependent Yield:** Real yield depends on net inflation rather than productive economic activity. As supply approaches the cap, validator economics become uncertain.
+
+- **L1 Revenue Isolation:** No participation in L1 revenue despite securing the infrastructure L1s depend on (P-Chain state, AWM registry).
+
+- **Negligible L1 Fee Contribution:** Continuous L1 validator fee (~1.33 AVAX/month) is economically negligible relative to the security infrastructure provided.
+
+- **Burned L1 Fees:** Continuous L1 fees are burned rather than redistributed to Primary Network validators.
+
+These concerns relate to system needs for *proportional economic contribution*, *cross-layer incentive coherence*, and *macro-level demand responsiveness*. See [MENS: Primary Network Validator Concerns](/milestone4/MENS#51-primary-network-validator-concerns) for full analysis.
+
 ---
 
 ### L1 Validator (L1V)
@@ -105,6 +136,16 @@ The continuous fee model introduced by [ACP-77](/milestone2/ACP-Summaries#acp-77
 
 **Risk Model:**
 Defined by each L1's Validator Manager contract. May include slashing of L1 native tokens, reward forfeiture, or other penalties specified by L1 governance.
+
+**Stakeholder Concerns (L1 Creators & Operators):**
+
+- **Fee Volatility at Validator Saturation:** When L1 validator count approaches the 10,000 target capacity, fees increase exponentially per ACP-77. This creates unpredictable cost structures for L1 operators planning validator expansion.
+
+- **Sovereignty Creates Liquidity Isolation:** L1 native tokens may lack deep markets, complicating validator economics and user onboarding when bridging costs exceed transaction value.
+
+- **No Incentive to Contribute to Primary Network:** L1s have no structural incentive to contribute economically to the Primary Network beyond the minimal continuous fee. Success of L1 ecosystems may not proportionally benefit Primary Network security.
+
+These concerns relate to system needs for *predictable cost structures*, *adaptive economic behavior*, and *scalable multi-chain economic coherence*. See [MENS: L1 Creator and Operator Concerns](/milestone4/MENS#53-l1-creator-and-operator-concerns) for full analysis.
 
 ---
 
@@ -140,6 +181,12 @@ Delegators receive rewards based on the same formula as validators, but pay a pe
 
 Research indicates approximately 50% of delegator rewards are re-staked, compared to ~70% for validators—suggesting delegators have shorter investment horizons or greater liquidity needs.
 
+**Stakeholder Concerns:**
+
+- **Dilution-Based Returns:** Delegator returns are driven by token dilution (inflation) rather than productive network usage. Delegators benefit from issuance but not from fee-generating economic activity that increases network value.
+
+This concern relates to system needs for *proportional economic contribution*, *cross-layer incentive coherence*, and *explicit sustainability boundaries*. See [MENS: Delegator Concerns](/milestone4/MENS#52-delegator-concerns) for full analysis.
+
 ---
 
 ### Liquid Staking Participant
@@ -174,6 +221,14 @@ A Liquid Staking Participant stakes AVAX through a liquid staking protocol, rece
 Liquid staking enables dual yield streams—base staking rewards plus DeFi yields—but introduces additional complexity and smart contract dependencies not present in direct staking.
 
 For liquid staking protocol details, see [Economic Taxonomy: Liquid Staking](/milestone1/Economic-Taxonomy#liquid-staking).
+
+**Stakeholder Concerns:**
+
+- **Dilution-Based Returns (Inherited from Delegators):** Returns are driven by token dilution rather than productive network usage. LST holders benefit from inflation but not from the fee-generating activity that increases network value.
+
+- **Concentration Risk:** Large LST protocols may accumulate significant consensus influence through recursive leverage, potentially centralizing security in ways not captured by traditional stake distribution metrics.
+
+These concerns relate to system needs for *proportional economic contribution* and *explicit sustainability boundaries*. See [MENS: Delegator Concerns](/milestone4/MENS#52-delegator-concerns) for related analysis.
 
 ---
 
@@ -214,6 +269,14 @@ Token holders do not vote directly on protocol parameters. Instead, governance i
 - Custody risk (key management, exchange exposure)
 - Inflation dilution if not staking
 
+**Stakeholder Concerns:**
+
+- **Undefined Sustainability Equilibrium:** The relationship between issuance, burn rate, and long-term token economics lacks defined equilibrium targets. Holders cannot assess whether current parameters lead to sustainable value accrual.
+
+- **Security Budget Tied to Issuance:** Network security depends on inflation subsidies rather than fee-based revenue. As issuance declines toward the supply cap, security funding becomes uncertain.
+
+These concerns relate to system needs for *explicit sustainability boundaries* and *macro-level demand responsiveness*. See [MENS: Token Holder Concerns](/milestone4/MENS#56-token-holder-concerns) for full analysis.
+
 ---
 
 ### Application User
@@ -252,6 +315,12 @@ Post-[ACP-125](/milestone2/ACP-Summaries#acp-125), the C-Chain minimum base fee 
 - Asset-specific market risk
 - Front-running and MEV exposure
 
+**Stakeholder Concerns:**
+
+- **Fragmented Multi-Chain Experience:** Sovereign L1s create fragmented user experiences—each L1 may have different tokens, wallets, bridges, and interaction patterns, increasing friction and complexity.
+
+This concern relates to system needs for *scalable multi-chain economic coherence*. See [MENS: User Concerns](/milestone4/MENS#55-user-concerns) for full analysis.
+
 ---
 
 ### Trader / Investor / Liquidity Provider
@@ -289,6 +358,14 @@ While grouped together, these activities have different risk profiles:
 - Smart contract and protocol risk
 - Counterparty risk in lending protocols
 - Liquidation risk in leveraged positions
+
+**Stakeholder Concerns:**
+
+- **Cross-Chain Liquidity Fragmentation:** Capital is dispersed across multiple sovereign L1s rather than concentrated, reducing market depth and capital efficiency across the ecosystem.
+
+- **Bridge Trust Heterogeneity:** Cross-chain liquidity depends on bridges with varying security models, introducing counterparty and technical risks that complicate liquidity provision strategies.
+
+These concerns relate to system needs for *scalable multi-chain economic coherence* and *interoperability & liquidity connectivity*. See [MENS: Market Actor Concerns](/milestone4/MENS#58-market-actor-concerns) for full analysis.
 
 ---
 
@@ -331,6 +408,12 @@ Avalanche provides substantial builder support:
 - Smart contract vulnerabilities and liability
 - Market timing and competition risk
 
+**Stakeholder Concerns:**
+
+- **Macro-Economy Does Not React to Demand:** Network economic parameters (issuance, fees) remain static regardless of developer activity or application success. Economic conditions don't adapt to ecosystem growth signals.
+
+This concern relates to system needs for *adaptive economic behavior* and *macro-level demand responsiveness*. See [MENS: Developer Concerns](/milestone4/MENS#54-developer-concerns) for full analysis.
+
 ---
 
 ### Infrastructure Provider
@@ -368,6 +451,12 @@ An Infrastructure Provider operates services that enable users and developers to
 - Reputational exposure to reliability issues
 - Competition from decentralized alternatives
 
+**Stakeholder Concerns:**
+
+- **P-Chain Scalability Constraints:** Infrastructure providers relying on P-Chain data face constraints from consensus and serialization limits. This affects service reliability and business models.
+
+*Note: This concern is classified as outside the Avalanche Economic System (AES) scope as it relates to consensus/networking rather than economic mechanisms. However, it remains relevant to infrastructure provider business models.* See [MENS: Infrastructure Provider Concerns](/milestone4/MENS#59-infrastructure-provider-concerns) for classification details.
+
 ---
 
 ### Ava Labs
@@ -384,6 +473,14 @@ Ava Labs is the core development organization leading Avalanche's protocol engin
 
 Ava Labs operates externally to the protocol's consensus and fee models—the organization does not receive transaction fees or protocol-level revenue. Its influence comes through technical leadership and ecosystem product development rather than on-chain governance power.
 
+**Stakeholder Concerns (Governance & Stewardship):**
+
+- **Slow Parameter Adaptation:** Economic parameters change only through governance cycles that span weeks to months. The ACP process, while thorough, cannot respond quickly to market conditions or emerging opportunities.
+
+- **Absence of Real-Time Economic Levers:** Macro-economic adjustments require code changes, governance approval, and coordinated network upgrades. No mechanisms exist for continuous, market-driven economic adjustment.
+
+These concerns relate to system needs for *adaptive economic behavior* and *macro-level demand responsiveness*. See [MENS: Governance Concerns](/milestone4/MENS#57-governance-concerns) for full analysis.
+
 ---
 
 ### Avalanche Foundation
@@ -399,6 +496,14 @@ The Avalanche Foundation is a non-profit organization supporting ecosystem growt
 **System Role:** Ecosystem Steward / Grant Provider
 
 Like Ava Labs, the Foundation operates independently of consensus and fee mechanics. Its economic influence comes through grant allocation and treasury management rather than protocol-level participation.
+
+**Stakeholder Concerns (Governance & Stewardship):**
+
+- **Slow Parameter Adaptation:** Economic parameters change only through governance cycles—grant programs and incentives must work within existing economic constraints that may not align with immediate ecosystem needs.
+
+- **Absence of Real-Time Economic Levers:** The Foundation cannot dynamically adjust protocol economics to respond to ecosystem needs. Interventions are limited to working within fixed parameters.
+
+These concerns relate to system needs for *adaptive economic behavior* and *macro-level demand responsiveness*. See [MENS: Governance Concerns](/milestone4/MENS#57-governance-concerns) for full analysis.
 
 ---
 
