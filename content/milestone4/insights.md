@@ -47,9 +47,9 @@ The BCRG Avalanche Economic Research Project represents a systematic effort to u
 |---------|-------------|----------|
 | **Net inflation ~3.76% annually** | Burn rate tripled in 2025 (~1,500 AVAX/day) but still lags issuance (~49,000 AVAX/day). Achieving deflation requires ~33× current activity. | Monitor |
 | **Validator decline 40.5% in Q3 2025** | Primary Network validators dropped from 1,436 to 855—the most significant decline in history. Root causes unclear but may relate to ACP-77 migration, opportunity costs, or profitability. | Investigate |
-| **ACP-77 reduced L1 costs 99.9%** | Entry cost dropped from ~$70,000 stake to ~$53/month continuous fee, democratizing L1 creation and enabling economic experimentation at new scales. | Opportunity |
+| **ACP-77 reduced L1 costs 99.9%** | Entry cost dropped from approx. \$70,000 stake to approx. \$53/month continuous fee, democratizing L1 creation and enabling economic experimentation at new scales. | Opportunity |
 | **Staking ratio dropped from 48% to 41%** | ~32.5M AVAX exited staking in Q3 2025. Below 40% may impact security assumptions. Optimal range is 50-60%. | Concern |
-| **TVL grew 41.6% to $2.2B** | DeFi activity remains strong despite infrastructure stress, indicating healthy user demand. | Positive |
+| **TVL grew 41.6% to \$2.2B** | DeFi activity remains strong despite infrastructure stress, indicating healthy user demand. | Positive |
 
 ### Understanding These Findings
 
@@ -83,9 +83,9 @@ Our five-pillar decomposition reveals these subsystems are connected through mul
 
 | Source | Target | Mechanism | Magnitude |
 |--------|--------|-----------|-----------|
-| Staking | Token Supply | Reward minting | ~49,000 AVAX/day (~$1.7M) |
-| Fees | Token Supply | Fee burning | ~1,500 AVAX/day (~$53K) |
-| L1 Ecosystem | Token Supply | Validator fee burns | ~2,100 AVAX/month (~$74K) |
+| Staking | Token Supply | Reward minting | approx. 49,000 AVAX/day (approx. \$1.7M) |
+| Fees | Token Supply | Fee burning | approx. 1,500 AVAX/day (approx. \$53K) |
+| L1 Ecosystem | Token Supply | Validator fee burns | approx. 2,100 AVAX/month (approx. \$74K) |
 | L1 Ecosystem | Staking | Pre-ACP-77 stake requirement | Transitional |
 | Governance | All | Parameter modifications | Variable |
 
@@ -148,14 +148,14 @@ ACP-77 represents **the most significant economic restructuring since mainnet la
 
 | Aspect | Legacy Model | Modern Model (ACP-77) |
 |--------|--------------|----------------------|
-| Entry Cost | 2,000 AVAX (~$70,000) | ~1.33 AVAX/month (~$53) |
+| Entry Cost | 2,000 AVAX (approx. \$70,000) | approx. 1.33 AVAX/month (approx. \$53) |
 | Cost Type | Capital (one-time, recoverable) | Operating (ongoing, non-recoverable) |
 | Primary Network | Must validate | Optional |
 | Risk Profile | AVAX price exposure on stake | Fixed monthly cost |
 
 **Economic Implications:**
 
-- **Democratization:** At $70,000, L1 creation was limited to well-funded teams. At $53/month, small teams and individual developers can participate.
+- **Democratization:** At \$70,000, L1 creation was limited to well-funded teams. At \$53/month, small teams and individual developers can participate.
 - **Sustainability Over Speculation:** The legacy model rewarded price speculation; the modern model rewards sustainable value creation.
 - **Right-Sizing:** L1s can now dynamically adjust validator counts based on actual needs rather than over-provisioning due to sunk capital.
 - **Risk Transfer:** Price risk shifts from operators to the network; operators face operational risk instead.
@@ -377,7 +377,7 @@ Token economic modeling is fundamentally empirical science. The ultimate test of
 
 **E1: Validator Decline Investigation**
 
-Objective: Determine root causes of Q3 2025 validator decline. Tests Hypothesis H2-B (APR Efficiency Threshold). Control parameters: staking APR (5-12%), operational cost ($500-2000/month), opportunity cost (3-8%). Response variables: validator count equilibrium, time to equilibrium, net stake change, profitability distribution. Expected outcome: Identify critical APR threshold below which exits accelerate. If near current APR (~8%), profitability is primary driver; if exits continue at high APR, ACP-77 migration hypothesis gains support.
+Objective: Determine root causes of Q3 2025 validator decline. Tests Hypothesis H2-B (APR Efficiency Threshold). Control parameters: staking APR (5-12%), operational cost (\$500-2000/month), opportunity cost (3-8%). Response variables: validator count equilibrium, time to equilibrium, net stake change, profitability distribution. Expected outcome: Identify critical APR threshold below which exits accelerate. If near current APR (~8%), profitability is primary driver; if exits continue at high APR, ACP-77 migration hypothesis gains support.
 
 **E2: Burn Rate Sustainability**
 
@@ -385,7 +385,7 @@ Objective: Quantify activity level for deflationary equilibrium. Tests Hypothesi
 
 **E3: L1 Migration Dynamics**
 
-Objective: Model legacy-to-modern L1 migration trajectory. Tests Hypothesis H3-D (Migration Trajectory). Control parameters: legacy cost ($70,000 fixed), modern cost ($50-200/month), migration friction (0-1). Response variables: migration rate, ecosystem composition over time, total L1 fee burns, net cost to operators. Expected outcome: Migration accelerates as modern L1s demonstrate cost advantages; high friction may slow transition; results inform whether additional incentives are needed.
+Objective: Model legacy-to-modern L1 migration trajectory. Tests Hypothesis H3-D (Migration Trajectory). Control parameters: legacy cost (\$70,000 fixed), modern cost (\$50-200/month), migration friction (0-1). Response variables: migration rate, ecosystem composition over time, total L1 fee burns, net cost to operators. Expected outcome: Migration accelerates as modern L1s demonstrate cost advantages; high friction may slow transition; results inform whether additional incentives are needed.
 
 ---
 
