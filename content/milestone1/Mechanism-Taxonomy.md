@@ -213,7 +213,7 @@ For complete ACP documentation, see [ACP Summaries](/milestone2/ACP-Summaries).
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| Primary Network Validators | ~1,400 | Stake 2,000+ AVAX, validate P/X/C chains |
+| Primary Network Validators | ~855 | Stake 2,000+ AVAX, validate P/X/C chains |
 | L1 Validators | ~1,600 | Pay continuous fees, validate specific L1s |
 | Active L1s | 53 | 14 modern (ACP-77), 39 legacy |
 | Time to Finality | <1 second | Sub-second under normal conditions |

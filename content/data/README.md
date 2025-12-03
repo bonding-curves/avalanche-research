@@ -31,7 +31,7 @@ When you need Avalanche network metrics for your work:
 4. **Cite the snapshot** in your document using this format:
 
 ```markdown
-Staking ratio: 57.8% [Source: snapshot-2025-11-28.md]
+Staking ratio: 40.7% [Source: snapshot-2025-11-28.md]
 ```
 
 ### For Creating Documents
@@ -47,7 +47,7 @@ When creating new analysis documents, economic models, or research:
 
 ```markdown
 According to the [November 2025 snapshot](../data/snapshot-2025-11-28.md),
-the network has 1,539+ validators staking 248M AVAX (57.8% of circulating supply).
+the network has ~855 Primary Network validators staking 189M AVAX (40.7% of circulating supply).
 ```
 
 ## Creating New Snapshots

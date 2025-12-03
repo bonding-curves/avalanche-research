@@ -406,10 +406,10 @@ Like Ava Labs, the Foundation operates independently of consensus and fee mechan
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| Primary Network Validators | ~1,400 | Stake 2,000+ AVAX each |
+| Primary Network Validators | ~855 | Stake 2,000+ AVAX each |
 | L1 Validators | ~1,600 | Pay continuous fees |
-| Unique Delegators | ~18,000 | Across all validators |
-| Total Staked | ~217M AVAX | ~47% of circulating supply |
+| Unique Delegators | Not Available | Snowpeer API down |
+| Total Staked | ~189M AVAX | ~41% of circulating supply |
 | Delegated Stake | ~33M AVAX | ~7% of total supply |
 | Active L1s | 53 | 14 modern (ACP-77), 39 legacy |
 | Daily Transactions | 1M+ | Across Primary Network |

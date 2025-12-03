@@ -269,9 +269,9 @@ Primary Network Validators (PNVs) and Delegators lock AVAX as stake to secure th
 | Metric | Value | Source |
 |--------|-------|--------|
 | Staking APR | 7.65-8.5% | Multiple sources |
-| Staking Ratio | 48-58% of circulating | Range across sources |
-| Total Staked | ~248M AVAX | November 2025 |
-| Total Validators | 1,539+ | Q4 2024 data |
+| Staking Ratio | ~41% of circulating | Messari Q3 2025 |
+| Total Staked | ~189M AVAX | Messari Q3 2025 |
+| Primary Validators | ~855 | Messari Q3 2025 |
 
 This is fundamentally different from traditional proof-of-work systems. Instead of burning electricity for security, Avalanche pays validators through token issuance—a participation tax on all holders that must be justified by the value the network creates.
 

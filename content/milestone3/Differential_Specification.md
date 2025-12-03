@@ -1,5 +1,15 @@
+---
+title: Differential Specification
+---
+
+**Last Updated:** November 28, 2025
+**Draft Stage:** 3rd Draft
 
 # Avalanche Differential Specification and Protocol Architecture
+
+This specification provides the mathematical framework for Avalanche's economic dynamics. For conceptual foundations, see [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective). For subsystem state variables and parameters, see [Subsystem Analysis](/milestone2/Subsystem_Analysis_and_MultiGraph). Current network metrics are sourced from the [Data Snapshot](/data/snapshot-2025-11-28).
+
+---
 
 ## 1. Overview
 
@@ -140,7 +150,8 @@ For governance mechanism analysis, see the [Governance subsystem](/milestone2/Su
 **Conservation Laws:**
 - total_staked = validator_staked + delegator_staked
 - circulating_supply + total_staked + locked_supply ≤ total_supply
-- l1_validator_count ≤ validator_count (L1 validators must be Primary Network validators)
+
+**Note on L1 Validators (Post-Etna):** Following [ACP-77](/milestone2/ACP-Summaries#acp-77) activation in December 2024, L1 validators are no longer required to validate the Primary Network. This decoupling removed the constraint `l1_validator_count ≤ validator_count` for modern L1s using the continuous fee model.
 
 ### 2.4 Parameters and Constants
 
@@ -363,7 +374,7 @@ The network becomes net deflationary when:
 fee_burn_rate + l1_fee_burn_rate > issuance_rate
 ```
 
-Current state: ~810 AVAX/day burned vs ~26,555 AVAX/day issued. Crossover requires ~33× increase in fee activity, or equivalent issuance reduction as total_supply approaches MAX_SUPPLY.
+Current state (November 2025): ~1,500 AVAX/day burned vs ~49,000 AVAX/day issued. Crossover requires ~33× increase in fee activity, or equivalent issuance reduction as total_supply approaches MAX_SUPPLY. Note: Burn rates have tripled during 2025, indicating positive momentum toward sustainability.
 
 ### 4.3 Fee Market Dynamics
 
@@ -386,6 +397,8 @@ The exponential mechanism provides:
 - **Smooth decay**: Prices return gradually to baseline
 
 This mechanism is similar to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) but extended to multiple resource dimensions.
+
+**Dynamic Gas Limits (ACP-176):** The Octane upgrade (April 2025) introduced validator-driven adjustment of TARGET_GAS_RATE via [ACP-176](/milestone2/ACP-Summaries#acp-176). Block builders signal preferred target, and the network converges where 50% of stake weight wants increase vs. decrease. This enables market-discovered capacity rather than centrally-planned limits.
 
 **Multidimensional Gas:**
 
@@ -421,14 +434,14 @@ ACP-77 replaces one-time stake with continuous fees:
 
 This right-sizes the validator set to actual L1 demand.
 
-**Validator Constraint:**
+**Validator Architecture (Post-Etna):**
 
-Every L1 validator must also validate the Primary Network:
-```
-l1_validator_count ≤ validator_count
-```
+Following [ACP-77](/milestone2/ACP-Summaries#acp-77), L1 validators operate independently of Primary Network validation. Modern L1s define their own validator sets through smart contract-based validator managers, enabling:
+- Custom staking requirements (PoA, PoS, or hybrid)
+- Reduced hardware requirements (only P-Chain sync needed)
+- Full economic sovereignty
 
-This ensures L1 security derives from Primary Network stake.
+Legacy L1s (pre-Etna) still require Primary Network validation.
 
 ### 4.5 Governance Dynamics
 
@@ -566,9 +579,10 @@ For participant incentive analysis, see [Participant Roles Taxonomy](/milestone1
 
 Long-term sustainability requires the system to function as issuance_rate approaches zero. The transition path depends on fee activity growth:
 
-**Current state:** Burn ratio ≈ 3% (810/26,555 AVAX/day)
+**Current state (November 2025):** Burn ratio ≈ 3% (1,500/49,000 AVAX/day)
 **Required for balance:** Burn ratio = 100%
 **Path:** ~33× increase in fee activity, OR natural issuance reduction as total_supply → MAX_SUPPLY
+**Positive signal:** Burn rate tripled during 2025 (from ~500 to ~1,500 AVAX/day)
 
 The fee_burn_rate + l1_fee_burn_rate must eventually sustain validator economics without inflation subsidies.
 

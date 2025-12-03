@@ -1,8 +1,14 @@
+---
+title: How the Avalanche Economy Aims to Defy Gravity
+---
+
 # How the Avalanche Economy Aims to Defy Gravity
 
-**October 2025**
+**October 29, 2025**
 
 *A story about money, markets, and the stubborn realities of economic law*
+
+*Editor's Note: This article was written in October 2025 before the Granite upgrade (November 2025). For current network metrics, see [Data Snapshot](/data/snapshot-2025-11-28). For the latest ACP developments, see [ACP Summaries](/milestone2/ACP-Summaries).*
 
 ---
 
@@ -251,9 +257,9 @@ which can charge \$1 to \$50+ during congestion.
 developers can port Ethereum applications to Avalanche with minimal changes.
 This is like speaking the same language—it lowers migration barriers.
 
-**Architecture**: The Subnet system allows creation of custom blockchains
+**Architecture**: The L1 (Layer 1) system allows creation of custom blockchains
 tailored to specific applications while still benefiting from Avalanche's
-security. Think of it as a platform for building other platforms.
+security infrastructure. Think of it as a platform for building other platforms.
 
 These are real technical advantages. The problem? They're not unique enough,
 and they're not being leveraged effectively enough, to justify Avalanche's

@@ -1,3 +1,7 @@
+---
+title: About the BCRG
+---
+
 # About the BCRG
 
 We are the Bonding Curve Research Group (BCRG), an independent, decentralized
