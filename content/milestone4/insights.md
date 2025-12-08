@@ -13,17 +13,17 @@ This document represents the culmination of the Bonding Curve Research Group's (
 
 The Avalanche network presents a unique case study in blockchain economics. Unlike simpler single-chain systems, Avalanche operates as a heterogeneous multi-chain ecosystem with three primary chains (P-Chain, X-Chain, C-Chain) and a growing constellation of application-specific Layer 1 blockchains (L1s). This architectural complexity creates economic dynamics that cannot be understood through traditional single-variable analysis. Instead, Avalanche requires a systems-theoretic approach that accounts for feedback loops, emergent behaviors, and cross-subsystem interactions.
 
-This document synthesizes the key insights from our research and provides a comprehensive roadmap for future work. Our goal is to transform theoretical understanding into practical tools—specifically, a cadCAD-based simulation framework capable of testing economic hypotheses, informing governance decisions, and monitoring network health in real-time.
+This document synthesizes the key insights from our research and provides a comprehensive roadmap for future work. Our goal is to transform theoretical understanding into practical tools—specifically, a cadCAD-based simulation framework capable of testing economic hypotheses.md, informing governance decisions, and monitoring network health in real-time.
 
 **Prerequisite Reading:**
 
-- [Economic Taxonomy](/milestone1/Economic-Taxonomy) — Fundamental economic primitives
-- [Mechanism Taxonomy](/milestone1/Mechanism-Taxonomy) — Technical mechanisms underlying economic behaviors
-- [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy) — Stakeholder types and incentives
-- [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective) — MBSE framework and five-pillar decomposition
+- [Economic Taxonomy](../milestone1/Economic-Taxonomy.md) — Fundamental economic primitives
+- [Mechanism Taxonomy](../milestone1/Mechanism-Taxonomy.md) — Technical mechanisms underlying economic behaviors
+- [Participant Roles Taxonomy](../milestone1/Participant-Roles-Taxonomy.md) — Stakeholder types and incentives
+- [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective.md) — MBSE framework and five-pillar decomposition
 - [Differential Specification](/milestone3/Differential_Specification) — Mathematical equations for simulation
-- [Mission Elements Need Statement (MENS)](/milestone4/MENS) — Stakeholder concerns and system needs
-- [Economic Hypotheses](/milestone4/economic_hypotheses) — Testable predictions
+- [Mission Elements Need Statement (MENS.md)](./MENS.md) — Stakeholder concerns and system needs
+- [Economic hypotheses](./economic_hypotheses.md) — Testable predictions
 
 ---
 
@@ -33,7 +33,7 @@ This document synthesizes the key insights from our research and provides a comp
 
 The BCRG Avalanche Economic Research Project represents a systematic effort to understand blockchain economics through the lens of complex adaptive systems theory. Our approach recognizes that blockchain economies are living systems—constantly evolving through governance changes, market dynamics, and emergent participant behaviors.
 
-**Milestone 1** established a rigorous vocabulary for discussing Avalanche economics by cataloging every economic primitive, mechanism, and participant type. The Economic Taxonomy identified five fundamental domains: Token Issuance, Staking Economics, Fee Structure, L1 Economics, and Governance.
+**Milestone 1** established a rigorous vocabulary for discussing Avalanche economics by cataloging every economic primitive, mechanism, and participant type. The Economic Taxonomy.md identified five fundamental domains: Token Issuance, Staking Economics, Fee Structure, L1 Economics, and Governance.
 
 **Milestone 2** applied Model-Based Systems Engineering (MBSE) principles to decompose the Avalanche economy into five interacting subsystems: Staking Dynamics, Token Supply, Fee Dynamics, L1 Ecosystem, and Governance. The critical insight was that these subsystems are deeply interconnected—changing any single parameter ripples through multiple subsystems.
 
@@ -116,7 +116,7 @@ The trend is encouraging—burn rates **tripled during 2025** from ~500 to ~1,50
 - **Non-Staking Users:** Full inflation impact without offsetting rewards
 - **Developers:** Inflationary environment subsidizes security, enabling lower fees
 
-These implications connect to stakeholder concerns identified in the [MENS](/milestone4/MENS): validators face *fee revenue exclusion* (no direct benefit from usage growth), while token holders contend with *undefined sustainability equilibrium* (unclear long-term balance between issuance and burning).
+These implications connect to stakeholder concerns identified in the [MENS](./MENS.md): validators face *fee revenue exclusion* (no direct benefit from usage growth), while token holders contend with *undefined sustainability equilibrium* (unclear long-term balance between issuance and burning).
 
 ### 1.3 Validator Economics Under Pressure
 
@@ -128,7 +128,7 @@ The Q3 2025 data reveals the most significant validator decline in Avalanche's h
 | Total Staked AVAX | 221.7M | 189.2M | -14.7% |
 | Staking Ratio | ~48% | ~41% | -7pp |
 
-**Four Hypotheses for the Decline:**
+**Four hypotheses.md for the Decline:**
 
 **Hypothesis A (ACP-77 Migration):** Validators who were staking only to enable L1 validation can now exit since ACP-77 removed this requirement. This predicts a one-time step-function decline followed by stabilization. The timing (~9 months after Etna) is consistent with stake unlock periods.
 
@@ -138,9 +138,9 @@ The Q3 2025 data reveals the most significant validator decline in Avalanche's h
 
 **Hypothesis D (Market Sentiment Cascade):** Pessimism about AVAX price trajectory reduces expected reward value, triggering exits that reinforce negative sentiment. This predicts correlation with price movements.
 
-**Why This Matters:** Fewer validators means more concentrated validation power. While 855 validators is substantial, continued decline threatens decentralization. If large validators remain while small ones exit, stake concentration increases. Our immediate research priority is using simulation to test these hypotheses.
+**Why This Matters:** Fewer validators means more concentrated validation power. While 855 validators is substantial, continued decline threatens decentralization. If large validators remain while small ones exit, stake concentration increases. Our immediate research priority is using simulation to test these hypotheses.md.
 
-The validator decline directly relates to MENS-identified concerns around *inflation-dependent yield* (validator returns tied to dilution rather than productive activity) and *L1 revenue isolation* (no participation in L1 revenue despite securing core infrastructure). See [MENS: Primary Network Validator Concerns](/milestone4/MENS#51-primary-network-validator-concerns) for the full analysis of structural tensions affecting validator economics.
+The validator decline directly relates to MENS.md-identified concerns around *inflation-dependent yield* (validator returns tied to dilution rather than productive activity) and *L1 revenue isolation* (no participation in L1 revenue despite securing core infrastructure). See [MENS: Primary Network Validator Concerns](./MENS.md#51-primary-network-validator-concerns) for the full analysis of structural tensions affecting validator economics.
 
 ### 1.4 L1 Economic Transformation
 
@@ -171,7 +171,7 @@ ACP-77 represents **the most significant economic restructuring since mainnet la
 
 The gaming concentration creates both opportunity (proven product-market fit) and risk (exposure to gaming-specific volatility). Diversification into DeFi, enterprise, and social applications would reduce concentration risk.
 
-L1 operators face concerns identified in the [MENS](/milestone4/MENS) around *fee volatility at validator saturation* (exponential fee increases near capacity) and *sovereignty creates liquidity isolation* (L1 native tokens may lack deep markets). The MENS also identifies *no incentive to contribute to Primary Network*—L1 success may not proportionally benefit the security infrastructure L1s depend on. See [MENS: L1 Creator and Operator Concerns](/milestone4/MENS#53-l1-creator-and-operator-concerns).
+L1 operators face concerns identified in the [MENS](./MENS.md) around *fee volatility at validator saturation* (exponential fee increases near capacity) and *sovereignty creates liquidity isolation* (L1 native tokens may lack deep markets). The MENS.md also identifies *no incentive to contribute to Primary Network*—L1 success may not proportionally benefit the security infrastructure L1s depend on. See [MENS: L1 Creator and Operator Concerns](./MENS.md#53-l1-creator-and-operator-concerns).
 
 ### 1.5 Dynamic Fee Mechanisms
 
@@ -184,7 +184,7 @@ Avalanche's fee system implements sophisticated control theory principles. The g
 - **Smooth response:** More predictable than step-function auctions
 - **Equilibrium-seeking:** Naturally drives utilization toward targets
 
-**Multidimensional Resource Pricing:**
+**MultidiMENS.mdional Resource Pricing:**
 
 Avalanche separately prices different resource types with weights reflecting infrastructure costs: bandwidth (1 gas/byte), reads (1000 gas/read), writes (1000 gas/write), and compute (4 gas/unit). The high weight on reads and writes reflects that state access, not raw computation, is the typical bottleneck.
 
@@ -202,7 +202,7 @@ The Octane upgrade introduced validator signaling for capacity preferences, stak
 
 **R1: Investigate Validator Decline** — CRITICAL
 
-The 40.5% decline requires urgent analysis. We recommend developing a validator economics simulation module, calibrating against Q1-Q3 2025 data, running counterfactual simulations testing each hypothesis, and producing a diagnostic report ranking hypotheses by explanatory power. Success means achieving <15% MAPE on historical validator counts and identifying dominant drivers with evidence. Without analysis, governance operates on speculation.
+The 40.5% decline requires urgent analysis. We recommend developing a validator economics simulation module, calibrating against Q1-Q3 2025 data, running counterfactual simulations testing each hypothesis, and producing a diagnostic report ranking hypotheses.md by explanatory power. Success means achieving <15% MAPE on historical validator counts and identifying dominant drivers with evidence. Without analysis, governance operates on speculation.
 
 **R2: Establish Real-Time Monitoring** — HIGH
 
@@ -223,7 +223,7 @@ Priority order based on governance relevance:
 4. H1-B (Deflation Threshold): Project burn rates at 5×-50× activity
 5. H5-D (Base Fee Impact): Compare predictions to post-ACP-125 data for model validation
 
-Target at least 5 hypotheses tested with documented results and statistical confidence levels.
+Target at least 5 hypotheses.md tested with documented results and statistical confidence levels.
 
 **R5: Model L1 Ecosystem Growth** — MEDIUM
 
@@ -235,7 +235,7 @@ Model legacy-to-modern migration based on cost differentials, simulate category 
 
 Create an ACP Impact Simulator (input proposed changes, output projected effects), Parameter Optimization Interface (define objectives, search for optimal configurations), Risk Scenario Analyzer (define stress scenarios, simulate behavior, identify vulnerabilities), and Historical ACP Analysis (compare predicted vs. actual outcomes). Target at least one ACP evaluated using simulation prior to implementation.
 
-This recommendation directly addresses MENS-identified governance concerns: *slow parameter adaptation* (economic parameters change only through multi-week governance cycles) and *absence of real-time economic levers* (no mechanisms for continuous, market-driven adjustment). See [MENS: Governance Concerns](/milestone4/MENS#57-governance-concerns).
+This recommendation directly addresses MENS.md-identified governance concerns: *slow parameter adaptation* (economic parameters change only through multi-week governance cycles) and *absence of real-time economic levers* (no mechanisms for continuous, market-driven adjustment). See [MENS: Governance Concerns](./MENS.md#57-governance-concerns).
 
 **R7: Build Agent-Based Model Extensions** — MEDIUM
 
@@ -265,7 +265,7 @@ Create a continuously updated simulation that mirrors real network state with re
 
 ### Phase 2: Experimentation (Months 4-6)
 
-**Objective:** Conduct systematic experiments to test hypotheses and generate insights.
+**Objective:** Conduct systematic experiments to test hypotheses.md and generate insights.
 
 **Experiment Set 1 (Staking Dynamics):** APR sensitivity analysis (5-12% range), minimum stake threshold effects (500-5,000 AVAX), duration-based reward optimization, and validator profitability scenarios under varying costs and yields.
 
@@ -307,7 +307,7 @@ Create a continuously updated simulation that mirrors real network state with re
 
 Token economic modeling is fundamentally empirical science. The ultimate test of any model is whether it predicts real-world behavior. Our methodology follows the scientific method adapted for simulation-based research.
 
-**Step 1 (Hypothesis Formulation):** Every experiment starts with a clear hypothesis from our Economic Hypotheses document, specific enough to generate testable quantitative predictions.
+**Step 1 (Hypothesis Formulation):** Every experiment starts with a clear hypothesis from our Economic hypotheses.md document, specific enough to generate testable quantitative predictions.
 
 **Step 2 (Parameter Space Definition):** Identify control variables (what to vary) and response variables (what to measure). Ranges should span realistic values including current actuals.
 
@@ -470,7 +470,7 @@ Once deployed, the model must maintain accuracy as the network evolves. Real-tim
 
 | KPI | Target | Rationale |
 |-----|--------|-----------|
-| Hypotheses Tested | 20+ cumulative | Systematic question-answering |
+| hypotheses.md Tested | 20+ cumulative | Systematic question-answering |
 | Governance Recommendations Adopted | 3+ annual | Real decision influence |
 | Open-Source Contributions | 10+ cumulative | Community benefit |
 | Publications/Presentations | 4+ annual | Peer review and sharing |
@@ -505,11 +505,11 @@ The data from Q3 2025 reveals both the opportunities and challenges of this tran
 
 On the other hand, the Primary Network validator count has declined by 40.5%—the most significant contraction in Avalanche's history. The staking ratio has fallen from 48% to 41%, approaching levels that may affect security assumptions. These infrastructure-level metrics tell a different story than the application-level metrics, suggesting that the ecosystem is experiencing a structural adjustment whose dynamics we do not yet fully understand.
 
-Our research has generated four hypotheses for the validator decline: migration effects from ACP-77, opportunity cost pressures, operational profitability concerns, and market sentiment cascades. These hypotheses are not mutually exclusive, and the truth likely involves some combination of all four. What we lack is the empirical analysis to determine their relative contributions. This is precisely why the simulation framework we have designed is so important—it will allow us to test these hypotheses quantitatively and identify the dominant drivers.
+Our research has generated four hypotheses.md for the validator decline: migration effects from ACP-77, opportunity cost pressures, operational profitability concerns, and market sentiment cascades. These hypotheses.md are not mutually exclusive, and the truth likely involves some combination of all four. What we lack is the empirical analysis to determine their relative contributions. This is precisely why the simulation framework we have designed is so important—it will allow us to test these hypotheses.md quantitatively and identify the dominant drivers.
 
 ### The Path Forward
 
-The roadmap we have outlined represents a deliberate progression from theoretical understanding to practical capability. Phase 1 establishes the technical foundation: the cadCAD simulation framework, data collection infrastructure, and calibrated baseline model. Without this foundation, all subsequent work would be speculation rather than analysis. Phase 2 uses this foundation to conduct systematic experiments, testing our hypotheses and generating insights that can inform governance decisions. Phase 3 validates our work through rigorous verification and external review, building the credibility needed for our recommendations to influence real decisions. Phase 4 deploys operational tools that create ongoing value for the Avalanche community.
+The roadmap we have outlined represents a deliberate progression from theoretical understanding to practical capability. Phase 1 establishes the technical foundation: the cadCAD simulation framework, data collection infrastructure, and calibrated baseline model. Without this foundation, all subsequent work would be speculation rather than analysis. Phase 2 uses this foundation to conduct systematic experiments, testing our hypotheses.md and generating insights that can inform governance decisions. Phase 3 validates our work through rigorous verification and external review, building the credibility needed for our recommendations to influence real decisions. Phase 4 deploys operational tools that create ongoing value for the Avalanche community.
 
 This progression is not merely a project plan—it reflects our philosophy of evidence-based governance. Too often, blockchain governance operates on intuition, ideology, or the persuasive power of particular community members. Our goal is to provide an alternative: a framework for making decisions based on quantitative analysis of likely outcomes. This does not mean that simulation should replace human judgment—models are always simplifications of reality, and there will always be factors that escape formalization. But simulation can discipline our intuitions, reveal unintended consequences, and identify trade-offs that might otherwise remain hidden.
 
@@ -517,7 +517,7 @@ The ultimate vision is what we have termed a "digital twin" of the Avalanche eco
 
 ### Broader Significance
 
-While this research focuses specifically on Avalanche, the methods and insights have broader applicability. Every blockchain faces similar challenges: balancing inflation and deflation, aligning stakeholder incentives, managing the transition from early-stage growth to mature operation. The systems-theoretic approach we have developed—decomposing complex economies into interacting subsystems, formalizing dynamics as differential equations, testing hypotheses through simulation—can be applied to any blockchain economic system.
+While this research focuses specifically on Avalanche, the methods and insights have broader applicability. Every blockchain faces similar challenges: balancing inflation and deflation, aligning stakeholder incentives, managing the transition from early-stage growth to mature operation. The systems-theoretic approach we have developed—decomposing complex economies into interacting subsystems, formalizing dynamics as differential equations, testing hypotheses.md through simulation—can be applied to any blockchain economic system.
 
 More fundamentally, our work contributes to the emerging field of token engineering: the discipline of designing, analyzing, and optimizing token-based economic systems. This field is still in its early stages, lacking the established methodologies and accumulated knowledge that characterize mature engineering disciplines. By documenting our approach, sharing our tools, and publishing our findings, we hope to contribute to the development of token engineering as a rigorous practice.
 
@@ -537,17 +537,17 @@ We believe the former is both possible and necessary. The tools exist. The metho
 
 ### Internal Documentation
 
-1. [Economic Taxonomy](/milestone1/Economic-Taxonomy) — Foundational economic concepts
-2. [Mechanism Taxonomy](/milestone1/Mechanism-Taxonomy) — Protocol mechanisms
-3. [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy) — Stakeholder analysis
-4. [Avalanche Economy relative to the Open Economy](/milestone1/Avalanche-Economy-relative-to-the-Open-Economy) — Macroeconomic framework
-5. [ACP Summaries](/milestone2/ACP-Summaries) — Protocol evolution
-6. [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective) — MBSE approach
-7. [Subsystem Analysis and MultiGraph](/milestone2/Subsystem_Analysis_and_MultiGraph) — Technical specification
-8. [Differential Specification](/milestone3/Differential_Specification) — Mathematical framework
-9. [Mission Elements Need Statement (MENS)](/milestone4/MENS) — Stakeholder concerns and system needs
-10. [Economic Hypotheses](/milestone4/economic_hypotheses) — Testable predictions
-11. [Data Snapshot](/data/snapshot-2025-11-28) — Current network metrics
+1. [Economic Taxonomy](../milestone1/Economic-Taxonomy.md) — Foundational economic concepts
+2. [Mechanism Taxonomy](../milestone1/Mechanism-Taxonomy.md) — Protocol mechanisms
+3. [Participant Roles Taxonomy](../milestone1/Participant-Roles-Taxonomy.md) — Stakeholder analysis
+4. [Avalanche Economy relative to the Open Economy](../milestone1/Avalanche-Economy-relative-to-the-Open-Economy.md) — Macroeconomic framework
+5. [ACP Summaries](../milestone2/ACP-Summaries.md) — Protocol evolution
+6. [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective.md) — MBSE approach
+7. [Subsystem Analysis and MultiGraph](../milestone2/Subsystem_Analysis_and_MultiGraph.md) — Technical specification
+8. [Differential Specification](../milestone3/Differential_Specification.md) — Mathematical framework
+9. [Mission Elements Need Statement (MENS.md)](./MENS.md) — Stakeholder concerns and system needs
+10. [Economic hypotheses.md](./economic_hypotheses.md) — Testable predictions
+11. [Data Snapshot](../data/snapshot-2025-11-28.md) — Current network metrics
 
 ### External Sources
 
