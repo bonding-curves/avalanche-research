@@ -11,7 +11,7 @@ title: Mission Elements Need Statement
 
 This document establishes the Mission Elements Need Statement (MENS) for the Avalanche Economic System research program. As a foundational systems engineering artifact, it captures the mission context, identifies stakeholders and their concerns, derives system-level needs, and establishes traceability between stakeholder interests and economic mechanisms.
 
-For the research methodology, see [About The BCRG](../about/About-The-BCRG.md). For project scope, see [Project Proposal](../about/Project-Proposal.md). For economic foundations, see [Economic Taxonomy](../milestone1/Economic-Taxonomy) and [Mechanism Taxonomy](../milestone1/Mechanism-Taxonomy).
+For the research methodology, see [About The BCRG](../about/About-The-BCRG.md). For project scope, see [Project Proposal](../about/Project-Proposal.md). For economic foundations, see [Economic Taxonomy](../milestone1/Economic-Taxonomy.md) and [Mechanism Taxonomy](../milestone1/Mechanism-Taxonomy.md).
 
 ---
 
