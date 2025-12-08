@@ -11,7 +11,7 @@ title: Mission Elements Need Statement
 
 This document establishes the Mission Elements Need Statement (MENS) for the Avalanche Economic System research program. As a foundational systems engineering artifact, it captures the mission context, identifies stakeholders and their concerns, derives system-level needs, and establishes traceability between stakeholder interests and economic mechanisms.
 
-For the research methodology, see [About The BCRG](/about/About-The-BCRG). For project scope, see [Project Proposal](/about/Project-Proposal). For economic foundations, see [Economic Taxonomy](/milestone1/Economic-Taxonomy) and [Mechanism Taxonomy](/milestone1/Mechanism-Taxonomy).
+For the research methodology, see [About The BCRG](../about/About-The-BCRG.md). For project scope, see [Project Proposal](../about/Project-Proposal.md). For economic foundations, see [Economic Taxonomy](../milestone1/Economic-Taxonomy) and [Mechanism Taxonomy](../milestone1/Mechanism-Taxonomy).
 
 ---
 
@@ -51,12 +51,12 @@ This document bridges the gap between qualitative understanding of Avalanche eco
 
 | Document | Relationship to MENS |
 |----------|---------------------|
-| [Economic Taxonomy](/milestone1/Economic-Taxonomy) | Defines economic primitives that address system needs |
-| [Mechanism Taxonomy](/milestone1/Mechanism-Taxonomy) | Specifies technical mechanisms implementing economic functions |
-| [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy) | Details stakeholder roles and documents specific concerns |
-| [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective) | Applies MBSE methodology using MENS as foundation |
-| [Differential Specification](/milestone3/Differential_Specification) | Formalizes dynamics that satisfy system needs |
-| [Economic Hypotheses](/milestone4/economic_hypotheses) | Tests whether system meets stakeholder needs |
+| [Economic Taxonomy](../milestone1/Economic-Taxonomy.md) | Defines economic primitives that address system needs |
+| [Mechanism Taxonomy](../milestone1/Mechanism-Taxonomy.md) | Specifies technical mechanisms implementing economic functions |
+| [Participant Roles Taxonomy](../milestone1/Participant-Roles-Taxonomy.md) | Details stakeholder roles and documents specific concerns |
+| [Systems Engineering Perspective](../milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective.md) | Applies MBSE methodology using MENS as foundation |
+| [Differential Specification](../milestone3/Differential_Specification.md) | Formalizes dynamics that satisfy system needs |
+| [Economic Hypotheses](./economic_hypotheses.md) | Tests whether system meets stakeholder needs |
 
 ### 1.3 Methodology
 
@@ -103,7 +103,7 @@ These objectives exist in tension—maximizing security through high staking may
 | Daily Issuance | ~49,000 AVAX | Inflation rate |
 | Net Annual Inflation | ~3.76% | Sustainability trajectory |
 
-For current data, see [Data Snapshot](/data/snapshot-2025-11-28).
+For current data, see [Data Snapshot](../data/snapshot-2025-11-28.md).
 
 ---
 
@@ -144,7 +144,7 @@ The AES interacts with, but does not include:
 - Governance dynamics and social coordination
 - Regulatory frameworks and compliance requirements
 
-These shape stakeholder incentives but are not part of the system of interest. For detailed analysis, see [Avalanche Economy relative to the Open Economy](/milestone1/Avalanche-Economy-relative-to-the-Open-Economy).
+These shape stakeholder incentives but are not part of the system of interest. For detailed analysis, see [Avalanche Economy relative to the Open Economy](../milestone1/Avalanche-Economy-relative-to-the-Open-Economy.md).
 
 ---
 
@@ -182,7 +182,7 @@ The Avalanche Economic System serves participants organized into functional cate
 - RPC providers
 - Indexers and explorers
 
-For detailed role definitions, see [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy).
+For detailed role definitions, see [Participant Roles Taxonomy](../milestone1/Participant-Roles-Taxonomy.md).
 
 ### 4.2 Stakeholder Influence Map
 
