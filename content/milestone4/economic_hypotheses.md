@@ -129,7 +129,7 @@ L1s will gradually migrate from legacy models to [ACP-77](../milestone2/ACP-Summ
 
 ## 4. Web3 Sustainability Loop Hypotheses
 
-**Current State:** Multiple economic feedback loops exist within the system. The [Systems Engineering Perspective](../milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective) identifies these as emergent behaviors from subsystem interactions.
+**Current State:** Multiple economic feedback loops exist within the system. The [Systems Engineering Perspective](../milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective.md) identifies these as emergent behaviors from subsystem interactions.
 
 **Related MENS Concerns:** These hypotheses address the system needs for *cross-layer incentive coherence* (alignment across protocol layers), *scalable multi-chain economic coherence* (coherent economics across L1 ecosystem), and *interoperability & liquidity connectivity* (efficient cross-chain liquidity flow). See [MENS: System Needs](./MENS.md#6-system-needs).
 
@@ -163,7 +163,7 @@ Governance hysteresis is critical for economic stability by preventing rapid par
 
 ## 5. Dynamic Fee Optimization Hypotheses
 
-**Current State:** Multidimensional fee structure based on resource consumption (Bandwidth, Reads, Writes, Compute) via [ACP-103](../milestone2/ACP-Summaries#acp-103), with dynamic gas limits via [ACP-176](../milestone2/ACP-Summaries#acp-176).
+**Current State:** Multidimensional fee structure based on resource consumption (Bandwidth, Reads, Writes, Compute) via [ACP-103](../milestone2/ACP-Summaries.md#acp-103), with dynamic gas limits via [ACP-176](../milestone2/ACP-Summaries.md#acp-176).
 
 **Related MENS Concerns:** These hypotheses address the system need for *predictable cost structures* (participants need predictable costs for planning) and concerns around *fragmented multi-chain experience* (varying fee models across L1s increase user friction). See [MENS: User Concerns](./MENS.md#55-user-concerns) and [MENS: Predictable Cost Structures](./MENS.md#62-predictable-cost-structures).
 
@@ -185,10 +185,10 @@ The exponential fee adjustment mechanism (gas_price = MIN × exp(excess_gas / co
 Different resource dimension weightings could better align fees with actual network costs. Current weights (Bandwidth: 1, Read: 1000, Write: 1000, Compute: 4) may need recalibration.
 
 **H5-D: Base Fee Reduction Impact**
-The 96% base fee reduction via [ACP-125](../milestone2/ACP-Summaries#acp-125) (25 nAVAX → 1 nAVAX) has increased network activity without compromising economic security, as evidenced by the 3× burn rate increase.
+The 96% base fee reduction via [ACP-125](../milestone2/ACP-Summaries.md#acp-125) (25 nAVAX → 1 nAVAX) has increased network activity without compromising economic security, as evidenced by the 3× burn rate increase.
 
 **H5-E: Dynamic Gas Limits Market Discovery**
-[ACP-176](../milestone2/ACP-Summaries#acp-176) enables market-discovered capacity through validator signaling. This should lead to more efficient throughput allocation than centrally-planned limits.
+[ACP-176](../milestone2/ACP-Summaries.md#acp-176) enables market-discovered capacity through validator signaling. This should lead to more efficient throughput allocation than centrally-planned limits.
 
 ### Testing Approach
 
@@ -214,19 +214,19 @@ The 96% base fee reduction via [ACP-125](../milestone2/ACP-Summaries#acp-125) (2
 ### Hypotheses
 
 **H6-A: ACP-77 Economic Transformation**
-[ACP-77](../milestone2/ACP-Summaries#acp-77) fundamentally transformed L1 economics by reducing entry costs 99.9% (2,000 AVAX stake → ~1.33 AVAX/month), enabling broader participation and sustainable growth.
+[ACP-77](../milestone2/ACP-Summaries.md#acp-77) fundamentally transformed L1 economics by reducing entry costs 99.9% (2,000 AVAX stake → ~1.33 AVAX/month), enabling broader participation and sustainable growth.
 
 **H6-B: ACP-125 Activity Stimulation**
-The base fee reduction via [ACP-125](../milestone2/ACP-Summaries#acp-125) stimulated network activity (evidenced by burn rate increase) with minimal impact on validator economics.
+The base fee reduction via [ACP-125](../milestone2/ACP-Summaries.md#acp-125) stimulated network activity (evidenced by burn rate increase) with minimal impact on validator economics.
 
 **H6-C: ACP-103 Resource Efficiency**
-The multidimensional fee structure via [ACP-103](../milestone2/ACP-Summaries#acp-103) improved resource allocation efficiency by accurately pricing different resource types.
+The multidimensional fee structure via [ACP-103](../milestone2/ACP-Summaries.md#acp-103) improved resource allocation efficiency by accurately pricing different resource types.
 
 **H6-D: ACP-176 Adaptive Capacity**
-[ACP-176](../milestone2/ACP-Summaries#acp-176) enables the network to self-adjust capacity based on demand, reducing the need for governance intervention in throughput decisions.
+[ACP-176](../milestone2/ACP-Summaries.md#acp-176) enables the network to self-adjust capacity based on demand, reducing the need for governance intervention in throughput decisions.
 
 **H6-E: Granite Reliability Enhancement**
-[ACP-181](../milestone2/ACP-Summaries#acp-181) (P-Chain epoched views) and [ACP-226](../milestone2/ACP-Summaries#acp-226) (dynamic block times) improve cross-chain messaging reliability, which should increase AWM/ICM adoption and L1 interoperability.
+[ACP-181](../milestone2/ACP-Summaries.md#acp-181) (P-Chain epoched views) and [ACP-226](../milestone2/ACP-Summaries.md#acp-226) (dynamic block times) improve cross-chain messaging reliability, which should increase AWM/ICM adoption and L1 interoperability.
 
 **H6-F: Future ACP Opportunities**
 Future ACPs focused on optimizing the staking reward function, L1 fee mechanisms, or cross-chain value capture could further enhance economic efficiency.
@@ -243,7 +243,7 @@ Future ACPs focused on optimizing the staking reward function, L1 fee mechanisms
 
 **Current State:** Validators are distributed globally with concentrations in US, Germany, and other regions. Data on exact distribution requires further collection.
 
-**Related MENS Concerns:** These hypotheses address infrastructure provider concerns and the broader need for *explicit sustainability boundaries* (clear targets for sustainable operation across different operating environments). Regional infrastructure costs directly affect validator economics and network decentralization. See [MENS: Infrastructure Provider Concerns](.//MENS.md#59-infrastructure-provider-concerns).
+**Related MENS Concerns:** These hypotheses address infrastructure provider concerns and the broader need for *explicit sustainability boundaries* (clear targets for sustainable operation across different operating environments). Regional infrastructure costs directly affect validator economics and network decentralization. See [MENS: Infrastructure Provider Concerns](./MENS.md#59-infrastructure-provider-concerns).
 
 ### Research Questions
 
@@ -275,7 +275,7 @@ Regional differences in infrastructure costs (electricity, bandwidth, hosting) c
 
 ## Methodology for Testing
 
-To rigorously test these hypotheses, we employ a multi-method approach using the mathematical framework from [Differential Specification](../milestone3/Differential_Specification):
+To rigorously test these hypotheses, we employ a multi-method approach using the mathematical framework from [Differential Specification](../milestone3/Differential_Specification.md):
 
 ### 1. System Dynamics Modeling
 
@@ -327,10 +327,10 @@ The economic model will explore several key scenarios aligned with the hypothese
 
 | Component | Approach | Reference |
 |-----------|----------|-----------|
-| Data Integration | Historical and real-time network data | [Data Snapshot](../data/snapshot-2025-11-28) |
-| Model Calibration | Parameter fitting using observed data | [Differential Specification](../milestone3/Differential_Specification) |
+| Data Integration | Historical and real-time network data | [Data Snapshot](../data/snapshot-2025-11-28.md) |
+| Model Calibration | Parameter fitting using observed data | [Differential Specification](../milestone3/Differential_Specification.md) |
 | Simulation Framework | cadCAD / radCAD compatible | System dynamics equations |
-| Validation | Before/after ACP comparisons | [ACP Summaries](../milestone2/ACP-Summaries) |
+| Validation | Before/after ACP comparisons | [ACP Summaries](../milestone2/ACP-Summaries.md) |
 
 ### Value Proposition
 
