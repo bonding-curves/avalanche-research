@@ -9,7 +9,7 @@ title: Avalanche Economic Primitives
 
 This document introduces the foundational economic mechanisms that govern the Avalanche network. These primitives—token issuance, staking, fees, and governance—form the building blocks of Avalanche's cryptoeconomic design and shape how value flows through the ecosystem.
 
-For technical specifications of how these primitives interact as a dynamic system, see the [Differential Specification](/milestone3/Differential_Specification). For analysis of participant roles, see [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy). For the broader macroeconomic context, see [Avalanche Economy relative to the Open Economy](.../milestone1/Avalanche-Economy-relative-to-the-Open-Economy).
+For technical specifications of how these primitives interact as a dynamic system, see the [Differential Specification](/milestone3/Differential_Specification). For analysis of participant roles, see [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy). For the broader macroeconomic context, see [Avalanche Economy relative to the Open Economy](../milestone1/Avalanche-Economy-relative-to-the-Open-Economy).
 
 ---
 
