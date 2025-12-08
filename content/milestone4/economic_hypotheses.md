@@ -7,7 +7,7 @@ title: Economic Hypotheses
 
 # Avalanche Economic Hypotheses
 
-This document presents economic hypotheses about the Avalanche network that can be tested using the modeling framework developed in this research program. For foundational concepts, see [Economic Taxonomy](/milestone1/Economic-Taxonomy). For the mathematical modeling framework, see [Differential Specification](/milestone3/Differential_Specification). For subsystem analysis, see [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective). For stakeholder concerns and system needs that motivate these hypotheses, see [Mission Elements Need Statement (MENS)](/milestone4/MENS). Current network metrics are sourced from the [Data Snapshot](/data/snapshot-2025-11-28).
+This document presents economic hypotheses about the Avalanche network that can be tested using the modeling framework developed in this research program. For foundational concepts, see [Economic Taxonomy](../milestone1/Economic-Taxonomy.md). For the mathematical modeling framework, see [Differential Specification](../milestone3/Differential_Specification.md). For subsystem analysis, see [Systems Engineering Perspective](../milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective.md). For stakeholder concerns and system needs that motivate these hypotheses, see [Mission Elements Need Statement (MENS)](./MENS.md). Current network metrics are sourced from the [Data Snapshot](../data/snapshot-2025-11-28.md).
 
 ---
 
@@ -29,7 +29,7 @@ This document presents economic hypotheses about the Avalanche network that can 
 
 **Current State (November 2025):** All transaction fees are burned, creating a deflationary mechanism that scales with network activity (~1,500 AVAX/day, ~0.12% annual deflation rate). Burn rates tripled during 2025, indicating accelerating network adoption.
 
-**Related MENS Concerns:** These hypotheses address stakeholder concerns around *fee revenue exclusion* (validators receive no direct benefit from network usage) and *undefined sustainability equilibrium* (unclear long-term token economics). See [MENS: Primary Network Validator Concerns](/milestone4/MENS#51-primary-network-validator-concerns) and [MENS: Token Holder Concerns](/milestone4/MENS#56-token-holder-concerns).
+**Related MENS Concerns:** These hypotheses address stakeholder concerns around *fee revenue exclusion* (validators receive no direct benefit from network usage) and *undefined sustainability equilibrium* (unclear long-term token economics). See [MENS: Primary Network Validator Concerns](./MENS.md#51-primary-network-validator-concerns) and [MENS: Token Holder Concerns](./MENS.md#56-token-holder-concerns).
 
 ### Research Questions
 
@@ -53,7 +53,7 @@ A treasury-directed fee model could create a sustainable funding mechanism for e
 
 ### Testing Approach
 
-- Model various network activity scenarios and their impact on burn rate using [Differential Specification](/milestone3/Differential_Specification) equations
+- Model various network activity scenarios and their impact on burn rate using [Differential Specification](../milestone3/Differential_Specification.md) equations
 - Compare token supply trajectories under burning vs. validator reward vs. treasury models
 - Identify the network activity threshold where burning exceeds issuance
 
@@ -63,7 +63,7 @@ A treasury-directed fee model could create a sustainable funding mechanism for e
 
 **Current State (November 2025):** ~41% of circulating supply is staked (~189M AVAX), with staking rewards at 7.65-8.5% APR. The staking ratio declined from ~48% in Q2 2025 to 40.7% in Q3 2025.
 
-**Related MENS Concerns:** These hypotheses address concerns around *inflation-dependent yield* (validator returns depend on dilution rather than productive activity) and *dilution-based returns* (delegators benefit from issuance but not fee-generating activity). See [MENS: Primary Network Validator Concerns](/milestone4/MENS#51-primary-network-validator-concerns) and [MENS: Delegator Concerns](/milestone4/MENS#52-delegator-concerns).
+**Related MENS Concerns:** These hypotheses address concerns around *inflation-dependent yield* (validator returns depend on dilution rather than productive activity) and *dilution-based returns* (delegators benefit from issuance but not fee-generating activity). See [MENS: Primary Network Validator Concerns](./MENS.md#51-primary-network-validator-concerns) and [MENS: Delegator Concerns](./MENS.md#52-delegator-concerns).
 
 ### Research Questions
 
@@ -97,7 +97,7 @@ Reducing the minimum stake requirement (currently 2,000 AVAX) would increase val
 
 **Current State (November 2025):** 53 active L1s (14 modern, 39 legacy), ~1,600 L1 validators paying continuous fees. Gaming remains the dominant category (35%+).
 
-**Related MENS Concerns:** These hypotheses address concerns around *fee volatility at validator saturation* (exponential fee increases near capacity), *sovereignty creates liquidity isolation* (L1 native tokens lack deep markets), and *no incentive to contribute to Primary Network* (L1 success may not benefit PN security). See [MENS: L1 Creator and Operator Concerns](/milestone4/MENS#53-l1-creator-and-operator-concerns).
+**Related MENS Concerns:** These hypotheses address concerns around *fee volatility at validator saturation* (exponential fee increases near capacity), *sovereignty creates liquidity isolation* (L1 native tokens lack deep markets), and *no incentive to contribute to Primary Network* (L1 success may not benefit PN security). See [MENS: L1 Creator and Operator Concerns](./MENS.md#53-l1-creator-and-operator-concerns).
 
 ### Research Questions
 
@@ -108,7 +108,7 @@ Reducing the minimum stake requirement (currently 2,000 AVAX) would increase val
 ### Hypotheses
 
 **H3-A: Continuous Fee Efficiency**
-The continuous fee model from [ACP-77](/milestone2/ACP-Summaries#acp-77) creates a more sustainable validator ecosystem than traditional staking models by right-sizing validator count to application demand and converting capital costs to operating costs.
+The continuous fee model from [ACP-77](../milestone2/ACP-Summaries.md#acp-77) creates a more sustainable validator ecosystem than traditional staking models by right-sizing validator count to application demand and converting capital costs to operating costs.
 
 **H3-B: Category Economic Differentiation**
 Different application categories exhibit different economic characteristics (transaction volume, fee generation, validator requirements), creating natural ecosystem diversification that reduces systemic risk.
@@ -117,7 +117,7 @@ Different application categories exhibit different economic characteristics (tra
 The concentration in Gaming (35%+) creates economic vulnerability if this sector experiences volatility. However, gaming L1s (Beam, DOS Chain) demonstrate high user engagement.
 
 **H3-D: Modern L1 Migration Trajectory**
-L1s will gradually migrate from legacy models to [ACP-77](/milestone2/ACP-Summaries#acp-77) models. The current 14:39 modern:legacy ratio should shift toward modern as legacy validators seek lower costs.
+L1s will gradually migrate from legacy models to [ACP-77](../milestone2/ACP-Summaries.md#acp-77) models. The current 14:39 modern:legacy ratio should shift toward modern as legacy validators seek lower costs.
 
 ### Testing Approach
 
@@ -129,9 +129,9 @@ L1s will gradually migrate from legacy models to [ACP-77](/milestone2/ACP-Summar
 
 ## 4. Web3 Sustainability Loop Hypotheses
 
-**Current State:** Multiple economic feedback loops exist within the system. The [Systems Engineering Perspective](/milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective) identifies these as emergent behaviors from subsystem interactions.
+**Current State:** Multiple economic feedback loops exist within the system. The [Systems Engineering Perspective](../milestone2/Avalanche-Economic-Model-A-Systems-Engineering-Perspective) identifies these as emergent behaviors from subsystem interactions.
 
-**Related MENS Concerns:** These hypotheses address the system needs for *cross-layer incentive coherence* (alignment across protocol layers), *scalable multi-chain economic coherence* (coherent economics across L1 ecosystem), and *interoperability & liquidity connectivity* (efficient cross-chain liquidity flow). See [MENS: System Needs](/milestone4/MENS#6-system-needs).
+**Related MENS Concerns:** These hypotheses address the system needs for *cross-layer incentive coherence* (alignment across protocol layers), *scalable multi-chain economic coherence* (coherent economics across L1 ecosystem), and *interoperability & liquidity connectivity* (efficient cross-chain liquidity flow). See [MENS: System Needs](./MENS.md#6-system-needs).
 
 ### Research Questions
 
@@ -163,9 +163,9 @@ Governance hysteresis is critical for economic stability by preventing rapid par
 
 ## 5. Dynamic Fee Optimization Hypotheses
 
-**Current State:** Multidimensional fee structure based on resource consumption (Bandwidth, Reads, Writes, Compute) via [ACP-103](/milestone2/ACP-Summaries#acp-103), with dynamic gas limits via [ACP-176](/milestone2/ACP-Summaries#acp-176).
+**Current State:** Multidimensional fee structure based on resource consumption (Bandwidth, Reads, Writes, Compute) via [ACP-103](../milestone2/ACP-Summaries#acp-103), with dynamic gas limits via [ACP-176](../milestone2/ACP-Summaries#acp-176).
 
-**Related MENS Concerns:** These hypotheses address the system need for *predictable cost structures* (participants need predictable costs for planning) and concerns around *fragmented multi-chain experience* (varying fee models across L1s increase user friction). See [MENS: User Concerns](/milestone4/MENS#55-user-concerns) and [MENS: Predictable Cost Structures](/milestone4/MENS#62-predictable-cost-structures).
+**Related MENS Concerns:** These hypotheses address the system need for *predictable cost structures* (participants need predictable costs for planning) and concerns around *fragmented multi-chain experience* (varying fee models across L1s increase user friction). See [MENS: User Concerns](./MENS.md#55-user-concerns) and [MENS: Predictable Cost Structures](./MENS.md#62-predictable-cost-structures).
 
 ### Research Questions
 
@@ -185,10 +185,10 @@ The exponential fee adjustment mechanism (gas_price = MIN × exp(excess_gas / co
 Different resource dimension weightings could better align fees with actual network costs. Current weights (Bandwidth: 1, Read: 1000, Write: 1000, Compute: 4) may need recalibration.
 
 **H5-D: Base Fee Reduction Impact**
-The 96% base fee reduction via [ACP-125](/milestone2/ACP-Summaries#acp-125) (25 nAVAX → 1 nAVAX) has increased network activity without compromising economic security, as evidenced by the 3× burn rate increase.
+The 96% base fee reduction via [ACP-125](../milestone2/ACP-Summaries#acp-125) (25 nAVAX → 1 nAVAX) has increased network activity without compromising economic security, as evidenced by the 3× burn rate increase.
 
 **H5-E: Dynamic Gas Limits Market Discovery**
-[ACP-176](/milestone2/ACP-Summaries#acp-176) enables market-discovered capacity through validator signaling. This should lead to more efficient throughput allocation than centrally-planned limits.
+[ACP-176](../milestone2/ACP-Summaries#acp-176) enables market-discovered capacity through validator signaling. This should lead to more efficient throughput allocation than centrally-planned limits.
 
 ### Testing Approach
 
@@ -203,7 +203,7 @@ The 96% base fee reduction via [ACP-125](/milestone2/ACP-Summaries#acp-125) (25 
 
 **Current State:** The Avalanche network has evolved through multiple coordinated upgrades: Durango (March 2024), Etna (December 2024), Octane (April 2025), and Granite (November 2025).
 
-**Related MENS Concerns:** These hypotheses relate to governance concerns around *slow parameter adaptation* (economic parameters change only through multi-week governance cycles) and *absence of real-time economic levers* (no mechanisms for continuous, market-driven adjustment). See [MENS: Governance Concerns](/milestone4/MENS#57-governance-concerns) and [MENS: Adaptive Economic Behavior](/milestone4/MENS#65-adaptive-economic-behavior).
+**Related MENS Concerns:** These hypotheses relate to governance concerns around *slow parameter adaptation* (economic parameters change only through multi-week governance cycles) and *absence of real-time economic levers* (no mechanisms for continuous, market-driven adjustment). See [MENS: Governance Concerns](./MENS.md#57-governance-concerns) and [MENS: Adaptive Economic Behavior](./MENS.md#65-adaptive-economic-behavior).
 
 ### Research Questions
 
@@ -214,19 +214,19 @@ The 96% base fee reduction via [ACP-125](/milestone2/ACP-Summaries#acp-125) (25 
 ### Hypotheses
 
 **H6-A: ACP-77 Economic Transformation**
-[ACP-77](/milestone2/ACP-Summaries#acp-77) fundamentally transformed L1 economics by reducing entry costs 99.9% (2,000 AVAX stake → ~1.33 AVAX/month), enabling broader participation and sustainable growth.
+[ACP-77](../milestone2/ACP-Summaries#acp-77) fundamentally transformed L1 economics by reducing entry costs 99.9% (2,000 AVAX stake → ~1.33 AVAX/month), enabling broader participation and sustainable growth.
 
 **H6-B: ACP-125 Activity Stimulation**
-The base fee reduction via [ACP-125](/milestone2/ACP-Summaries#acp-125) stimulated network activity (evidenced by burn rate increase) with minimal impact on validator economics.
+The base fee reduction via [ACP-125](../milestone2/ACP-Summaries#acp-125) stimulated network activity (evidenced by burn rate increase) with minimal impact on validator economics.
 
 **H6-C: ACP-103 Resource Efficiency**
-The multidimensional fee structure via [ACP-103](/milestone2/ACP-Summaries#acp-103) improved resource allocation efficiency by accurately pricing different resource types.
+The multidimensional fee structure via [ACP-103](../milestone2/ACP-Summaries#acp-103) improved resource allocation efficiency by accurately pricing different resource types.
 
 **H6-D: ACP-176 Adaptive Capacity**
-[ACP-176](/milestone2/ACP-Summaries#acp-176) enables the network to self-adjust capacity based on demand, reducing the need for governance intervention in throughput decisions.
+[ACP-176](../milestone2/ACP-Summaries#acp-176) enables the network to self-adjust capacity based on demand, reducing the need for governance intervention in throughput decisions.
 
 **H6-E: Granite Reliability Enhancement**
-[ACP-181](/milestone2/ACP-Summaries#acp-181) (P-Chain epoched views) and [ACP-226](/milestone2/ACP-Summaries#acp-226) (dynamic block times) improve cross-chain messaging reliability, which should increase AWM/ICM adoption and L1 interoperability.
+[ACP-181](../milestone2/ACP-Summaries#acp-181) (P-Chain epoched views) and [ACP-226](../milestone2/ACP-Summaries#acp-226) (dynamic block times) improve cross-chain messaging reliability, which should increase AWM/ICM adoption and L1 interoperability.
 
 **H6-F: Future ACP Opportunities**
 Future ACPs focused on optimizing the staking reward function, L1 fee mechanisms, or cross-chain value capture could further enhance economic efficiency.
@@ -243,7 +243,7 @@ Future ACPs focused on optimizing the staking reward function, L1 fee mechanisms
 
 **Current State:** Validators are distributed globally with concentrations in US, Germany, and other regions. Data on exact distribution requires further collection.
 
-**Related MENS Concerns:** These hypotheses address infrastructure provider concerns and the broader need for *explicit sustainability boundaries* (clear targets for sustainable operation across different operating environments). Regional infrastructure costs directly affect validator economics and network decentralization. See [MENS: Infrastructure Provider Concerns](/milestone4/MENS#59-infrastructure-provider-concerns).
+**Related MENS Concerns:** These hypotheses address infrastructure provider concerns and the broader need for *explicit sustainability boundaries* (clear targets for sustainable operation across different operating environments). Regional infrastructure costs directly affect validator economics and network decentralization. See [MENS: Infrastructure Provider Concerns](.//MENS.md#59-infrastructure-provider-concerns).
 
 ### Research Questions
 
@@ -275,7 +275,7 @@ Regional differences in infrastructure costs (electricity, bandwidth, hosting) c
 
 ## Methodology for Testing
 
-To rigorously test these hypotheses, we employ a multi-method approach using the mathematical framework from [Differential Specification](/milestone3/Differential_Specification):
+To rigorously test these hypotheses, we employ a multi-method approach using the mathematical framework from [Differential Specification](../milestone3/Differential_Specification):
 
 ### 1. System Dynamics Modeling
 
@@ -327,10 +327,10 @@ The economic model will explore several key scenarios aligned with the hypothese
 
 | Component | Approach | Reference |
 |-----------|----------|-----------|
-| Data Integration | Historical and real-time network data | [Data Snapshot](/data/snapshot-2025-11-28) |
-| Model Calibration | Parameter fitting using observed data | [Differential Specification](/milestone3/Differential_Specification) |
+| Data Integration | Historical and real-time network data | [Data Snapshot](../data/snapshot-2025-11-28) |
+| Model Calibration | Parameter fitting using observed data | [Differential Specification](../milestone3/Differential_Specification) |
 | Simulation Framework | cadCAD / radCAD compatible | System dynamics equations |
-| Validation | Before/after ACP comparisons | [ACP Summaries](/milestone2/ACP-Summaries) |
+| Validation | Before/after ACP comparisons | [ACP Summaries](../milestone2/ACP-Summaries) |
 
 ### Value Proposition
 
