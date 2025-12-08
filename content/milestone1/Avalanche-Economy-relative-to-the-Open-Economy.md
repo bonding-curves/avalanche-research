@@ -20,11 +20,11 @@ This document uses the following economic notation throughout:
 
 | Symbol | Meaning | Description |
 |--------|---------|-------------|
-| S_mint | Supply Minted | AVAX issued as staking rewards (~49,000 AVAX/day) |
-| S_burn | Supply Burned | AVAX destroyed through fee burning (~1,500 AVAX/day) |
-| ΔS_net | Net Supply Change | S_mint - S_burn (currently ~47,500 AVAX/day) |
-| R_app | Application Revenue | Total economic output from dApps and L1s |
-| R_protocol | Protocol Revenue | AVAX fees paid to access network services (= S_burn) |
+| $S_mint$ | Supply Minted | AVAX issued as staking rewards (~49,000 AVAX/day) |
+| $S_burn$ | Supply Burned | AVAX destroyed through fee burning (~1,500 AVAX/day) |
+| $ΔS_net$ | Net Supply Change | $S_mint$ - $S_burn$ (currently ~47,500 AVAX/day) |
+| $R_app$ | Application Revenue | Total economic output from dApps and L1s |
+| $R_protocol$ | Protocol Revenue | AVAX fees paid to access network services (= $S_burn$) |
 | R_C-Chain | C-Chain Revenue | Economic activity on the primary smart contract chain |
 | R_L1 | L1 Revenue | Economic activity across sovereign L1 blockchains |
 
@@ -61,7 +61,7 @@ This represents the demand-side economics—how actual usage of Avalanche's serv
 - The Application Layer (left) generates economic activity through dApps on the C-Chain and sovereign L1s
 - This activity creates derived demand for Protocol Layer services (blockspace and security)
 - Users and L1 validators pay AVAX fees to access these services
-- The "Fee Burn Engine" destroys these AVAX tokens (S_burn), creating deflationary pressure
+- The "Fee Burn Engine" destroys these AVAX tokens ($S_burn$), creating deflationary pressure
 - This utility demand flows from the Closed Token Economy through the Protocol Layer
 
 The red/orange flows capture the core concept from Section 2.2: **Application-level economic activity translates into protocol-level revenue through fee burning.**
@@ -85,21 +85,21 @@ Shows the two-tier structure of the Avalanche economy:
 - **Application Layer**: Where end-user value is created (dApps, DEXs, games)
 - **Protocol Services**: The underlying infrastructure (blockspace, security) provided to applications
 
-The green "Products & Services (Utility)" box represents R_app—the total economic output measured in various terms (swap fees, NFT sales, game revenue). This output drives demand for protocol services.
+The green "Products & Services (Utility)" box represents $R_app$—the total economic output measured in various terms (swap fees, NFT sales, game revenue). This output drives demand for protocol services.
 
 **The Protocol Layer (Center)**
 
 Contains the core economic engines:
 
-- **Supply of Work (S_mint)**: Represents validators and delegators providing security in exchange for newly minted AVAX rewards. Currently generating 7.65-8.5% nominal APR at approximately 58% staking ratio.
+- **Supply of Work ($$S_mint$$)**: Represents validators and delegators providing security in exchange for newly minted AVAX rewards. Currently generating 7.65-8.5% nominal APR at approximately 58% staking ratio.
 
 - **Fee Burn Engine**: Receives two inputs:
   - Usage-based fees from C-Chain transactions (primary driver)
   - Rent-based fees from L1 validators (spam prevention)
 
-  All fees are immediately burned (S_burn), creating deflationary pressure.
+  All fees are immediately burned ($$S_burn$$), creating deflationary pressure.
 
-- **AVAX Signal/Price**: The market valuation mechanism that reflects the balance between S_mint and S_burn, acting as the continuous referendum on network health.
+- **AVAX Signal/Price**: The market valuation mechanism that reflects the balance between $$S_mint$$ and $S_burn$, acting as the continuous referendum on network health.
 
 **The Open Economy Interface (Right Side)**
 
@@ -118,7 +118,7 @@ The diagram reveals several crucial feedback mechanisms:
 When returns fall below expectations → Capital exits staking → Staking ratio decreases → Nominal APR increases → Returns become competitive → Capital returns. This is why the system maintains a relatively stable staking ratio (currently 48-58% depending on measurement).
 
 **The Deflationary Growth Spiral:**
-Higher usage → More fees burned → Scarcer AVAX → Higher value per token → Attracts more developers → More applications → Higher usage. This positive feedback loop only functions when S_burn can keep pace with S_mint.
+Higher usage → More fees burned → Scarcer AVAX → Higher value per token → Attracts more developers → More applications → Higher usage. This positive feedback loop only functions when $S_burn$ can keep pace with $$S_mint$$.
 
 **The Capital Allocation Feedback (Dashed Purple):**
 Price expectations influence allocation decisions → Allocation affects actual price → Actual price resets expectations. This represents the Expectations Channel from Section 4.0's macroeconomic framework.
@@ -127,9 +127,9 @@ Price expectations influence allocation decisions → Allocation affects actual 
 
 At its core, the diagram is organized around the fundamental economic question: **Can the utility-driven deflation (red flows) outpace the security-cost inflation (supply of work)?**
 
-- **When S_burn > S_mint**: The system operates in the "Deflationary Growth" regime (ideal state)
-- **When S_burn ≈ S_mint**: The system is in "Neutral/Sustainable" equilibrium
-- **When S_burn << S_mint**: The system enters "Distressed" territory with capital flight risk
+- **When $S_burn$ > $$S_mint$$**: The system operates in the "Deflationary Growth" regime (ideal state)
+- **When $S_burn$ ≈ $$S_mint$$**: The system is in "Neutral/Sustainable" equilibrium
+- **When $S_burn$ << $$S_mint$$**: The system enters "Distressed" territory with capital flight risk
 
 The decision diamonds ("Will it be enough?" and "Return as Anticipated?") represent the market's continuous evaluation of this balance.
 
@@ -157,9 +157,9 @@ When viewed as a complete system, the diagram makes several key insights visible
 
 2. **External macroeconomic forces enter through multiple channels**: Capital flows respond to Fed policy and risk sentiment, while utility flows respond to actual economic activity and application demand.
 
-3. **The exchange rate acts as the equilibrium mechanism**: It rises when the market anticipates S_burn > S_mint, and falls when the opposite is expected.
+3. **The exchange rate acts as the equilibrium mechanism**: It rises when the market anticipates $S_burn$ > $$S_mint$$, and falls when the opposite is expected.
 
-4. **Feedback loops can be virtuous or vicious**: The same mechanisms that create growth spirals can also accelerate decline if the fundamental balance (S_burn vs S_mint) deteriorates.
+4. **Feedback loops can be virtuous or vicious**: The same mechanisms that create growth spirals can also accelerate decline if the fundamental balance ($S_burn$ vs $$S_mint$$) deteriorates.
 
 5. **The system is self-regulating through prices**: Validator APR, gas fees, and L1 rent all adjust algorithmically based on supply and demand, creating adaptive responses without centralized control.
 
@@ -167,9 +167,9 @@ When viewed as a complete system, the diagram makes several key insights visible
 
 When evaluating the health of the Avalanche economy, trace through the diagram:
 
-1. **Start with Application Layer**: Is economic output (R_app) growing?
-2. **Follow to Protocol Revenue**: Is that output translating into fees (S_burn)?
-3. **Check the Balance**: Compare S_burn to S_mint—which dominates?
+1. **Start with Application Layer**: Is economic output ($R_app$) growing?
+2. **Follow to Protocol Revenue**: Is that output translating into fees ($S_burn$)?
+3. **Check the Balance**: Compare $S_burn$ to $$S_mint$$—which dominates?
 4. **Assess Capital Flows**: Are investors seeing "anticipated returns"?
 5. **Monitor Exchange Rate**: Is AVAX/USD reflecting the internal dynamics?
 
@@ -189,7 +189,7 @@ This visualization captures the complete circular flow of the Avalanche economy�
 - The vertical division between Closed and Open economies represents the system boundary discussed in Section 1.1
 
 
-Source: https://www.figma.com/board/LN3m5euG7KYJY5MzfYvetl/Avalanche-Open-Economy-v4.3-Updated--?node-id=0-1&t=jbG4wvM4EGRFlgDm-1
+Source: [Avalanche Open Economy](https://www.figma.com/board/LN3m5euG7KYJY5MzfYvetl/Avalanche-Open-Economy-v4.3-Updated--?node-id=0-1&t=jbG4wvM4EGRFlgDm-1)
 
 ---
 
@@ -243,15 +243,15 @@ This creates a natural economic equilibrium: the network must continuously prove
 Avalanche's monetary policy is not set by committee—it's emergent, governed by the fundamental equation:
 
 ```text
-Net Supply Change (ΔS_net) = Total AVAX Minted (S_mint) - Total AVAX Burned (S_burn)
+Net Supply Change ($ΔS_net$) = Total AVAX Minted ($$S_mint$$) - Total AVAX Burned ($S_burn$)
 ```
 
 **Current Values (November 2025):**
-- S_mint: ~49,000 AVAX/day (3.88% annual inflation from staking rewards)
-- S_burn: ~1,500 AVAX/day (0.12% annual burn rate, tripled in 2025)
-- ΔS_net: ~47,500 AVAX/day (3.76% net inflation, declining)
+- $$S_mint$$: ~49,000 AVAX/day (3.88% annual inflation from staking rewards)
+- $S_burn$: ~1,500 AVAX/day (0.12% annual burn rate, tripled in 2025)
+- $ΔS_net$: ~47,500 AVAX/day (3.76% net inflation, declining)
 
-The network's long-term sustainability depends on whether **deflationary revenue** (what users burn through usage) can outpace **inflationary cost** (what validators require for security). In mathematical terms: ΔS_net ≤ 0.
+The network's long-term sustainability depends on whether **deflationary revenue** (what users burn through usage) can outpace **inflationary cost** (what validators require for security). In mathematical terms: $ΔS_net$ ≤ 0.
 
 This is not just an accounting identity—it's the heartbeat of the economy. When burn exceeds mint, AVAX becomes scarcer, rewarding all holders. When mint exceeds burn, dilution occurs, signaling that security costs outweigh the value being created.
 
@@ -297,14 +297,14 @@ The **Demand Side** represents the total economic value created by the network�
 
 This value manifests in two layers:
 
-**1. Application-Level Revenue (R_app = R_C-Chain + R_L1):**
+**1. Application-Level Revenue ($R_app = R_C-Chain + R_L1$):**
 The total value of all goods and services produced:
 - **C-Chain**: DEX swap fees, lending interest, NFT royalties, game revenue
 - **L1 Economies**: Custom applications using their own native tokens for internal commerce
 
 This application-level activity is retained by dApps and users—it's the actual economic output that makes the network valuable.
 
-**2. Protocol-Level Revenue (R_protocol = S_burn):**
+**2. Protocol-Level Revenue ($$R_protocol$ = $S_burn$$):**
 The AVAX fees paid to access protocol services, which are immediately burned. This protocol revenue comes from two distinct sources:
 
 **Usage-Based Burn (Primary Driver):**
@@ -316,12 +316,12 @@ The AVAX fees paid to access protocol services, which are immediately burned. Th
 **Rent-Based Burn (Spam-Prevention Driver):**
 - **Service**: Sovereign L1 validation rights
 - **Demand Driver**: Profitability of custom L1 economies
-- **Mechanism**: Continuous "rent" (~1.33 AVAX/month per validator via [ACP-77](/milestone2/ACP-Summaries#acp-77-reinventing-subnets))
+- **Mechanism**: Continuous "rent" (~1.33 AVAX/month per validator via [ACP-77](../milestone2/ACP-Summaries#acp-77-reinventing-subnets.md))
 - **Economic Purpose**: Primarily spam prevention, not revenue generation—enables permissionless L1 creation by removing the old 2,000 AVAX staking barrier
 
 #### The Critical Link: Application Activity Drives Protocol Revenue
 
-Here's the key insight: **Application-level economic activity** (R_app) creates **derived demand** for protocol services. When a user swaps tokens on a DEX or when an L1 bridges assets, they must pay AVAX fees to access blockspace. This translates application utility into protocol revenue (S_burn), linking network usage to AVAX scarcity.
+Here's the key insight: **Application-level economic activity** ($R_app$) creates **derived demand** for protocol services. When a user swaps tokens on a DEX or when an L1 bridges assets, they must pay AVAX fees to access blockspace. This translates application utility into protocol revenue ($$S_burn$$), linking network usage to AVAX scarcity.
 
 The more valuable and active the application layer becomes, the more deflationary pressure is created on AVAX supply.
 
@@ -365,7 +365,7 @@ Expected Real Yield = (Nominal APR + Deflation Benefit) - (Risk Premium) > Alter
 Let's unpack this:
 
 **What Investors Receive:**
-1. **Nominal Staking APR (7.65-8.5%)**: Direct rewards from S_mint, significantly exceeding Ethereum's 3-4% and traditional fixed income
+1. **Nominal Staking APR (7.65-8.5%)**: Direct rewards from $$S_mint$$, significantly exceeding Ethereum's 3-4% and traditional fixed income
 2. **Deflation Benefit**: Value accrual from fee burning that applies to all AVAX holders, not just stakers—a unique advantage
 
 **What Investors Must Account For:**
@@ -399,7 +399,7 @@ Beyond competitive yields, Avalanche offers structural advantages that justify i
 - **EVM compatibility** allows seamless developer migration from Ethereum
 
 **Competitive Differentiation:**
-- **vs. Ethereum**: Lower fees (96% reduction via [ACP-125](/milestone2/ACP-Summaries#acp-125)), faster finality, no L2 complexity or value leakage to centralized sequencers
+- **vs. Ethereum**: Lower fees (96% reduction via [ACP-125](../milestone2/ACP-Summaries#acp-125)), faster finality, no L2 complexity or value leakage to centralized sequencers
 - **vs. Solana**: Customizable L1s allow application-specific optimization versus monolithic chain constraints
 - **vs. L2 Rollups**: Native sovereignty without dependency on Ethereum security assumptions
 
@@ -419,7 +419,7 @@ AVAX functions as the native currency of a sovereign open economy with dual role
 
 **To USD:**
 The exchange rate reflects market confidence in two factors:
-1. **Net Monetary Policy** (ΔS_net): Is burn outpacing mint?
+1. **Net Monetary Policy** ($ΔS_net$): Is burn outpacing mint?
 2. **Economic Output Growth**: Is the application layer expanding?
 
 A rising AVAX/USD rate signals that the market believes the value created justifies the cost of security. A declining rate suggests inefficiencies, governance failures, or capital flight.
@@ -436,15 +436,15 @@ The exchange rate acts as a continuous referendum on Avalanche's competitive pos
 External demand is driven by the perceived value of the **Application-Level Economy** (R_C-Chain + R_L1). This application activity creates derived demand for protocol services, generating the AVAX burn.
 
 **For Blockspace:**
-- **Low, predictable fees** ([ACP-125](/milestone2/ACP-Summaries#acp-125): minimum 1 nAVAX basefee)
-- **High throughput** ([ACP-194](/milestone2/ACP-Summaries#acp-194): Streaming Asynchronous Execution)
-- **Low latency** ([ACP-226](/milestone2/ACP-Summaries#acp-226): Dynamic minimum block times)
+- **Low, predictable fees** ([ACP-125](../milestone2/ACP-Summaries#acp-125.md): minimum 1 nAVAX basefee)
+- **High throughput** ([ACP-194](../milestone2/ACP-Summaries#acp-194.md): Streaming Asynchronous Execution)
+- **Low latency** ([ACP-226](../milestone2/ACP-Summaries#acp-226.md): Dynamic minimum block times)
 - **C-Chain DeFi adoption**: DEXs, lending protocols, stablecoins
 - **L1 bridging activity**: Asset transfers and cross-chain messaging
 
 **For Sovereign L1s:**
-- **Low cost** ([ACP-77](/milestone2/ACP-Summaries#acp-77-reinventing-subnets): minimal rent replacing 2,000 AVAX barrier)
-- **Economic sovereignty** ([ACP-191](/milestone2/ACP-Summaries#acp-191): Seamless L1 creation)
+- **Low cost** ([ACP-77](../milestone2/ACP-Summaries#acp-77-reinventing-subnets.md): minimal rent replacing 2,000 AVAX barrier)
+- **Economic sovereignty** ([ACP-191](../milestone2/ACP-Summaries#acp-191.md): Seamless L1 creation)
 - **Customization**: Private permissioned chains, custom gas tokens, specialized consensus
 
 The stronger the application layer, the more protocol revenue is generated through fee burning.
@@ -498,19 +498,19 @@ The inflation mechanism governs the Security/Capital Loop and creates a sustaina
 
 | Sustainability Regime     | Condition                | Macro-Economic State                                                                                                     |
 |--------------------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **Distressed**           | S_burn << S_mint         | **High Net Inflation.** Security cost far exceeds revenue; capital likely to flee as real yield turns negative.         |
-| **Neutral / Sustainable**| S_burn ≈ S_mint          | **Net-Zero Supply.** The economy "breaks even"—supply-neutral equilibrium represents long-term stability.               |
-| **Deflationary Growth**  | S_burn > S_mint          | **Net Deflation.** Revenue exceeds cost; asset becomes scarcer, accelerating value accrual for all holders.              |
+| **Distressed**           | $S_burn$ << $$S_mint$$         | **High Net Inflation.** Security cost far exceeds revenue; capital likely to flee as real yield turns negative.         |
+| **Neutral / Sustainable**| $S_burn$ ≈ $$S_mint$$          | **Net-Zero Supply.** The economy "breaks even"—supply-neutral equilibrium represents long-term stability.               |
+| **Deflationary Growth**  | $S_burn$ > $$S_mint$$          | **Net Deflation.** Revenue exceeds cost; asset becomes scarcer, accelerating value accrual for all holders.              |
 
 **Current State (November 2025):**
-- S_mint: ~49,000 AVAX/day (3.88% gross inflation)
-- S_burn: ~1,500 AVAX/day (0.12% burn rate)
-- ΔS_net: ~47,500 AVAX/day (3.76% net inflation)
+- $$S_mint$$: ~49,000 AVAX/day (3.88% gross inflation)
+- $S_burn$: ~1,500 AVAX/day (0.12% burn rate)
+- $ΔS_net$: ~47,500 AVAX/day (3.76% net inflation)
 - **Trend**: Burn rate tripled in 2025; gap narrowing
 
 **Policy Implications:**
 
-- **Staking Incentives**: If S_mint is too high relative to S_burn, supply increases, diluting returns and driving capital flight
+- **Staking Incentives**: If $$S_mint$$ is too high relative to $S_burn$, supply increases, diluting returns and driving capital flight
 - **Fee Burning**: Counteracts inflation by making AVAX scarcer with every transaction
 - **Sustainability**: Not a binary state but a continuous spectrum—the network must constantly prove its value justifies its cost
 
@@ -519,14 +519,14 @@ The inflation mechanism governs the Security/Capital Loop and creates a sustaina
 Investors evaluate Avalanche across different time horizons:
 
 **Short-Run Indicators (Days/Weeks):**
-- **Total Fees Burned** (S_burn): Direct measure of economic revenue
+- **Total Fees Burned** ($S_burn$): Direct measure of economic revenue
 - **Daily Active Users & Transactions**: Real-time output signals
 - **Application-Level Revenue** (R_C-Chain + R_L1): Total value being created
-- **C-Chain Gas Target** ([ACP-176](/milestone2/ACP-Summaries#acp-176)): Validator-signaled capacity and demand
+- **C-Chain Gas Target** ([ACP-176](../milestone2/ACP-Summaries#acp-176.md)): Validator-signaled capacity and demand
 - **Trading Volume & Price Momentum**: Market sentiment and liquidity
 
 **Long-Run Indicators (Months/Years):**
-- **Net Monetary Policy** (ΔS_net trend): Is the network achieving deflation?
+- **Net Monetary Policy** ($ΔS_net$ trend): Is the network achieving deflation?
 - **Network Staking Ratio**: Capital commitment and security level
 - **L1 Validator Count**: Ecosystem adoption and growth
 - **Comparative Risk-Adjusted Yield**: Performance vs. ETH, SOL, BTC
@@ -540,16 +540,16 @@ The transition from short-run volatility to long-run fundamentals determines inv
 Avalanche's adaptive mechanisms respond algorithmically to demand changes:
 
 **Positive Network Congestion:**
-- **Effect**: Usage ↑, fees ↑, S_burn ↑ (deflationary pressure)
-- **Mitigation**: Dynamic Fee Mechanism ([ACP-176](/milestone2/ACP-Summaries#acp-176)) raises gas price and increases block capacity target to meet demand
+- **Effect**: Usage ↑, fees ↑, $S_burn$ ↑ (deflationary pressure)
+- **Mitigation**: Dynamic Fee Mechanism ([ACP-176](../milestone2/ACP-Summaries#acp-176.md)) raises gas price and increases block capacity target to meet demand
 
 **Positive L1 Demand:**
 - **Effect**: L1 validators exceed optimal count, rent revenue ↑
-- **Mitigation**: L1 Validation Fee Mechanism ([ACP-77](/milestone2/ACP-Summaries#acp-77-reinventing-subnets)) increases rent to balance supply
+- **Mitigation**: L1 Validation Fee Mechanism ([ACP-77](../milestone2/ACP-Summaries#acp-77-reinventing-subnets.md)) increases rent to balance supply
 
 **Negative Demand Shock:**
 - **Effect**: Usage/L1 demand ↓, network underutilized
-- **Mitigation**: Fee mechanisms ([ACP-77](/milestone2/ACP-Summaries#acp-77-reinventing-subnets), [ACP-176](/milestone2/ACP-Summaries#acp-176)) reduce prices (can go as low as [ACP-125](/milestone2/ACP-Summaries#acp-125) 1 nAVAX basefee) to stimulate demand
+- **Mitigation**: Fee mechanisms ([ACP-77](../milestone2/ACP-Summaries#acp-77-reinventing-subnets.md), [ACP-176](../milestone2/ACP-Summaries#acp-176.md)) reduce prices (can go as low as [ACP-125](../milestone2/ACP-Summaries#acp-125.md) 1 nAVAX basefee) to stimulate demand
 
 These algorithmic adjustments form Avalanche's "adaptive inflation controls"—autonomous policy responses without human intervention.
 
@@ -557,9 +557,9 @@ These algorithmic adjustments form Avalanche's "adaptive inflation controls"—a
 
 The indicators form an interconnected system:
 
-- **S_mint (internal inflation)** sets the "interest rate" (Nominal Staking APR) that attracts security capital from outside
-- **Network output** (usage, validation) triggers **S_burn (deflation)**, which counteracts inflation
-- **Exchange rate** (AVAX/USD) reflects market expectations of future net balance (S_mint vs S_burn), linking internal mechanics to global markets
+- **$S_mint$ (internal inflation)** sets the "interest rate" (Nominal Staking APR) that attracts security capital from outside
+- **Network output** (usage, validation) triggers **$S_burn$ (deflation)**, which counteracts inflation
+- **Exchange rate** (AVAX/USD) reflects market expectations of future net balance ($S_mint$ vs $S_burn$), linking internal mechanics to global markets
 - **Staking ratio** responds to relative returns, creating a self-stabilizing feedback loop
 
 **Exchange Rate Feedback Effects:**
@@ -572,13 +572,13 @@ The system is dynamic, not static—each variable influences the others in conti
 
 ## 5.0 The Path Forward: Achieving Deflationary Growth
 
-The ultimate question for Avalanche's economic model is whether it can achieve sustained **Deflationary Growth**—the regime where S_burn > S_mint.
+The ultimate question for Avalanche's economic model is whether it can achieve sustained **Deflationary Growth**—the regime where $S_burn$ > $S_mint$.
 
 **The Requirements:**
 
 1. **Application-Layer Expansion**: Growing DeFi, GameFi, and enterprise adoption that drives transaction volume
 2. **L1 Ecosystem Development**: Successful custom chains that generate significant bridging and messaging activity
-3. **Fee Mechanism Optimization**: Algorithmic adjustments ([ACP-176](/milestone2/ACP-Summaries#acp-176), [ACP-77](/milestone2/ACP-Summaries#acp-77-reinventing-subnets)) that capture value without suppressing demand
+3. **Fee Mechanism Optimization**: Algorithmic adjustments ([ACP-176](../milestone2/ACP-Summaries#acp-176.md), [ACP-77](../milestone2/ACP-Summaries#acp-77-reinventing-subnets.md)) that capture value without suppressing demand
 4. **Competitive Positioning**: Maintaining technical advantages in speed, cost, and scalability versus Ethereum and Solana
 5. **Macroeconomic Tailwinds**: Accommodative monetary policy and general crypto market growth
 
@@ -602,7 +602,7 @@ But the framework is clear: **Avalanche's economic success depends on proving th
 
 ## Current Network Metrics
 
-For the latest canonical data, see [Data Snapshot: November 2025](/data/snapshot-2025-11-28).
+For the latest canonical data, see [Data Snapshot: November 2025](../data/snapshot-2025-11-28.md).
 
 | Category | Key Metrics | Values |
 |----------|-------------|--------|
@@ -619,17 +619,17 @@ For the latest canonical data, see [Data Snapshot: November 2025](/data/snapshot
 
 ### Related Documentation
 
-1. [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy) - Classification of economic actors in the Avalanche ecosystem
-2. [Economic Taxonomy](/milestone1/Economic-Taxonomy) - Definitions of key economic concepts and metrics
-3. [Mechanism Taxonomy](/milestone1/Mechanism-Taxonomy) - Overview of protocol mechanisms and their interactions
-4. [Data Snapshot: November 2025](/data/snapshot-2025-11-28) - Canonical source of network metrics
+1. [Participant Roles Taxonomy](./Participant-Roles-Taxonomy.md) - Classification of economic actors in the Avalanche ecosystem
+2. [Economic Taxonomy](./Economic-Taxonomy.md) - Definitions of key economic concepts and metrics
+3. [Mechanism Taxonomy](./Mechanism-Taxonomy.md) - Overview of protocol mechanisms and their interactions
+4. [Data Snapshot: November 2025](../data/snapshot-2025-11-28.md) - Canonical source of network metrics
 
 ### Avalanche Community Proposals (ACPs)
 
-5. [ACP-77: Reinventing Subnets](/milestone2/ACP-Summaries#acp-77-reinventing-subnets) - L1 validation fee mechanism
-6. [ACP-103: Dynamic Fees](/milestone2/ACP-Summaries#acp-103-add-dynamic-fees-to-the-x-chain-and-p-chain) - Original dynamic fee proposal
-7. [ACP-125: Basefee Reduction](/milestone2/ACP-Summaries#acp-125) - Minimum basefee of 1 nAVAX
-8. [ACP-176: Dynamic EVM Gas Limit](/milestone2/ACP-Summaries#acp-176) - Validator-signaled gas target mechanism
+5. [ACP-77: Reinventing Subnets](../milestone2/ACP-Summaries#acp-77-reinventing-subnets.md) - L1 validation fee mechanism
+6. [ACP-103: Dynamic Fees](../milestone2/ACP-Summaries#acp-103-add-dynamic-fees-to-the-x-chain-and-p-chain.md) - Original dynamic fee proposal
+7. [ACP-125: Basefee Reduction](../milestone2/ACP-Summaries#acp-125.md) - Minimum basefee of 1 nAVAX
+8. [ACP-176: Dynamic EVM Gas Limit](../milestone2/ACP-Summaries#acp-176.md) - Validator-signaled gas target mechanism
 9. [ACP-191: Seamless L1 Creation](https://github.com/avalanche-foundation/ACPs/tree/main/ACPs/191-seamless-l1-creation) - Simplified sovereign L1 deployment
 10. [ACP-194: Streaming Asynchronous Execution](https://github.com/avalanche-foundation/ACPs/tree/main/ACPs/194-streaming-asynchronous-execution) - Performance optimization
 11. [ACP-226: Dynamic Minimum Block Times](https://github.com/avalanche-foundation/ACPs/tree/main/ACPs/226-dynamic-minimum-block-times) - Adaptive block timing
