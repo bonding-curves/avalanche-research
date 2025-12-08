@@ -10,7 +10,7 @@ title: Avalanche Economy relative to the Open Economy
 **Purpose:**
 This document provides the high-level macro-economic context for the Avalanche network. It serves as the foundational framework for understanding how Avalanche operates as a sovereign open economy within the broader cryptoeconomic landscape.
 
-For economic primitives, see [Economic Taxonomy](https://github.com/bonding-curves/avalanche-research/blob/d0cfb5a8e47069ad92ca9bb01604710da937b4e6/content/milestone1/Economic-Taxonomy.md). For technical mechanisms, see [Mechanism Taxonomy](./Mechanism-Taxonomy.md). For participant roles, see [Participant Roles Taxonomy](./Participant-Roles-Taxonomy.md). For the canonical data source, see [Data Snapshot](../data/snapshot-2025-11-28).
+For economic primitives, see [Economic Taxonomy](https://github.com/bonding-curves/avalanche-research/blob/d0cfb5a8e47069ad92ca9bb01604710da937b4e6/content/milestone1/Economic-Taxonomy.md). For technical mechanisms, see [Mechanism Taxonomy](./Mechanism-Taxonomy.md). For participant roles, see [Participant Roles Taxonomy](./Participant-Roles-Taxonomy.md). For the canonical data source, see [Data Snapshot](../data/snapshot-2025-11-28.md).
 
 ---
 
