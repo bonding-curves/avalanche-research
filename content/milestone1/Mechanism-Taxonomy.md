@@ -9,7 +9,7 @@ title: Avalanche Mechanism Taxonomy
 
 This document provides an accessible introduction to the core technical mechanisms that power the Avalanche network. Rather than examining individual components in isolation, it maps how Avalanche's specialized chains, consensus protocols, and virtual machines work together as an integrated system.
 
-For the economic primitives that incentivize these mechanisms, see [Economic Taxonomy](/milestone1/Economic-Taxonomy). For participant role definitions, see [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy). For the macroeconomic framework, see [Avalanche Economy relative to the Open Economy](/milestone1/Avalanche-Economy-relative-to-the-Open-Economy). For detailed protocol governance, see [ACP Summaries](/milestone2/ACP-Summaries).
+For the economic primitives that incentivize these mechanisms, see [Economic Taxonomy](/milestone1/Economic-Taxonomy). For participant role definitions, see [Participant Roles Taxonomy](/milestone1/Participant-Roles-Taxonomy). For the macroeconomic framework, see [Avalanche Economy relative to the Open Economy](./Avalanche-Economy-relative-to-the-Open-Economy). For detailed protocol governance, see [ACP Summaries](../milestone2/ACP-Summaries).
 
 ---
 
