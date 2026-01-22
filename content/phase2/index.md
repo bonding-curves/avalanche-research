@@ -8,4 +8,4 @@ Phase II applies the PSUU (Parameter Selection Under Uncertainty) methodology to
 
 ## Documents
 
-- [Grant Proposal](proposal/grant_proposal_v2.md) - Full proposal for Phase II research
+- [Grant Proposal](proposal/grant_proposal_v2.1.md) - Full proposal for Phase II research
