@@ -20,11 +20,11 @@
 
 ## Executive Summary
 
-Following the successful completion of [Phase I](https://bonding-curves.github.io/avalanche-research/)—which delivered foundational taxonomies, systems analysis, and a comprehensive differential specification—this proposal outlines **Phase II**: a focused investigation of the Avalanche staking subsystem using the Parameter Selection Under Uncertainty (PSUU) methodology.
+Following the successful completion of [[About-The-BCRG|Phase I]]—which delivered [[Participant-Roles-Taxonomy|participant role taxonomies]], [[Economic-Taxonomy|economic taxonomies]], [[Mechanism-Taxonomy|mechanism taxonomies]], [[Avalanche-Economic-Model-A-Systems-Engineering-Perspective|systems engineering analysis]], and a comprehensive [[Differential_Specification|differential specification]]—this proposal outlines **Phase II**: a focused investigation of the Avalanche staking subsystem using the Parameter Selection Under Uncertainty (PSUU) methodology.
 
 **Phase II** will produce **validated, actionable parameter recommendations** specifically for the staking subsystem, enabling the Avalanche Foundation to make data-driven decisions about validator rewards, staking duration, and yield structures.
 
-Staking economics is a top priority for the Foundation. Multiple community-initiated ACPs already address validator and delegation mechanisms, signaling both urgency and opportunity. This work delivers the analytical foundation those governance decisions require.
+Staking economics is a top priority for the Foundation. Multiple community-initiated [[ACP-Summaries|ACPs]] already address validator and delegation mechanisms, signaling both urgency and opportunity. This work delivers the analytical foundation those governance decisions require.
 
 **Key deliverables:**
 
@@ -42,7 +42,7 @@ Staking economics is a top priority for the Foundation. Multiple community-initi
 
 ### Focus: The Staking Subsystem
 
-Phase II focuses on the staking subsystem, treating other components of the differential specification as environmental context. This narrower scope enables deeper analysis of the mechanisms that matter most:
+Phase II focuses on the staking subsystem, treating other components of the [[Differential_Specification|differential specification]] as environmental context. This narrower scope enables deeper analysis of the mechanisms that matter most:
 
 - Validator staking behavior
 - Delegator staking behavior
@@ -453,8 +453,17 @@ The references below document the methodological foundations, prior case studies
 
 ### Phase I Research (BCRG)
 
-- [Avalanche Economic Research Portal](https://bonding-curves.github.io/avalanche-research/) — Foundational taxonomies, systems analysis, and ACP summaries
-- [Differential Specification](https://bonding-curves.github.io/avalanche-research/milestone3/Differential_Specification) — Mathematical framework defining $\frac{d(\text{total\_staked})}{dt}$, reward distribution, and behavioral dynamics
+- [[About-The-BCRG|About the BCRG]] — Who we are and the research mandate
+- [[Participant-Roles-Taxonomy]] — Validator, delegator, and ecosystem participant roles
+- [[Economic-Taxonomy]] — Taxonomy of economic mechanisms and flows in the Avalanche network
+- [[Mechanism-Taxonomy]] — Protocol-level mechanism classification
+- [[Avalanche-Economy-relative-to-the-Open-Economy]] — Avalanche's position within the broader macro-economic context
+- [[Avalanche-Economic-Model-A-Systems-Engineering-Perspective]] — Systems engineering analysis: milestone 2 deliverable
+- [[Subsystem_Analysis_and_MultiGraph]] — Multi-graph subsystem model
+- [[ACP-Summaries]] — Community proposal landscape relevant to staking
+- [[Differential_Specification]] — Mathematical framework defining $\frac{d(\text{total\_staked})}{dt}$, reward distribution, and behavioral dynamics
+- [[economic_hypotheses]] — Testable predictions from Phase I analysis
+- [[insights]] — Key findings and observations
 
 ### PSUU Methodology (Block Science)
 
