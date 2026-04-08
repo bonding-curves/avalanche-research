@@ -396,6 +396,9 @@ The budget reflects three efficiencies: focused scope on the staking subsystem (
 
 **Project Period:** April 15 – October 14, 2026
 
+![Project Timeline](./timeline_gantt_detailed_v2.4.png)
+*Fig 5: Six-month project timeline (April–October) showing three milestones with parallel work streams. Milestone 1 (blue): Data ingestion and model specification run in parallel, converging at the calibration validation gate (June 14). Milestone 2 (green): PSUU infrastructure starts early; simulations and analysis feed into Workshop #1, which initiates an iteration/feedback loop for refinement. Milestone 3 (orange): Open source cleanup runs continuously; recommendations and playbook development lead to Workshop #2 and final handoff (October 14). Arrows indicate dependencies; loop indicates iterative cycles where Avalanche feedback refines outputs.*
+
 | Phase | Period | Focus |
 |-------|--------|-------|
 | **Milestone 1** | April 15 – June 14 | Data ingestion, model specification, behavioral calibration |
