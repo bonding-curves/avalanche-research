@@ -6,7 +6,7 @@
 
 **Amount:** $100,000
 
-**Duration:** 6 Months (proposed delivery timeline)
+**Duration:** 9 Months (8 months active delivery + 1 month wrap-up buffer)
 
 **Date:** April 16, 2026
 
@@ -14,7 +14,7 @@
 
 ---
 
-> **Version note:** v2.5 updates v2.4 (April 8, 2026) to clarify the commercial disbursement structure for agreement drafting. Scope, deliverables, functional budget allocation, and the proposed six-month delivery timeline are unchanged. Administrative payment handling is now stated explicitly as four equal installments of $25,000: one upfront kickoff payment and three milestone-based disbursements.
+> **Version note:** v2.5 updates v2.4 (April 8, 2026) to align the proposal with the currently discussed contracting cadence: a 9-month contract window from signature, structured as four 2-month delivery blocks followed by a 1-month wrap-up and buffer period. The grant remains $100,000, handled administratively as four equal installments of $25,000. Scope remains focused on Avalanche staking economics, but the delivery window now explicitly includes time for review cycles, iteration, knowledge transfer, communications, and administrative closeout.
 
 ---
 
@@ -25,6 +25,8 @@ Following the successful completion of [[About-The-BCRG|Phase I]]—which delive
 **Phase II** will produce **validated, actionable parameter recommendations** specifically for the staking subsystem, enabling the Avalanche Foundation to make data-driven decisions about validator rewards, staking duration, and yield structures.
 
 Staking economics is a top priority for the Foundation. Multiple community-initiated [[ACP-Summaries|ACPs]] already address validator and delegation mechanisms, signaling both urgency and opportunity. This work delivers the analytical foundation those governance decisions require.
+
+The proposed delivery cadence is intentionally structured for practical adoption, not just analysis. The contract window provides room for model development, simulation, collaborative review, mechanism iteration, documentation, training, and final handoff so that outputs are operationally useful to the Avalanche team.
 
 **Key deliverables:**
 
@@ -295,7 +297,7 @@ Multiple metrics assess fit quality, capturing different aspects of model-realit
 
 ## Part V: Milestones & Deliverables
 
-The work proceeds through three milestones, each with a distinct focus and gated success criterion. Milestone 1 establishes the analytical foundation; Milestone 2 executes the core PSUU analysis; Milestone 3 synthesizes findings into actionable deliverables. Payment is tied to milestone completion, ensuring accountability at each stage.
+The work proceeds through four contract-aligned delivery blocks, each spanning approximately two months. This structure matches the proposed commercial payment cadence while preserving a clear research progression from alignment and data access, through modeling and simulation, to recommendations and transfer. A final ninth month is reserved for wrap-up, revisions, training, communications support, and administrative closeout.
 
 ### Administrative Disbursement Structure
 
@@ -308,9 +310,34 @@ For contracting and invoice administration, the $100,000 grant is expected to be
 | **Milestone 2** | Milestone 2 completion and approval | $25,000 |
 | **Milestone 3** | Milestone 3 completion and approval | $25,000 |
 
-This administrative disbursement schedule is separate from the internal effort allocation shown below. The work itself is not evenly distributed across milestones: Simulation and analysis is the heaviest phase, while the upfront payment supports kickoff, data ingestion, and model setup.
+### Contract Window and Delivery Cadence
 
-### Milestone 1: Foundation (Months 1-2, April 15 – June 14, 2026)
+- **Contract window:** 9 months from signature
+- **Active delivery window:** first 8 months
+- **Final wrap-up window:** final month reserved for revisions, training, communications support, final documentation, and administrative closeout
+
+This cadence is designed to support both rigorous research and practical integration. The additional time is not idle contingency; it is deliberate room for Avalanche feedback cycles, mechanism iteration, open-source packaging, and team handoff.
+
+### Milestone 0: Project Initiation & Alignment (Months 1-2)
+
+**Focus:** Kickoff, data access, success criteria alignment, implementation planning
+
+**Deliverables:**
+
+| ID | Deliverable | Description |
+|----|-------------|-------------|
+| 0.1 | Kickoff & Alignment Memo | Confirmed scope, milestones, data needs, KPI definitions, and working cadence |
+| 0.2 | Data Access Setup | Access channels, working assumptions, and source inventory for Avalanche-provided data |
+| 0.3 | Detailed Work Plan | Sequenced implementation plan for the full contract window, including review checkpoints |
+| 0.4 | Mechanism Evaluation Interface Plan | Initial specification for incorporating alternative reward mechanisms into the simulation workflow |
+
+**Success Criterion:** Kickoff package delivered, reviewed, and accepted by the Avalanche team
+
+**Commercial milestone amount:** $25,000
+
+---
+
+### Milestone 1: Foundation & Validation (Months 3-4)
 
 **Focus:** Data ingestion, model definition, behavioral calibration
 
@@ -326,11 +353,11 @@ This administrative disbursement schedule is separate from the internal effort a
 
 **Success Criterion:** Preliminary Validation Report delivered and approved by Avalanche team
 
-**Budgeted effort allocation:** $27,000
+**Commercial milestone amount:** $25,000
 
 ---
 
-### Milestone 2: Simulation & Analysis (Months 3-4, June 15 – August 14, 2026)
+### Milestone 2: Simulation & Analysis (Months 5-6)
 
 **Focus:** PSUU implementation, Monte Carlo sweeps, sensitivity analysis
 
@@ -359,13 +386,13 @@ This structure ensures BCRG's analytical work complements—rather than duplicat
 
 **Success Criterion:** Sensitivity Analysis Report delivered covering all key parameters
 
-**Budgeted effort allocation:** $40,000
+**Commercial milestone amount:** $25,000
 
 ---
 
-### Milestone 3: Delivery & Transfer (Months 5-6, August 15 – October 14, 2026)
+### Milestone 3: Delivery, Transfer & Decision Support (Months 7-8)
 
-**Focus:** Recommendations, documentation, knowledge transfer
+**Focus:** Recommendations, mechanism iteration, documentation, knowledge transfer
 
 **Deliverables:**
 
@@ -375,10 +402,23 @@ This structure ensures BCRG's analytical work complements—rather than duplicat
 | 3.2 | Scenario Playbook | "If X market condition, then Y parameter adjustment" |
 | 3.3 | Open Source Release | Full model code with documentation |
 | 3.4 | Workshop #2 | How to run scenarios and interpret results |
+| 3.5 | Final Integration Iteration | Incorporation of Avalanche review feedback into final recommendations and handoff materials |
 
 **Success Criterion:** Final Parameter Report delivered and Code Repository transferred
 
-**Budgeted effort allocation:** $33,000
+**Commercial milestone amount:** $25,000
+
+### Month 9: Wrap-Up, Training & Administrative Closeout
+
+The ninth month is reserved as a structured closeout period rather than a new paid milestone. During this window, the team supports:
+
+- final clarifications and minor revisions
+- additional training or handoff sessions if needed
+- packaging of final documentation and publication materials
+- communications support around release or internal circulation
+- invoicing, acceptance, and administrative closeout
+
+This month provides schedule resilience without weakening milestone accountability.
 
 ---
 
@@ -386,9 +426,10 @@ This structure ensures BCRG's analytical work complements—rather than duplicat
 
 | Category | Item | Amount |
 |----------|------|--------|
-| **Milestone 1** | Foundation (April 15 – June 14) | $27,000 |
-| **Milestone 2** | Simulation & Analysis (June 15 – Aug 14) | $40,000 |
-| **Milestone 3** | Delivery & Transfer (Aug 15 – Oct 14) | $33,000 |
+| **Milestone 0** | Project initiation & alignment | $25,000 |
+| **Milestone 1** | Foundation & validation | $25,000 |
+| **Milestone 2** | Simulation & analysis | $25,000 |
+| **Milestone 3** | Delivery, transfer & decision support | $25,000 |
 | **TOTAL** | | **$100,000** |
 
 ### Budget Breakdown by Function
@@ -403,24 +444,26 @@ This structure ensures BCRG's analytical work complements—rather than duplicat
 
 The budget reflects three efficiencies: focused scope on the staking subsystem (rather than the full economic system), existing infrastructure from Phase I, and a reduced total reflecting the Foundation's budget constraints. The differential specification, simulation framework architecture, and team relationships are already established—Phase II builds on that foundation rather than starting from scratch.
 
-For clarity: the tables in this section describe **effort allocation**, not invoice sizing. Commercial disbursement is expected to follow the four-installment structure defined in Part V for ease of administration.
+The equal milestone sizing is intended to simplify contract administration. Work intensity will vary across the contract window, but the functional breakdown below represents the expected total allocation of labor and resources across the full engagement.
 
 ---
 
 ## Part VII: Timeline
 
-**Project Period:** April 15 – October 14, 2026
+**Project Period:** April 15, 2026 – January 14, 2027
 
-![Project Timeline](./timeline_gantt_detailed_v2.4.png)
-*Fig 5: Six-month project timeline (April–October) showing three milestones with parallel work streams. Milestone 1 (blue): Data ingestion and model specification run in parallel, converging at the calibration validation gate (June 14). Milestone 2 (green): PSUU infrastructure starts early; simulations and analysis feed into Workshop #1, which initiates an iteration/feedback loop for refinement. Milestone 3 (orange): Open source cleanup runs continuously; recommendations and playbook development lead to Workshop #2 and final handoff (October 14). Arrows indicate dependencies; loop indicates iterative cycles where Avalanche feedback refines outputs.*
+![Project Timeline](./timeline_gantt_detailed_v2.5.png)
+*Fig 5: Nine-month contract timeline showing four 2-month delivery blocks plus a final 1-month wrap-up period. Milestone 0 (blue) covers kickoff, data access, and alignment. Milestone 1 (teal) establishes the model and preliminary validation. Milestone 2 (green) executes PSUU simulation and analysis. Milestone 3 (orange) focuses on recommendations, iteration, transfer, and open-source release. The final gray block reserves time for revisions, training, communications support, and administrative closeout.*
 
 | Phase | Period | Focus |
 |-------|--------|-------|
-| **Milestone 1** | April 15 – June 14 | Data ingestion, model specification, behavioral calibration |
-| **Milestone 2** | June 15 – August 14 | PSUU simulation sweeps, KPI analysis, Workshop #1 |
-| **Milestone 3** | August 15 – October 14 | Recommendations, open source release, Workshop #2 |
+| **Milestone 0** | April 15 – June 14, 2026 | Kickoff, data access, KPI alignment, detailed work planning |
+| **Milestone 1** | June 15 – August 14, 2026 | Data ingestion, model specification, behavioral calibration |
+| **Milestone 2** | August 15 – October 14, 2026 | PSUU simulation sweeps, KPI analysis, Workshop #1 |
+| **Milestone 3** | October 15 – December 14, 2026 | Recommendations, iteration, open source release, Workshop #2 |
+| **Wrap-Up Window** | December 15, 2026 – January 14, 2027 | Final revisions, training, communications support, administrative closeout |
 
-The six-month structure from v2.4 is preserved unchanged. Parallel work streams within each milestone—data ingestion running alongside model specification in M1, PSUU infrastructure starting early in M2—remain intact. Milestone gates require Avalanche team approval before proceeding.
+This 9-month structure aligns the proposal with the currently discussed contract cadence while preserving milestone accountability. The first 8 months contain the active research and delivery work; the final month provides room for adoption, refinement, and closeout without forcing rushed handoff.
 
 ---
 
